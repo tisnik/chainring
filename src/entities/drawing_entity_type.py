@@ -24,4 +24,5 @@ class DrawingEntityType(Enum):
     CIRCLE = 3,
     ARC = 4,
     TEXT = 5,
-    POLYLINE = 6
+    POLYLINE = 6,
+    ATTRIB = 7
