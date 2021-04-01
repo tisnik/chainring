@@ -21,3 +21,8 @@ def error_dialog_drawing_load():
     """Show dialog when drawing import was not successful."""
     messagebox.showerror("Chyba při načítání výkresu",
                          "Při načítání výkresu došlo k neočekávané chybě")
+
+
+def error_dialog_wrong_configuration(message):
+    """Show dialog when configuration is not proper."""
+    messagebox.showerror("Chyba konfigurace aplikace", message)
