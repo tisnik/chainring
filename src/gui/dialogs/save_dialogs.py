@@ -33,3 +33,10 @@ class SaveDialogs:
         filetypes = [('Místnosti', '*.rooms')]
         dialog = filedialog.SaveAs(root, filetypes=filetypes)
         return dialog.show()
+
+    @staticmethod
+    def save_rooms_as_csv(root):
+        """Display dialog to save rooms into the CSV file."""
+        filetypes = [('Soubory CSV', '*.csv')]
+        dialog = filedialog.SaveAs(root, filetypes=filetypes)
+        return dialog.show()
