@@ -67,7 +67,7 @@ if drawing is not None:
     # print(xoffset, yoffset, scale)
 
     # ex = BinaryExporter("output3.bin", entities)
-    #ex.export_binary_drawing()
+    # ex.export_binary_drawing()
 
     #with open("output.bin", "wb") as fout:
     #    pickle.dump(entities, fout)
