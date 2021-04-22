@@ -34,7 +34,7 @@ mainWindow = MainWindow(configuration)
 drawing = None
 
 # importer = DrawingImporter("input.drw")
-#drawing = importer.import_drawing()
+# drawing = importer.import_drawing()
 # importer = DxfImporter("test-data/Building_1np.dxf")
 # importer = DxfImporter("test2.dxf")
 # importer = DxfImporter("7701_cad.dxf")
