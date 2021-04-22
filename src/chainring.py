@@ -66,7 +66,7 @@ if drawing is not None:
     xoffset, yoffset, scale = Rescaler.computeScaleForCanvas(bounds, mainWindow.canvas)
     # print(xoffset, yoffset, scale)
 
-    #ex = BinaryExporter("output3.bin", entities)
+    # ex = BinaryExporter("output3.bin", entities)
     #ex.export_binary_drawing()
 
     #with open("output.bin", "wb") as fout:
