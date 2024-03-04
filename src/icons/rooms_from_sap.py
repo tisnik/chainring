@@ -1,4 +1,4 @@
-"""Icon for the following action: rooms from SAP"""
+"""Icon for the following action: rooms from SAP."""
 
 # This icon was converted from the Oxygen Icon Theme
 # Please see copyright for further informations
