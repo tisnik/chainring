@@ -15,12 +15,12 @@
 import sys
 
 from drawing import Drawing
-from entities.drawing_entity_type import *
-from entities.line import *
-from entities.circle import *
-from entities.arc import *
-from entities.text import *
-from entities.polyline import *
+from entities.drawing_entity_type import DrawingEntityType
+from entities.line import Line
+from entities.circle import Circle
+from entities.arc import Arc
+from entities.text import Text
+from entities.polyline import Polyline
 
 
 class DrawingImporter:
@@ -135,7 +135,10 @@ class DrawingImporter:
 
     def process_line(self, parts):
         """Process command with line entity."""
-        color = int(parts[1])
+        try:
+            color = int(parts[1])
+        except Exception as e:
+            color = 0
         layer = parts[2]
         x1 = float(parts[3])
         y1 = float(parts[4])
@@ -146,7 +149,10 @@ class DrawingImporter:
 
     def process_circle(self, parts):
         """Process command with circle entity."""
-        color = int(parts[1])
+        try:
+            color = int(parts[1])
+        except:
+            color = 0
         layer = parts[2]
         x = float(parts[3])
         y = float(parts[4])
@@ -156,7 +162,10 @@ class DrawingImporter:
 
     def process_arc(self, parts):
         """Process command with arc entity."""
-        color = int(parts[1])
+        try:
+            color = int(parts[1])
+        except:
+            color = 0
         layer = parts[2]
         x = float(parts[3])
         y = float(parts[4])
@@ -168,7 +177,10 @@ class DrawingImporter:
 
     def process_text(self, parts):
         """Process command with text entity."""
-        color = int(parts[1])
+        try:
+            color = int(parts[1])
+        except:
+            color = 0
         layer = parts[2]
         x = float(parts[3])
         y = float(parts[4])
@@ -179,7 +191,10 @@ class DrawingImporter:
 
     def process_polyline(self, parts):
         """Process command with polyline entity."""
-        color = int(parts[1])
+        try:
+            color = int(parts[1])
+        except:
+            color = 0
         layer = parts[2]
         vertexes = int(parts[3])
         coordinates = parts[4:]
