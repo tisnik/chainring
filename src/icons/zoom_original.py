@@ -1,4 +1,4 @@
-"""Icon for the following action: zoom to original size"""
+"""Icon for the following action: zoom to original size."""
 
 # This icon was converted from the Oxygen Icon Theme
 # Please see copyright for further informations
