@@ -21,7 +21,7 @@ from gui.tooltip import Tooltip
 
 
 class Toolbar(tkinter.LabelFrame):
-    """Toolbar displayed on the main windo."""
+    """Toolbar displayed on the main window."""
 
     def __init__(self, parent, main_window, canvas):
         """Initialize the toolbar."""
