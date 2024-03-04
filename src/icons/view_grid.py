@@ -1,4 +1,4 @@
-"""Icon for the following action: view grid in drawing"""
+"""Icon for the following action: view grid in drawing."""
 
 # This icon was converted from the Oxygen Icon Theme
 # Please see copyright for further informations
