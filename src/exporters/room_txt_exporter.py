@@ -12,6 +12,7 @@
 #      Pavel Tisnovsky
 #
 
+
 class RoomTXTExporter:
     """Room exporter (serializer) to TXT."""
 
