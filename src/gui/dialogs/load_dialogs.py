@@ -12,12 +12,12 @@
 #      Pavel Tisnovsky
 #
 
-import tkinter
 import time
-
-from gui.dialogs.about_dialog import *
+import tkinter
 from tkinter import filedialog
+
 from draw_service import DrawServiceInterface
+from gui.dialogs.about_dialog import *
 
 
 class RoomsFromSapDialog(tkinter.Toplevel):
