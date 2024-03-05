@@ -13,7 +13,6 @@
 #
 
 import requests
-
 from exporters.json_exporter import *
 
 
