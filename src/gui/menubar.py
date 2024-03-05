@@ -14,14 +14,13 @@
 
 import tkinter
 
+from draw_service import DrawServiceInterface
 from gui.dialogs.about_dialog import *
 from gui.dialogs.configure import *
 from gui.dialogs.drawing_info_dialog import DrawingInfoDialog
 from gui.dialogs.help_dialog import *
-from gui.dialogs.settings_dialog import SettingsDialog
 from gui.dialogs.room_list_dialog import RoomListDialog
-
-from draw_service import DrawServiceInterface
+from gui.dialogs.settings_dialog import SettingsDialog
 
 
 class Menubar(tkinter.Menu):
