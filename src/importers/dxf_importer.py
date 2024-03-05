@@ -12,15 +12,15 @@
 #      Pavel Tisnovsky
 #
 
-from importers.dxf_reader_state import *
-from importers.dxf_codes import DxfCodes
 from drawing import Drawing
+from entities.arc import *
+from entities.circle import *
 from entities.drawing_entity_type import *
 from entities.line import *
 from entities.polyline import *
-from entities.circle import *
-from entities.arc import *
 from entities.text import *
+from importers.dxf_codes import DxfCodes
+from importers.dxf_reader_state import *
 
 
 class DxfImporter:
