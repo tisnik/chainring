@@ -15,32 +15,29 @@
 import tkinter
 from tkinter import messagebox
 
+from draw_service import *
+from exporters.drawing_exporter import *
+from exporters.json_exporter import *
+from exporters.room_exporter import *
+from geometry.utils import GeometryUtils
+from gui.canvas import *
+from gui.canvas_mode import CanvasMode
+from gui.dialogs.error_dialogs import *
+from gui.dialogs.load_dialogs import LoadDialogs
+from gui.dialogs.room_error_dialog import *
+from gui.dialogs.save_dialogs import SaveDialogs
+from gui.dialogs.yes_no_dialogs import *
+from gui.drawing_select_dialog import DrawingSelectDialog
+from gui.icons import *
+from gui.menubar import *
+from gui.palette import *
+from gui.room import Room
+from gui.status_bar import *
+from gui.toolbar import *
 from importers.drawing_importer import *
 from importers.dxf_importer import *
 from importers.room_importer import *
 from importers.sap_room_importer import *
-
-from exporters.drawing_exporter import *
-from exporters.room_exporter import *
-from exporters.json_exporter import *
-from draw_service import *
-
-from geometry.utils import GeometryUtils
-from gui.canvas import *
-from gui.toolbar import *
-from gui.menubar import *
-from gui.palette import *
-from gui.status_bar import *
-
-from gui.icons import *
-from gui.canvas_mode import CanvasMode
-from gui.dialogs.room_error_dialog import *
-from gui.dialogs.error_dialogs import *
-from gui.dialogs.yes_no_dialogs import *
-from gui.dialogs.save_dialogs import SaveDialogs
-from gui.drawing_select_dialog import DrawingSelectDialog
-from gui.room import Room
-from gui.dialogs.load_dialogs import LoadDialogs
 
 
 class MainWindow:
