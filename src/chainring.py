@@ -12,20 +12,22 @@
 #      Pavel Tisnovsky
 #
 
-from gui.main_window import *
-from importers.dxf_importer import *
-# from importers.binary_importer import *
-from importers.drawing_importer import *
+import sys
+
+from configuration import *
+
 # from exporters.binary_exporter import *
 from exporters.drawing_exporter import *
 from exporters.json_exporter import *
 from geometry.bounds import Bounds
 from geometry.rescaler import Rescaler
-from configuration import *
 from gui.dialogs.error_dialogs import *
 from gui.dialogs.load_dialogs import LoadDialogs
+from gui.main_window import *
 
-import sys
+# from importers.binary_importer import *
+from importers.drawing_importer import *
+from importers.dxf_importer import *
 
 configuration = Configuration()
 # configuration.write()
