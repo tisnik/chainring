@@ -13,8 +13,8 @@
 #
 
 
-from datetime import *
 import json
+from datetime import *
 
 from drawing import Drawing
 from geometry.bounds import Bounds
