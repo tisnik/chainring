@@ -15,12 +15,12 @@
 import sys
 
 from drawing import Drawing
+from entities.arc import Arc
+from entities.circle import Circle
 from entities.drawing_entity_type import DrawingEntityType
 from entities.line import Line
-from entities.circle import Circle
-from entities.arc import Arc
-from entities.text import Text
 from entities.polyline import Polyline
+from entities.text import Text
 
 
 class DrawingImporter:
