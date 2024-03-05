@@ -14,9 +14,9 @@
 
 import tkinter
 
-from gui.dialogs.settings_dialog import SettingsDialog
 from gui.dialogs.drawing_info_dialog import DrawingInfoDialog
 from gui.dialogs.room_list_dialog import RoomListDialog
+from gui.dialogs.settings_dialog import SettingsDialog
 from gui.tooltip import Tooltip
 
 
