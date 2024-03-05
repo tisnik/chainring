@@ -164,7 +164,7 @@ class DrawingImporter:
         """Process command with arc entity."""
         try:
             color = int(parts[1])
-        except:
+        except (ValueError, IndexError):
             color = 0
         layer = parts[2]
         x = float(parts[3])
