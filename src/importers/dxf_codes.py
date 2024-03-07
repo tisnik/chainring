@@ -12,8 +12,6 @@
 #      Pavel Tisnovsky
 #
 
-from enum import Enum
-
 
 class DxfCodes:
     """List of all supported numeric codes used in DXF files."""
