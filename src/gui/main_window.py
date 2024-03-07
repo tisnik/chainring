@@ -27,7 +27,6 @@ from gui.dialogs.load_dialogs import LoadDialogs
 from gui.dialogs.room_error_dialog import *
 from gui.dialogs.save_dialogs import SaveDialogs
 from gui.dialogs.yes_no_dialogs import *
-from gui.drawing_select_dialog import DrawingSelectDialog
 from gui.icons import *
 from gui.menubar import *
 from gui.palette import *
