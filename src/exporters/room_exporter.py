@@ -14,8 +14,6 @@
 
 from datetime import *
 
-from drawing import Drawing
-
 
 class RoomExporter:
     """Rooms exporter (serializer) to structured text format."""
