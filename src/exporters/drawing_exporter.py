@@ -14,7 +14,6 @@
 
 from datetime import *
 
-from drawing import Drawing
 from geometry.bounds import Bounds
 from geometry.rescaler import Rescaler
 
