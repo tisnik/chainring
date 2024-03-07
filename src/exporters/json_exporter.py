@@ -14,7 +14,7 @@
 
 
 import json
-from datetime import *
+from datetime import datetime
 
 from geometry.bounds import Bounds
 from geometry.rescaler import Rescaler
