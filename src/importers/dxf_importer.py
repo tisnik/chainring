@@ -20,7 +20,7 @@ from entities.line import Line
 from entities.polyline import Polyline
 from entities.text import Text
 from importers.dxf_codes import DxfCodes
-from importers.dxf_reader_state import *
+from importers.dxf_reader_state import DxfReaderState
 
 
 class DxfImporter:
@@ -350,6 +350,7 @@ class DxfImporter:
 
 
 if __name__ == "__main__":
+    from exporters.drawing_exporter import DrawingExporter
     importer = DxfImporter("Branna_3np.dxf")
     entities, statistic, lines = importer.import_dxf()
     print(lines)
