@@ -12,7 +12,6 @@
 #      Pavel Tisnovsky
 #
 
-import sys
 
 from configuration import *
 
