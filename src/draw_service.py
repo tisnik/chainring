@@ -13,7 +13,7 @@
 #
 
 import requests
-from exporters.json_exporter import *
+from exporters.json_exporter import JSONExporter
 
 
 class DrawServiceInterface:
