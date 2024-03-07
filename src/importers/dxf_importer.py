@@ -13,12 +13,12 @@
 #
 
 from drawing import Drawing
-from entities.arc import *
-from entities.circle import *
-from entities.drawing_entity_type import *
-from entities.line import *
-from entities.polyline import *
-from entities.text import *
+from entities.arc import Arc
+from entities.circle import Circle
+from entities.drawing_entity_type import DrawingEntityType
+from entities.line import Line
+from entities.polyline import Polyline
+from entities.text import Text
 from importers.dxf_codes import DxfCodes
 from importers.dxf_reader_state import *
 
