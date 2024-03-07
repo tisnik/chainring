@@ -12,7 +12,6 @@
 #      Pavel Tisnovsky
 #
 
-import tkinter
 from tkinter import messagebox
 
 
