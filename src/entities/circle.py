@@ -47,7 +47,7 @@ class Circle(Entity):
             "y": self.y,
             "r": self.radius,
             "color": self.color,
-            "layer": self.layer
+            "layer": self.layer,
         }
 
     def draw(self, canvas, xoffset, yoffset, scale):
