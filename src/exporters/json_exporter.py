@@ -44,7 +44,7 @@ class JSONExporter:
     @staticmethod
     def get_timestamp():
         """Get the timestamp for the current time and format it according to ISO."""
-        return datetime.now().isoformat(sep=' ')
+        return datetime.now().isoformat(sep=" ")
 
     @staticmethod
     def write_room(fout, room):
