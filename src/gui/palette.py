@@ -72,30 +72,30 @@ class Palette(tkinter.LabelFrame):
 
     def enable_all(self):
         """Enable all buttons on palette."""
-        self.button1.config(state='normal')
-        self.button2.config(state='normal')
-        self.button3.config(state='normal')
-        self.button4.config(state='normal')
+        self.button1.config(state="normal")
+        self.button2.config(state="normal")
+        self.button3.config(state="normal")
+        self.button4.config(state="normal")
 
     def disable_all(self):
         """Disable all buttons on palette."""
-        self.button1.config(state='disabled')
-        self.button2.config(state='disabled')
-        self.button3.config(state='disabled')
-        self.button4.config(state='disabled')
+        self.button1.config(state="disabled")
+        self.button2.config(state="disabled")
+        self.button3.config(state="disabled")
+        self.button4.config(state="disabled")
 
     def fill_in_room_info(self, room):
         """Fill in information about the selected room."""
         self.label_id_value["text"] = room["room_id"]
         if room["polygon"] is not None and len(room["polygon"]) > 0:
             self.label_vertexes_value["text"] = len(room["polygon"])
-            self.button2.config(state='normal')
-            self.button3.config(text='Překreslit')
+            self.button2.config(state="normal")
+            self.button3.config(text="Překreslit")
             self.button3.config(image=self.main_window.icons.edit_redo_icon)
         else:
             self.label_vertexes_value["text"] = "nenakresleno!"
-            self.button2.config(state='disabled')
-            self.button3.config(text='Nakreslit')
+            self.button2.config(state="disabled")
+            self.button3.config(text="Nakreslit")
             self.button3.config(image=self.main_window.icons.edit_icon)
 
     def remove_all_rooms(self):
@@ -105,7 +105,7 @@ class Palette(tkinter.LabelFrame):
     def add_new_room(self, canvas_id):
         """Add a new room onto the listbox."""
         self.listbox.insert(tkinter.END, canvas_id)
-        self.button2.config(state='normal')
+        self.button2.config(state="normal")
 
     def get_selected_room(self):
         """Get the selected room (index+room ID)."""
