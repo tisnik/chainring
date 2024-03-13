@@ -115,14 +115,14 @@ class Canvas(tkinter.Canvas):
     def draw_new_room_temporary_line(self, x1, y1, x2, y2):
         """Draw temporary line for room that is being drawn."""
         self.create_line(x1, y1, x2, y2,
-                         fill='red', tags="new_room_temporary")
+                         fill="red", tags="new_room_temporary")
 
     def draw_cross(self, x, y):
         """Draw small cross for room vertex that is being drawn."""
         self.create_line(x - Canvas.CROSS_SIZE, y, x + Canvas.CROSS_SIZE, y,
-                         fill='red', tags="cross")
+                         fill="red", tags="cross")
         self.create_line(x, y - Canvas.CROSS_SIZE, x, y + Canvas.CROSS_SIZE,
-                         fill='red', tags="cross")
+                         fill="red", tags="cross")
 
     def delete_entities_with_tag(self, tag):
         """Delete all entities having given tag."""
