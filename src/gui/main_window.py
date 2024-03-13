@@ -15,12 +15,11 @@
 import tkinter
 from tkinter import messagebox
 
-from draw_service import *
-from exporters.drawing_exporter import *
-from exporters.json_exporter import *
-from exporters.room_exporter import *
+from draw_service import DrawServiceInterface
+from exporters.drawing_exporter import DrawingExporter
+from exporters.room_exporter import RoomExporter
 from geometry.utils import GeometryUtils
-from gui.canvas import *
+from gui.canvas import Canvas
 from gui.canvas_mode import CanvasMode
 from gui.dialogs.error_dialogs import *
 from gui.dialogs.load_dialogs import LoadDialogs
@@ -33,10 +32,9 @@ from gui.palette import *
 from gui.room import Room
 from gui.status_bar import *
 from gui.toolbar import *
-from importers.drawing_importer import *
-from importers.dxf_importer import *
-from importers.room_importer import *
-from importers.sap_room_importer import *
+from importers.drawing_importer import DrawingImporter
+from importers.dxf_importer import DxfImporter
+from importers.room_importer import RoomImporter
 
 
 class MainWindow:
