@@ -14,10 +14,9 @@
 
 import time
 import tkinter
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 
 from draw_service import DrawServiceInterface
-from gui.dialogs.about_dialog import *
 
 
 class RoomsFromSapDialog(tkinter.Toplevel):
