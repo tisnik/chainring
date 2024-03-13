@@ -50,7 +50,7 @@ class Line(Entity):
             "x2": self.x2,
             "y2": self.y2,
             "color": self.color,
-            "layer": self.layer
+            "layer": self.layer,
         }
 
     def draw(self, canvas, xoffset=0, yoffset=0, scale=1):
