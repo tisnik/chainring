@@ -13,12 +13,12 @@
 #
 
 import tkinter
+from tkinter import messagebox
 
 from draw_service import DrawServiceInterface
-from gui.dialogs.about_dialog import *
-from gui.dialogs.configure import *
+from gui.dialogs.about_dialog import about
+from gui.dialogs.configure import configure
 from gui.dialogs.drawing_info_dialog import DrawingInfoDialog
-from gui.dialogs.help_dialog import *
 from gui.dialogs.room_list_dialog import RoomListDialog
 from gui.dialogs.settings_dialog import SettingsDialog
 
