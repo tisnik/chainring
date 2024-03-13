@@ -9,7 +9,7 @@ import tkinter
 class Tooltip(object):
     """Create a tooltip for a given widget."""
 
-    def __init__(self, widget, text='widget info'):
+    def __init__(self, widget, text="widget info"):
         """Initialize the widget."""
         self.waittime = 500     # miliseconds
         self.wraplength = 180   # pixels
@@ -53,8 +53,8 @@ class Tooltip(object):
         # Leaves only the label and removes the app window
         self.tw.wm_overrideredirect(True)
         self.tw.wm_geometry("+%d+%d" % (x, y))
-        label = tkinter.Label(self.tw, text=self.text, justify='left',
-                              background="#ffffff", relief='solid', borderwidth=1,
+        label = tkinter.Label(self.tw, text=self.text, justify="left",
+                              background="#ffffff", relief="solid", borderwidth=1,
                               wraplength=self.wraplength)
         label.pack(ipadx=1)
 
