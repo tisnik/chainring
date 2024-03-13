@@ -53,7 +53,7 @@ class Arc(Entity):
             "a1": self.angle1,
             "a2": self.angle2,
             "color": self.color,
-            "layer": self.layer
+            "layer": self.layer,
         }
 
     def draw(self, canvas, xoffset, yoffset, scale):
