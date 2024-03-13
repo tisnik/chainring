@@ -34,7 +34,7 @@ class DrawingExporter:
         [400, 300],
         [640, 480],
         [800, 600],
-        [1024, 768]
+        [1024, 768],
     ]
 
     def __init__(self, filename, drawing):
@@ -47,7 +47,7 @@ class DrawingExporter:
     @staticmethod
     def get_timestamp():
         """Get the timestamp for the current time and format it according to ISO."""
-        return datetime.now().isoformat(sep=' ')
+        return datetime.now().isoformat(sep=" ")
 
     @staticmethod
     def output_timestamp(fout):
