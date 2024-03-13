@@ -89,10 +89,10 @@ class DxfImporter:
 
     def detect_encoding(self):
         """Detect the encoding of DXF file."""
-        encodings = ['utf-8', 'windows-1250', 'windows-1252']
+        encodings = ["utf-8", "windows-1250", "windows-1252"]
         for e in encodings:
             try:
-                with open(self.filename, 'r', encoding=e) as fin:
+                with open(self.filename, "r", encoding=e) as fin:
                     fin.readlines()
                     fin.seek(0)
             except UnicodeDecodeError as e:
