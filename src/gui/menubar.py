@@ -174,14 +174,14 @@ class Menubar(tkinter.Menu):
         self.add_cascade(label="Nástroje", menu=self.tools, underline=3)
         self.add_cascade(label="Nápověda", menu=self.helpmenu, underline=0)
 
-        self.parent.bind('<F1>', lambda event: help())
-        self.parent.bind('<F11>', lambda event: about())
-        self.parent.bind('<F12>', lambda event: configure(self.main_window.configuration))
-        self.parent.bind('<Control-q>', lambda event: parent.quit())
-        self.parent.bind('<Control-n>', lambda event: main_window.draw_new_room_command())
-        self.parent.bind('<Control-i>', lambda event: self.show_drawing_info_dialog())
-        self.parent.bind('<Control-m>', lambda event: self.show_room_list_dialog())
-        self.parent.bind('<Control-0>', lambda event: main_window.redraw())
+        self.parent.bind("<F1>", lambda event: help())
+        self.parent.bind("<F11>", lambda event: about())
+        self.parent.bind("<F12>", lambda event: configure(self.main_window.configuration))
+        self.parent.bind("<Control-q>", lambda event: parent.quit())
+        self.parent.bind("<Control-n>", lambda event: main_window.draw_new_room_command())
+        self.parent.bind("<Control-i>", lambda event: self.show_drawing_info_dialog())
+        self.parent.bind("<Control-m>", lambda event: self.show_room_list_dialog())
+        self.parent.bind("<Control-0>", lambda event: main_window.redraw())
 
     def show_settings_dialog(self):
         """Show settings dialog."""
@@ -282,9 +282,9 @@ class Menubar(tkinter.Menu):
     @staticmethod
     def disable_menu_item(menu, index):
         """Disable specified menu item."""
-        menu.entryconfig(index, state='disabled')
+        menu.entryconfig(index, state="disabled")
 
     @staticmethod
     def enable_menu_item(menu, index):
         """Enable specified menu item."""
-        menu.entryconfig(index, state='normal')
+        menu.entryconfig(index, state="normal")
