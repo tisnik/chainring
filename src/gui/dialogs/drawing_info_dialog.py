@@ -14,7 +14,7 @@
 
 import tkinter
 
-from entities.drawing_entity_type import *
+from entities.drawing_entity_type import DrawingEntityType
 
 
 class DrawingInfoDialog(tkinter.Toplevel):
