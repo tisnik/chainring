@@ -100,5 +100,5 @@ class RoomListDialog(tkinter.Toplevel):
         """Create new widget with value."""
         widget = tkinter.Entry(self)
         widget.insert(tkinter.END, value)
-        widget.configure(state='readonly')
+        widget.configure(state="readonly")
         return widget
