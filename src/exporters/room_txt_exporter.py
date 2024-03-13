@@ -23,7 +23,7 @@ class RoomTXTExporter:
 
     def export(self):
         rooms = self.rooms
-        with open(self.filename, mode='w') as fout:
+        with open(self.filename, mode="w") as fout:
             fout.write("SAP ID          gr.ID   Zakreslena  Souřadnic\n")
             for room in rooms:
                 room_id = room.get("room_id", "")
