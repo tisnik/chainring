@@ -25,8 +25,8 @@ class RoomCSVExporter:
 
     def export(self):
         rooms = self.rooms
-        with open(self.filename, mode='w') as fout:
-            writer = csv.writer(fout, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+        with open(self.filename, mode="w") as fout:
+            writer = csv.writer(fout, delimiter=",", quotechar='"', quoting=csv.QUOTE_ALL)
             writer.writerow(("SAP ID", "gr.ID", "Zakreslena", "Souřadnic"))
             for room in rooms:
                 room_id = room.get("room_id", "")
