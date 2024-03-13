@@ -13,6 +13,7 @@
 #
 
 
+
 class DxfCodes:
     """List of all supported numeric codes used in DXF files."""
 
