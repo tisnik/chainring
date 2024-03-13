@@ -51,7 +51,7 @@ class Polyline(Entity):
             "xpoints": self.points_x,
             "ypoints": self.points_y,
             "color": self.color,
-            "layer": self.layer
+            "layer": self.layer,
         }
 
     def draw(self, canvas, xoffset=0, yoffset=0, scale=1):
