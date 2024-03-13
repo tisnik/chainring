@@ -47,7 +47,7 @@ class Text(Entity):
             "y": self.y,
             "text": self.text,
             "color": self.color,
-            "layer": self.layer
+            "layer": self.layer,
         }
 
     def draw(self, canvas, xoffset, yoffset, scale):
