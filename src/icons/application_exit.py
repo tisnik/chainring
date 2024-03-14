@@ -1,4 +1,4 @@
-"""Icon for the following action: exit from application"""
+"""Icon for the following action: exit from application."""
 
 # This icon was converted from the Oxygen Icon Theme
 # Please see copyright for further informations
