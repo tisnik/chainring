@@ -31,7 +31,7 @@ from importers.dxf_importer import DxfImporter
 configuration = Configuration()
 # configuration.write()
 
-mainWindow = MainWindow(configuration)
+main_window = MainWindow(configuration)
 drawing = None
 
 # importer = DrawingImporter("input.drw")
@@ -64,7 +64,7 @@ if drawing is None:
 if drawing is not None:
     bounds = Bounds.computeBounds(drawing.entities)
     # print(bounds)
-    xoffset, yoffset, scale = Rescaler.computeScaleForCanvas(bounds, mainWindow.canvas)
+    xoffset, yoffset, scale = Rescaler.computeScaleForCanvas(bounds, main_window.canvas)
     # print(xoffset, yoffset, scale)
 
     # ex = BinaryExporter("output3.bin", entities)
@@ -78,8 +78,8 @@ if drawing is not None:
     # exporter = DrawingExporter("output2.drw", drawing)
     # exporter.export()
 
-mainWindow.drawing = drawing
-mainWindow.redraw()
-mainWindow.add_all_rooms_from_drawing()
-mainWindow.set_ui_items_for_actual_mode()
-mainWindow.show()
+main_window.drawing = drawing
+main_window.redraw()
+main_window.add_all_rooms_from_drawing()
+main_window.set_ui_items_for_actual_mode()
+main_window.show()
