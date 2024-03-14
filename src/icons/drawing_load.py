@@ -1,4 +1,4 @@
-"""Icon for the following action: load the file"""
+"""Icon for the following action: load the file."""
 
 # This icon was converted from the Oxygen Icon Theme
 # Please see copyright for further informations
