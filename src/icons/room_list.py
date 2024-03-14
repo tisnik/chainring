@@ -1,4 +1,4 @@
-"""Icon for the following action: show list of rooms"""
+"""Icon for the following action: show list of rooms."""
 
 # This icon was converted from the Oxygen Icon Theme
 # Please see copyright for further informations
