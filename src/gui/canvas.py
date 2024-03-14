@@ -139,6 +139,7 @@ class Canvas(tkinter.Canvas):
         """Delete object specified by its ID."""
         self.delete(object_id)
 
+    @staticmethod
     def proper_polygon_for_room(room):
         """Check if room has polygon assigned."""
         return "polygon" in room and len(room["polygon"]) > 0
