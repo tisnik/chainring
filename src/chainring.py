@@ -13,20 +13,20 @@
 #
 
 
-from configuration import *
+from configuration import Configuration
 
 # from exporters.binary_exporter import *
 from exporters.drawing_exporter import *
 from exporters.json_exporter import *
 from geometry.bounds import Bounds
 from geometry.rescaler import Rescaler
-from gui.dialogs.error_dialogs import *
+from gui.dialogs.error_dialogs import error_dialog_drawing_load
 from gui.dialogs.load_dialogs import LoadDialogs
 from gui.main_window import *
 
 # from importers.binary_importer import *
-from importers.drawing_importer import *
-from importers.dxf_importer import *
+from importers.drawing_importer import DrawingImporter
+from importers.dxf_importer import DxfImporter
 
 configuration = Configuration()
 # configuration.write()
