@@ -32,7 +32,7 @@ class JSONExporter:
         [400, 300],
         [640, 480],
         [800, 600],
-        [1024, 768]
+        [1024, 768],
     ]
 
     def __init__(self, filename, drawing):
