@@ -1,4 +1,4 @@
-"""Icon for the following action: show properties"""
+"""Icon for the following action: show properties."""
 
 # This icon was converted from the Oxygen Icon Theme
 # Please see copyright for further informations
