@@ -76,7 +76,7 @@ class JSONExporter:
             entities_list.append(entity.asDict())
 
         # the whole object to be exported
-        obj = {
+        return {
             "created": self.get_timestamp(),
             "version": JSONExporter.VERSION,
             "bounds": bounds.__dict__,
@@ -86,7 +86,6 @@ class JSONExporter:
             "entities": entities_list,
             "rooms": self.rooms,
         }
-        return obj
 
     def as_string(self):
         """Convert the drawing to string with indentation etc."""
