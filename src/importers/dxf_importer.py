@@ -101,6 +101,7 @@ class DxfImporter:
             else:
                 print("Encoding: {e}".format(e=e))
                 return e
+        return None
 
     def import_dxf(self):
         """Import the DXF file and return structure containing all entities."""
@@ -117,8 +118,7 @@ class DxfImporter:
                 lines += 1
         # print(lines)
         # print(self.statistic)
-        drawing = Drawing(self.entities, self.statistic, lines)
-        return drawing
+        return Drawing(self.entities, self.statistic, lines)
 
     def process_beginning(self, code, data):
         """Part of the DXF import state machine."""
