@@ -25,4 +25,3 @@ class SvgExporter:
         """Perform the serialization into SVG format."""
         # TODO: implement this feature
         #  with open(self.filename, "w") as fout:
-        pass
