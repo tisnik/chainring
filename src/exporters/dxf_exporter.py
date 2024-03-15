@@ -25,4 +25,3 @@ class DXFExporter:
         """Perform the serialiation of drawing into DXF format."""
         # TODO: implement this feature
         #  with open(self.filename, "w") as fout:
-        pass
