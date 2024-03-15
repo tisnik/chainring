@@ -24,4 +24,3 @@ class CSVExporter:
     def export(self):
         """Perform the export."""
         # TODO: implement this feature
-        pass
