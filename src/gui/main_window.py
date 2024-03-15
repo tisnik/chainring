@@ -221,7 +221,6 @@ class MainWindow:
 
     def import_drawing_command(self, filename):
         """Import drawing (empty in this version)."""
-        pass
 
     def import_rooms_command(self, event=None):
         """Handle the command to import rooms."""
@@ -463,7 +462,7 @@ class MainWindow:
                 xpoints = entity.points_x
                 ypoints = entity.points_y
                 self.room.polygon_world = []
-                for i in range(0, len(xpoints)):
+                for i in range(len(xpoints)):
                     self.room.polygon_world.append((xpoints[i], ypoints[i]))
                 canvas_id = self.canvas.draw_new_room(self.room)
 
@@ -554,9 +553,7 @@ class MainWindow:
 
     def on_left_button_drag(self, event):
         """Handle the left mouse button drag event."""
-        if self.canvas_mode == CanvasMode.DRAW_ROOM:
-            pass
-        elif self.canvas_mode == CanvasMode.SELECT_POLYGON_FOR_ROOM:
+        if self.canvas_mode == CanvasMode.DRAW_ROOM or self.canvas_mode == CanvasMode.SELECT_POLYGON_FOR_ROOM:
             pass
         else:
             self.scroll_move(event)
