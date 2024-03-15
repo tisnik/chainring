@@ -28,8 +28,7 @@ class Configuration:
     @property
     def window_width(self):
         """Property holding window width."""
-        v = self.config.getint("ui", "window_width")
-        return v
+        return self.config.getint("ui", "window_width")
 
     @property
     def app_type(self):
