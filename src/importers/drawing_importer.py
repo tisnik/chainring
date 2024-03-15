@@ -126,12 +126,10 @@ class DrawingImporter:
     def process_bounds(self, parts):
         """Process command with the bounds line."""
         # we don't need this attribute ATM
-        pass
 
     def process_scale(self, parts):
         """Process command with the scale line."""
         # we don't need this attribute ATM
-        pass
 
     def process_line(self, parts):
         """Process command with line entity."""
