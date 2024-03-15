@@ -288,5 +288,4 @@ class LoadDialogs:
     @staticmethod
     def load_rooms_from_sap(root, configuration):
         """Dialog shown to select rooms to import from SAP."""
-        d = RoomsFromSapDialog(root, configuration).show()
-        return d
+        return RoomsFromSapDialog(root, configuration).show()
