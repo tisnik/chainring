@@ -18,12 +18,9 @@ class Entity:
 
     def draw(self, canvas, xoffset, yoffset, scale):
         """Draw the entity onto canvas."""
-        pass
 
     def transform(self, xoffset, yoffset, scale):
         """Perform the transformation of the entity into paper space."""
-        pass
 
     def getBounds(self):
         """Compute bounds for given entity."""
-        pass
