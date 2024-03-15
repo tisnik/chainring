@@ -57,7 +57,7 @@ class Polyline(Entity):
     def draw(self, canvas, xoffset=0, yoffset=0, scale=1):
         """Draw the entity onto canvas."""
         points = []
-        for i in range(0, len(self.points_x)):
+        for i in range(len(self.points_x)):
             x = self.points_x[i] + xoffset
             y = self.points_y[i] + yoffset
             x *= scale
@@ -78,7 +78,7 @@ class Polyline(Entity):
 
     def transform(self, xoffset, yoffset, scale):
         """Perform the transformation of the entity into paper space."""
-        for i in range(0, len(self.points_x)):
+        for i in range(len(self.points_x)):
             # step 1: translate
             self.points_x[i] = self.points_x[i] + xoffset
             self.points_y[i] = self.points_y[i] + yoffset
