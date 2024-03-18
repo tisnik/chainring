@@ -20,6 +20,6 @@ def configure(configuration):
     msg = "Typ aplikace: {t}\n\nAdresa serveru: {a}\nPort serveru: {p}".format(
         t=configuration.app_type,
         a=configuration.server_address,
-        p=configuration.server_port)
-    messagebox.showinfo("Aktuální konfigurace",
-                        msg)
+        p=configuration.server_port,
+    )
+    messagebox.showinfo("Aktuální konfigurace", msg)
