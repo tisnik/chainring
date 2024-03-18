@@ -30,26 +30,16 @@ class DxfImporter:
         """Initialize the importer."""
         self.filename = filename
         self.state_switcher = {
-            DxfReaderState.BEGINNING:
-                DxfImporter.process_beginning,
-            DxfReaderState.BEGINNING_SECTION:
-                DxfImporter.process_beginning_section,
-            DxfReaderState.SECTION_HEADER:
-                DxfImporter.process_section_header,
-            DxfReaderState.SECTION_TABLES:
-                DxfImporter.process_section_tables,
-            DxfReaderState.SECTION_BLOCKS:
-                DxfImporter.process_section_blocks,
-            DxfReaderState.SECTION_ENTITIES:
-                DxfImporter.process_section_entities,
-            DxfReaderState.SECTION_OBJECTS:
-                DxfImporter.process_section_objects,
-            DxfReaderState.SECTION_CLASSES:
-                DxfImporter.process_section_classes,
-            DxfReaderState.SECTION_BLOCK:
-                DxfImporter.process_section_block,
-            DxfReaderState.ENTITY:
-                DxfImporter.process_entity,
+            DxfReaderState.BEGINNING: DxfImporter.process_beginning,
+            DxfReaderState.BEGINNING_SECTION: DxfImporter.process_beginning_section,
+            DxfReaderState.SECTION_HEADER: DxfImporter.process_section_header,
+            DxfReaderState.SECTION_TABLES: DxfImporter.process_section_tables,
+            DxfReaderState.SECTION_BLOCKS: DxfImporter.process_section_blocks,
+            DxfReaderState.SECTION_ENTITIES: DxfImporter.process_section_entities,
+            DxfReaderState.SECTION_OBJECTS: DxfImporter.process_section_objects,
+            DxfReaderState.SECTION_CLASSES: DxfImporter.process_section_classes,
+            DxfReaderState.SECTION_BLOCK: DxfImporter.process_section_block,
+            DxfReaderState.ENTITY: DxfImporter.process_entity,
         }
 
     def dxf_entry(self, fin):
@@ -112,8 +102,9 @@ class DxfImporter:
         with open(self.filename, encoding=encoding) as fin:
             lines = 0
             for code, data in self.dxf_entry(fin):
-                function = self.state_switcher.get(self.state, lambda self,
-                                                   code, data: "nothing")
+                function = self.state_switcher.get(
+                    self.state, lambda self, code, data: "nothing"
+                )
                 function(self, code, data)
                 lines += 1
         # print(lines)
@@ -132,8 +123,7 @@ class DxfImporter:
         elif code == DxfCodes.COMMENT:
             print(data)
         else:
-            raise Exception("unknown code {c} for state "
-                            "BEGINNING".format(c=code))
+            raise Exception("unknown code {c} for state " "BEGINNING".format(c=code))
 
     def process_beginning_section_name_attribute(self, code, data):
         """Change the state of DXF reader."""
@@ -156,16 +146,18 @@ class DxfImporter:
             self.state = DxfReaderState.SECTION_CLASSES
             print("    section classes")
         else:
-            raise Exception("unknown data {d} for state "
-                            "BEGINNING_SECTION".format(d=data))
+            raise Exception(
+                "unknown data {d} for state " "BEGINNING_SECTION".format(d=data)
+            )
 
     def process_beginning_section(self, code, data):
         """Part of the DXF import state machine."""
         if code == DxfCodes.NAME:
             self.process_beginning_section_name_attribute(code, data)
         else:
-            raise Exception("unknown code {c} for state "
-                            "BEGINNING_SECTION".format(c=code))
+            raise Exception(
+                "unknown code {c} for state " "BEGINNING_SECTION".format(c=code)
+            )
 
     def process_section_header(self, code, data):
         """Part of the DXF import state machine."""
@@ -319,14 +311,19 @@ class DxfImporter:
 
     def store_line(self):
         """Store line read from DXF file."""
-        self.entities.append(Line(self.x1, -self.y1, self.x2, -self.y2, self.color, self.layer))
+        self.entities.append(
+            Line(self.x1, -self.y1, self.x2, -self.y2, self.color, self.layer)
+        )
 
     def store_polyline(self):
         """Store polyline read from DXF file."""
         for i in range(len(self.polyline_points_y)):
             self.polyline_points_y[i] = -self.polyline_points_y[i]
-        self.entities.append(Polyline(self.polyline_points_x, self.polyline_points_y,
-                                      self.color, self.layer))
+        self.entities.append(
+            Polyline(
+                self.polyline_points_x, self.polyline_points_y, self.color, self.layer
+            )
+        )
         self.polyline_points_x = []
         self.polyline_points_y = []
 
@@ -335,22 +332,34 @@ class DxfImporter:
         if self.mirror == -1:
             print("MIRROR")
             self.x1 = -self.x1
-        self.entities.append(Circle(self.x1, -self.y1, self.radius, self.color, self.layer))
+        self.entities.append(
+            Circle(self.x1, -self.y1, self.radius, self.color, self.layer)
+        )
 
     def store_arc(self):
         """Store arc read from DXF file."""
-        self.entities.append(Arc(self.x1, -self.y1,
-                                 self.radius, self.angle1, self.angle2, self.color, self.layer))
+        self.entities.append(
+            Arc(
+                self.x1,
+                -self.y1,
+                self.radius,
+                self.angle1,
+                self.angle2,
+                self.color,
+                self.layer,
+            )
+        )
 
     def store_text(self):
         """Store text read from DXF file."""
         if self.text:
-            self.text = self.text.replace("\\U+00B2", u"\u00B2")
+            self.text = self.text.replace("\\U+00B2", "\u00B2")
         self.entities.append(Text(self.x1, -self.y1, self.text, self.color, self.layer))
 
 
 if __name__ == "__main__":
     from exporters.drawing_exporter import DrawingExporter
+
     importer = DxfImporter("Branna_3np.dxf")
     entities, statistic, lines = importer.import_dxf()
     print(lines)
