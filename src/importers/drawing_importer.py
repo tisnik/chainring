@@ -84,8 +84,7 @@ class DrawingImporter:
         parts = [item.strip() for item in parts]
         # first string or word is a command
         command = parts[0]
-        function = self.commands.get(command,
-                                     DrawingImporter.process_unknown_command)
+        function = self.commands.get(command, DrawingImporter.process_unknown_command)
         function(self, parts)
 
     def process_unknown_command(self, parts):
@@ -183,7 +182,7 @@ class DrawingImporter:
         x = float(parts[3])
         y = float(parts[4])
         text = " ".join(parts[5:]).strip()
-        text = text.replace("^2^", u"\u00B2")
+        text = text.replace("^2^", "\u00B2")
         self.statistic[DrawingEntityType.TEXT] += 1
         self.entities.append(Text(x, y, text, color, layer))
 
@@ -208,14 +207,14 @@ class DrawingImporter:
         room_id = parts[1]
         vertexes = int(parts[2])
         coordinates = parts[3:]
-        polygon = list((float(coordinates[i * 2]), float(coordinates[i * 2 + 1]))
-                       for i in range(vertexes))
+        polygon = list(
+            (float(coordinates[i * 2]), float(coordinates[i * 2 + 1]))
+            for i in range(vertexes)
+        )
         last_part = parts[-1]
         # type: drawn from polygon or from series of line vertexes
         if last_part == "P" or last_part == "L":
             typ = last_part
         else:
             typ = "?"
-        self.rooms.append({"room_id": room_id,
-                           "polygon": polygon,
-                           "type": typ})
+        self.rooms.append({"room_id": room_id, "polygon": polygon, "type": typ})
