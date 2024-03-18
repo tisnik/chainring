@@ -26,12 +26,18 @@ class RoomCSVExporter:
     def export(self):
         rooms = self.rooms
         with open(self.filename, mode="w") as fout:
-            writer = csv.writer(fout, delimiter=",", quotechar='"', quoting=csv.QUOTE_ALL)
+            writer = csv.writer(
+                fout, delimiter=",", quotechar='"', quoting=csv.QUOTE_ALL
+            )
             writer.writerow(("SAP ID", "gr.ID", "Zakreslena", "Souřadnic"))
             for room in rooms:
                 room_id = room.get("room_id", "")
                 canvas_id = room.get("canvas_id", "")
-                drawn = "ano" if room["polygon"] is not None and len(room["polygon"]) > 0 else "ne"
+                drawn = (
+                    "ano"
+                    if room["polygon"] is not None and len(room["polygon"]) > 0
+                    else "ne"
+                )
                 poly = None
                 if room["polygon"] is not None:
                     typ = "?"
