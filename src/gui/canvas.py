@@ -23,8 +23,7 @@ class Canvas(tkinter.Canvas):
 
     def __init__(self, parent, width, height, main_window):
         """Initialize canvas."""
-        super().__init__(parent, width=width, height=height,
-                         background="white")
+        super().__init__(parent, width=width, height=height, background="white")
         # self.draw_grid(width, height, Canvas.GRID_SIZE)
         # self.draw_boundary(width, height)
         self._grid = True
@@ -36,10 +35,13 @@ class Canvas(tkinter.Canvas):
 
     def draw_empty_drawing_message(self):
         """Display message when no drawing is opened."""
-        self.create_text(self.width / 2, self.height / 2,
-                         fill="darkred",
-                         font="Helvetice 20 bold",
-                         text="Žádný výkres nebyl načten")
+        self.create_text(
+            self.width / 2,
+            self.height / 2,
+            fill="darkred",
+            font="Helvetice 20 bold",
+            text="Žádný výkres nebyl načten",
+        )
 
     def draw_grid(self):
         """Draw rectangular grid onto canvas."""
@@ -58,12 +60,19 @@ class Canvas(tkinter.Canvas):
 
     def draw_boundary(self):
         """Draw drawing boundary onto canvas."""
-        self.create_line(2, 2,
-                         self.width, 2,
-                         self.width, self.height,
-                         2, self.height,
-                         2, 2,
-                         tags="boundary")
+        self.create_line(
+            2,
+            2,
+            self.width,
+            2,
+            self.width,
+            self.height,
+            2,
+            self.height,
+            2,
+            2,
+            tags="boundary",
+        )
         if self._boundary:
             self.show_boundary()
         else:
@@ -114,15 +123,16 @@ class Canvas(tkinter.Canvas):
 
     def draw_new_room_temporary_line(self, x1, y1, x2, y2):
         """Draw temporary line for room that is being drawn."""
-        self.create_line(x1, y1, x2, y2,
-                         fill="red", tags="new_room_temporary")
+        self.create_line(x1, y1, x2, y2, fill="red", tags="new_room_temporary")
 
     def draw_cross(self, x, y):
         """Draw small cross for room vertex that is being drawn."""
-        self.create_line(x - Canvas.CROSS_SIZE, y, x + Canvas.CROSS_SIZE, y,
-                         fill="red", tags="cross")
-        self.create_line(x, y - Canvas.CROSS_SIZE, x, y + Canvas.CROSS_SIZE,
-                         fill="red", tags="cross")
+        self.create_line(
+            x - Canvas.CROSS_SIZE, y, x + Canvas.CROSS_SIZE, y, fill="red", tags="cross"
+        )
+        self.create_line(
+            x, y - Canvas.CROSS_SIZE, x, y + Canvas.CROSS_SIZE, fill="red", tags="cross"
+        )
 
     def delete_entities_with_tag(self, tag):
         """Delete all entities having given tag."""
@@ -147,11 +157,19 @@ class Canvas(tkinter.Canvas):
     def draw_room(self, room):
         """Draw room polygon onto canvas."""
         if Canvas.proper_polygon_for_room(room):
-            new_object = self.create_polygon(room["polygon"], width=2,
-                                             fill="", activefill="#ffff80",
-                                             outline="magenta", stipple="gray50")
-            self.tag_bind(new_object, "<ButtonPress-1>",
-                          lambda event, new_object=new_object: self.on_room_click(new_object))
+            new_object = self.create_polygon(
+                room["polygon"],
+                width=2,
+                fill="",
+                activefill="#ffff80",
+                outline="magenta",
+                stipple="gray50",
+            )
+            self.tag_bind(
+                new_object,
+                "<ButtonPress-1>",
+                lambda event, new_object=new_object: self.on_room_click(new_object),
+            )
             return new_object
         else:
             return None
@@ -159,11 +177,19 @@ class Canvas(tkinter.Canvas):
     def draw_new_room(self, room):
         """Draw new room into canvas."""
         print(room)
-        new_object = self.create_polygon(room.polygon_canvas, width=2,
-                                         fill="", activefill="#ffff80",
-                                         outline="magenta", stipple="gray50")
-        self.tag_bind(new_object, "<ButtonPress-1>",
-                      lambda event, new_object=new_object: self.on_room_click(new_object))
+        new_object = self.create_polygon(
+            room.polygon_canvas,
+            width=2,
+            fill="",
+            activefill="#ffff80",
+            outline="magenta",
+            stipple="gray50",
+        )
+        self.tag_bind(
+            new_object,
+            "<ButtonPress-1>",
+            lambda event, new_object=new_object: self.on_room_click(new_object),
+        )
         return new_object
 
     def on_room_click(self, canvas_object_id):
@@ -177,9 +203,15 @@ class Canvas(tkinter.Canvas):
     def highlight_room(self, room):
         """Highlight the given room and remove highlight for previously selected one."""
         if self.selected_room_item:
-            self.itemconfig(self.selected_room_item, fill="", activefill="#ffff80",
-                            outline="magenta")
+            self.itemconfig(
+                self.selected_room_item,
+                fill="",
+                activefill="#ffff80",
+                outline="magenta",
+            )
         item = room["canvas_id"]
         if item:
             self.selected_room_item = item
-            self.itemconfig(self.selected_room_item, fill="#ff8080", activefill="", outline="cyan")
+            self.itemconfig(
+                self.selected_room_item, fill="#ff8080", activefill="", outline="cyan"
+            )
