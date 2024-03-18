@@ -18,6 +18,6 @@ from enum import Enum
 class CanvasMode(Enum):
     """All possible modes for canvas (view, draw, select polygon etc.)."""
 
-    VIEW = 1,
-    DRAW_ROOM = 2,
+    VIEW = (1,)
+    DRAW_ROOM = (2,)
     SELECT_POLYGON_FOR_ROOM = 3
