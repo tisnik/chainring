@@ -11,8 +11,8 @@ class Tooltip(object):
 
     def __init__(self, widget, text="widget info"):
         """Initialize the widget."""
-        self.waittime = 500     # miliseconds
-        self.wraplength = 180   # pixels
+        self.waittime = 500  # miliseconds
+        self.wraplength = 180  # pixels
         self.widget = widget
         self.text = text
         self.widget.bind("<Enter>", self.enter)
@@ -53,9 +53,15 @@ class Tooltip(object):
         # Leaves only the label and removes the app window
         self.tw.wm_overrideredirect(True)
         self.tw.wm_geometry("+%d+%d" % (x, y))
-        label = tkinter.Label(self.tw, text=self.text, justify="left",
-                              background="#ffffff", relief="solid", borderwidth=1,
-                              wraplength=self.wraplength)
+        label = tkinter.Label(
+            self.tw,
+            text=self.text,
+            justify="left",
+            background="#ffffff",
+            relief="solid",
+            borderwidth=1,
+            wraplength=self.wraplength,
+        )
         label.pack(ipadx=1)
 
     def hidetip(self):
