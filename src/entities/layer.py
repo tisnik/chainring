@@ -19,6 +19,6 @@ from enum import Enum
 class Layers(Enum):
     """All layers that must be distinguished by the application."""
 
-    DEFAULT = 1,
-    DIMENSION = 2,
+    DEFAULT = (1,)
+    DIMENSION = (2,)
     ROOM = 3
