@@ -17,5 +17,7 @@ from tkinter import messagebox
 
 def about():
     """Show 'about' dialog."""
-    messagebox.showinfo("O programu",
-                        "Integrace CAD výkresů do SAP\n(c) 2017, 2018 eLevel system s.r.o.")
+    messagebox.showinfo(
+        "O programu",
+        "Integrace CAD výkresů do SAP\n(c) 2017, 2018 eLevel system s.r.o.",
+    )
