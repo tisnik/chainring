@@ -18,9 +18,13 @@ import sys
 class Bounds:
     """Class representing bounds of given entity or a larger group of entitites."""
 
-    def __init__(self,
-                 xmin=sys.float_info.max, ymin=sys.float_info.max,
-                 xmax=-sys.float_info.max, ymax=-sys.float_info.max):
+    def __init__(
+        self,
+        xmin=sys.float_info.max,
+        ymin=sys.float_info.max,
+        xmax=-sys.float_info.max,
+        ymax=-sys.float_info.max,
+    ):
         """Construct new bounds using given coordinates or default values."""
         self.xmin = xmin
         self.ymin = ymin
@@ -37,10 +41,8 @@ class Bounds:
     def __repr__(self):
         """Return textual representation of the bound."""
         return "[{xmin}, {ymin}] - [{xmax}, {ymax}]".format(
-            xmin=self.xmin,
-            ymin=self.ymin,
-            xmax=self.xmax,
-            ymax=self.ymax)
+            xmin=self.xmin, ymin=self.ymin, xmax=self.xmax, ymax=self.ymax
+        )
 
     @staticmethod
     def computeBounds(entities):
