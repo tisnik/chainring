@@ -47,8 +47,11 @@ class RoomExporter:
         vertexes = room["polygon"]
         # export only room with polygon
         if vertexes is not None:
-            fout.write("R {id} {vertex_count}".format(id=room["room_id"],
-                                                      vertex_count=len(vertexes)))
+            fout.write(
+                "R {id} {vertex_count}".format(
+                    id=room["room_id"], vertex_count=len(vertexes)
+                )
+            )
             for vertex in vertexes:
                 fout.write(" {x} {y}".format(x=vertex[0], y=vertex[1]))
         # room without polygon needs to have zero vertexes specified
