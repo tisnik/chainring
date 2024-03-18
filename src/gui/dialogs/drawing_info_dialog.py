@@ -31,15 +31,15 @@ class DrawingInfoDialog(tkinter.Toplevel):
         # don't display the dialog in list of opened windows
         self.transient(parent)
 
-        group0 = tkinter.LabelFrame(self, text="ID výkresu",
-                                    padx=5, pady=5)
+        group0 = tkinter.LabelFrame(self, text="ID výkresu", padx=5, pady=5)
         group0.grid(row=0, column=1, padx=5, pady=5, sticky="WE")
 
         # display drawing ID
-        DrawingInfoDialog.add_value_widget(group0, 1, 1, drawing.drawing_id or "Nezadáno!")
+        DrawingInfoDialog.add_value_widget(
+            group0, 1, 1, drawing.drawing_id or "Nezadáno!"
+        )
 
-        group1 = tkinter.LabelFrame(self, text="Grafické entity",
-                                    padx=5, pady=5)
+        group1 = tkinter.LabelFrame(self, text="Grafické entity", padx=5, pady=5)
         group1.grid(row=1, column=1, padx=5, pady=5, sticky="WE")
 
         DrawingInfoDialog.add_label(group1, 1, 1, "Úseček")
@@ -50,28 +50,33 @@ class DrawingInfoDialog(tkinter.Toplevel):
         DrawingInfoDialog.add_label(group1, 7, 1, "Celkem")
 
         DrawingInfoDialog.add_value_widget(
-            group1, 1, 2, drawing_statistic[DrawingEntityType.LINE])
+            group1, 1, 2, drawing_statistic[DrawingEntityType.LINE]
+        )
 
         DrawingInfoDialog.add_value_widget(
-            group1, 2, 2, drawing_statistic[DrawingEntityType.CIRCLE])
+            group1, 2, 2, drawing_statistic[DrawingEntityType.CIRCLE]
+        )
 
         DrawingInfoDialog.add_value_widget(
-            group1, 3, 2, drawing_statistic[DrawingEntityType.ARC])
+            group1, 3, 2, drawing_statistic[DrawingEntityType.ARC]
+        )
 
         DrawingInfoDialog.add_value_widget(
-            group1, 4, 2, drawing_statistic[DrawingEntityType.TEXT])
+            group1, 4, 2, drawing_statistic[DrawingEntityType.TEXT]
+        )
 
         DrawingInfoDialog.add_value_widget(
-            group1, 5, 2, drawing_statistic[DrawingEntityType.POLYLINE])
+            group1, 5, 2, drawing_statistic[DrawingEntityType.POLYLINE]
+        )
 
         lbl = tkinter.Label(group1, text="")
         lbl.grid(row=6, column=1, columnspan=2, sticky="WE")
 
         DrawingInfoDialog.add_value_widget(
-            group1, 7, 2, DrawingInfoDialog.compute_sum(drawing_statistic))
+            group1, 7, 2, DrawingInfoDialog.compute_sum(drawing_statistic)
+        )
 
-        group2 = tkinter.LabelFrame(self, text="Místnosti",
-                                    padx=5, pady=5)
+        group2 = tkinter.LabelFrame(self, text="Místnosti", padx=5, pady=5)
         group2.grid(row=2, column=1, padx=5, pady=5, sticky="WE")
 
         DrawingInfoDialog.add_label(group2, 1, 1, "Počet místností")
