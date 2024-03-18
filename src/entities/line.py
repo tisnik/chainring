@@ -39,7 +39,8 @@ class Line(Entity):
             x1=self.x1,
             y1=self.y1,
             x2=self.x2,
-            y2=self.y2)
+            y2=self.y2,
+        )
 
     def asDict(self):
         """Convert Line entity into proper dictionary."""
@@ -65,8 +66,7 @@ class Line(Entity):
         y1 *= scale
         x2 *= scale
         y2 *= scale
-        self._id = canvas.create_line(x1, y1, x2, y2,
-                                      fill="black", tags="drawing")
+        self._id = canvas.create_line(x1, y1, x2, y2, fill="black", tags="drawing")
 
     def transform(self, xoffset, yoffset, scale):
         """Perform the transformation of the entity into paper space."""
@@ -81,5 +81,9 @@ class Line(Entity):
 
     def getBounds(self):
         """Compute bounds for given entity."""
-        return Bounds(min(self.x1, self.x2), min(self.y1, self.y2),
-                      max(self.x1, self.x2), max(self.y1, self.y2))
+        return Bounds(
+            min(self.x1, self.x2),
+            min(self.y1, self.y2),
+            max(self.x1, self.x2),
+            max(self.y1, self.y2),
+        )
