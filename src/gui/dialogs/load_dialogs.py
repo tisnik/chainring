@@ -42,11 +42,14 @@ class RoomsFromSapDialog(tkinter.Toplevel):
         label.grid(row=1, column=4, sticky="W", padx=5, pady=5)
 
         self.id = tkinter.StringVar()
-        self.id_entry = tkinter.Entry(top_part, width=20, state="readonly", textvariable=self.id)
+        self.id_entry = tkinter.Entry(
+            top_part, width=20, state="readonly", textvariable=self.id
+        )
         self.id_entry.grid(row=1, column=5, sticky="W", padx=5, pady=5)
 
-        listArealsButton = tkinter.Button(top_part, text="Načíst seznam areálů",
-                                          command=self.read_areals)
+        listArealsButton = tkinter.Button(
+            top_part, text="Načíst seznam areálů", command=self.read_areals
+        )
         listArealsButton.grid(row=1, column=3, sticky="WE")
 
     def command_part(self):
@@ -54,11 +57,14 @@ class RoomsFromSapDialog(tkinter.Toplevel):
         bottom_part = tkinter.LabelFrame(self, text="Operace", padx=5, pady=5)
         bottom_part.grid(row=3, column=1, sticky="NWSE")
 
-        self.okButton = tkinter.Button(bottom_part, text="OK", width=10, command=self.ok)
+        self.okButton = tkinter.Button(
+            bottom_part, text="OK", width=10, command=self.ok
+        )
         self.okButton.grid(row=5, column=1, sticky="WE")
 
-        self.cancelButton = tkinter.Button(bottom_part, text="Storno", width=10,
-                                           command=self.cancel)
+        self.cancelButton = tkinter.Button(
+            bottom_part, text="Storno", width=10, command=self.cancel
+        )
         self.cancelButton.grid(row=5, column=2, sticky="WE")
 
     def aoid_part(self):
@@ -77,8 +83,12 @@ class RoomsFromSapDialog(tkinter.Toplevel):
 
         frame1 = tkinter.Frame(middle_part)
         scrollbar1 = tkinter.Scrollbar(frame1, orient=tkinter.VERTICAL)
-        self.arealList = tkinter.Listbox(frame1, height=20, width=30, yscrollcommand=scrollbar1.set)
-        self.arealList.bind("<<ListboxSelect>>", lambda event: self.on_areal_select(event))
+        self.arealList = tkinter.Listbox(
+            frame1, height=20, width=30, yscrollcommand=scrollbar1.set
+        )
+        self.arealList.bind(
+            "<<ListboxSelect>>", lambda event: self.on_areal_select(event)
+        )
         scrollbar1.config(command=self.arealList.yview)
         scrollbar1.pack(side=tkinter.RIGHT, fill=tkinter.Y)
         self.arealList.pack(side=tkinter.LEFT, fill=tkinter.BOTH, expand=1)
@@ -86,9 +96,12 @@ class RoomsFromSapDialog(tkinter.Toplevel):
 
         frame2 = tkinter.Frame(middle_part)
         scrollbar2 = tkinter.Scrollbar(frame2, orient=tkinter.VERTICAL)
-        self.buildingList = tkinter.Listbox(frame2, height=20, width=30,
-                                            yscrollcommand=scrollbar2.set)
-        self.buildingList.bind("<<ListboxSelect>>", lambda event: self.on_building_select(event))
+        self.buildingList = tkinter.Listbox(
+            frame2, height=20, width=30, yscrollcommand=scrollbar2.set
+        )
+        self.buildingList.bind(
+            "<<ListboxSelect>>", lambda event: self.on_building_select(event)
+        )
         scrollbar2.config(command=self.buildingList.yview)
         scrollbar2.pack(side=tkinter.RIGHT, fill=tkinter.Y)
         self.buildingList.pack(side=tkinter.LEFT, fill=tkinter.BOTH, expand=1)
@@ -96,8 +109,12 @@ class RoomsFromSapDialog(tkinter.Toplevel):
 
         frame3 = tkinter.Frame(middle_part)
         scrollbar3 = tkinter.Scrollbar(frame3, orient=tkinter.VERTICAL)
-        self.floorList = tkinter.Listbox(frame3, height=20, width=30, yscrollcommand=scrollbar3.set)
-        self.floorList.bind("<<ListboxSelect>>", lambda event: self.on_floor_select(event))
+        self.floorList = tkinter.Listbox(
+            frame3, height=20, width=30, yscrollcommand=scrollbar3.set
+        )
+        self.floorList.bind(
+            "<<ListboxSelect>>", lambda event: self.on_floor_select(event)
+        )
         scrollbar3.config(command=self.floorList.yview)
         scrollbar3.pack(side=tkinter.RIGHT, fill=tkinter.Y)
         self.floorList.pack(side=tkinter.LEFT, fill=tkinter.BOTH, expand=1)
@@ -105,7 +122,9 @@ class RoomsFromSapDialog(tkinter.Toplevel):
 
         frame4 = tkinter.Frame(middle_part)
         scrollbar4 = tkinter.Scrollbar(frame4, orient=tkinter.VERTICAL)
-        self.roomList = tkinter.Listbox(frame4, height=20, width=30, yscrollcommand=scrollbar4.set)
+        self.roomList = tkinter.Listbox(
+            frame4, height=20, width=30, yscrollcommand=scrollbar4.set
+        )
         scrollbar4.config(command=self.floorList.yview)
         scrollbar4.pack(side=tkinter.RIGHT, fill=tkinter.Y)
         self.roomList.pack(side=tkinter.LEFT, fill=tkinter.BOTH, expand=1)
@@ -273,8 +292,7 @@ class LoadDialogs:
     @staticmethod
     def load_drawing(root):
         """Dialog shown to select drawing to import."""
-        filetypes = [("Výkresy", "*.drw"),
-                     ("Výkresy z CADu", "*.dxf")]
+        filetypes = [("Výkresy", "*.drw"), ("Výkresy z CADu", "*.dxf")]
         dialog = filedialog.Open(root, filetypes=filetypes)
         return dialog.show()
 
