@@ -31,114 +31,148 @@ class Toolbar(tkinter.LabelFrame):
         self.main_window = main_window
 
         self.button_drawing_load = tkinter.Button(
-            self, text="Otevřít výkres",
+            self,
+            text="Otevřít výkres",
             image=main_window.icons.drawing_load_icon,
-            command=main_window.open_drawing_command)
+            command=main_window.open_drawing_command,
+        )
 
         Tooltip(self.button_drawing_load, "Načtení výkresu")
 
         self.button_drawing_save = tkinter.Button(
-            self, text="Uložit výkres",
+            self,
+            text="Uložit výkres",
             image=main_window.icons.drawing_save_icon,
-            command=main_window.save_drawing_command)
+            command=main_window.save_drawing_command,
+        )
 
         Tooltip(self.button_drawing_save, "Uložení výkresu")
 
         self.button_file_open = tkinter.Button(
-            self, text="Importovat místnosti",
+            self,
+            text="Importovat místnosti",
             image=main_window.icons.file_open_icon,
-            command=main_window.import_rooms_command)
+            command=main_window.import_rooms_command,
+        )
 
         Tooltip(self.button_file_open, "Načtení místností ze souboru")
 
         self.button_file_save = tkinter.Button(
-            self, text="Uložit místnosti",
+            self,
+            text="Uložit místnosti",
             image=main_window.icons.file_save_icon,
-            command=main_window.export_rooms_command)
+            command=main_window.export_rooms_command,
+        )
 
         Tooltip(self.button_file_save, "Uložení místností do souboru")
 
         self.button_file_save_as = tkinter.Button(
-            self, text="Uložit místnosti pod jiným jménem",
+            self,
+            text="Uložit místnosti pod jiným jménem",
             image=main_window.icons.file_save_as_icon,
-            command=main_window.export_rooms_as_command)
+            command=main_window.export_rooms_as_command,
+        )
 
-        Tooltip(self.button_file_save_as, "Uložení místností do souboru pod jiným jménem")
+        Tooltip(
+            self.button_file_save_as, "Uložení místností do souboru pod jiným jménem"
+        )
 
         self.button_sap_import_rooms = tkinter.Button(
-            self, text="Seznam místností ze SAPu",
+            self,
+            text="Seznam místností ze SAPu",
             image=main_window.icons.rooms_from_sap,
-            command=main_window.import_rooms_from_sap)
+            command=main_window.import_rooms_from_sap,
+        )
 
         Tooltip(self.button_sap_import_rooms, "Přečtení seznamu místností ze SAPu")
 
         self.button_sap_sync_rooms = tkinter.Button(
-            self, text="Synchronizace místností ze SAPem",
+            self,
+            text="Synchronizace místností ze SAPem",
             image=main_window.icons.reload_icon,
-            command=main_window.synchronize_rooms_with_sap)
+            command=main_window.synchronize_rooms_with_sap,
+        )
 
         Tooltip(self.button_sap_sync_rooms, "Synchronizace místností ze SAPem")
 
         self.button_zoom_in = tkinter.Button(
-            self, text="Zvětšit",
+            self,
+            text="Zvětšit",
             image=main_window.icons.zoom_in_icon,
-            command=main_window.zoom_plus)
+            command=main_window.zoom_plus,
+        )
 
         Tooltip(self.button_zoom_in, "Přiblížení výkresu")
 
         self.button_zoom_out = tkinter.Button(
-            self, text="Zmenšit",
+            self,
+            text="Zmenšit",
             image=main_window.icons.zoom_out_icon,
-            command=main_window.zoom_minus)
+            command=main_window.zoom_minus,
+        )
 
         Tooltip(self.button_zoom_out, "Oddálení výkresu")
 
         self.button_zoom_11 = tkinter.Button(
-            self, text="1:1",
+            self,
+            text="1:1",
             image=main_window.icons.zoom_original_icon,
-            command=main_window.redraw)
+            command=main_window.redraw,
+        )
 
         Tooltip(self.button_zoom_11, "Původní měřítko výkresu")
 
         self.button_view_grid = tkinter.Button(
-            self, text="Mřížka",
+            self,
+            text="Mřížka",
             image=main_window.icons.view_grid_icon,
-            command=canvas.toggle_grid)
+            command=canvas.toggle_grid,
+        )
 
         Tooltip(self.button_view_grid, "Zobrazení či skrytí mřížky")
 
         self.button_view_boundary = tkinter.Button(
-            self, text="Okraj",
+            self,
+            text="Okraj",
             image=main_window.icons.view_boundary_icon,
-            command=canvas.toggle_boundary)
+            command=canvas.toggle_boundary,
+        )
 
         Tooltip(self.button_view_boundary, "Zobrazení či skrytí okraje výkresu")
 
         self.button_drawing_info = tkinter.Button(
-            self, text="Informace o výkresu",
+            self,
+            text="Informace o výkresu",
             image=main_window.icons.drawing_info_icon,
-            command=self.show_drawing_info_dialog)
+            command=self.show_drawing_info_dialog,
+        )
 
         Tooltip(self.button_drawing_info, "Zobrazení informací o výkresu")
 
         self.button_room_list = tkinter.Button(
-            self, text="Seznam místností",
+            self,
+            text="Seznam místností",
             image=main_window.icons.room_list_icon,
-            command=self.show_room_list_dialog)
+            command=self.show_room_list_dialog,
+        )
 
         Tooltip(self.button_room_list, "Zobrazení seznamu místností")
 
         self.button_new_room = tkinter.Button(
-            self, text="Nakreslit místnost",
+            self,
+            text="Nakreslit místnost",
             image=main_window.icons.edit_icon,
-            command=self.main_window.palette.redraw_room_polygon_command)
+            command=self.main_window.palette.redraw_room_polygon_command,
+        )
 
         Tooltip(self.button_new_room, "Nakreslit místnost")
 
         self.button_new_room_polygon = tkinter.Button(
-            self, text="Vybrat polyčáru pro místnost",
+            self,
+            text="Vybrat polyčáru pro místnost",
             image=main_window.icons.rectangle,
-            command=self.main_window.palette.select_polygon_for_room)
+            command=self.main_window.palette.select_polygon_for_room,
+        )
 
         Tooltip(self.button_new_room_polygon, "Vybrat polyčáru pro místnost")
 
@@ -148,9 +182,11 @@ class Toolbar(tkinter.LabelFrame):
         #     command=self.show_settings_dialog)
 
         self.button_quit = tkinter.Button(
-            self, text="Ukončit",
+            self,
+            text="Ukončit",
             image=main_window.icons.exit_icon,
-            command=main_window.quit)
+            command=main_window.quit,
+        )
 
         Tooltip(self.button_quit, "Ukončení aplikace")
 
