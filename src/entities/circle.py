@@ -33,11 +33,8 @@ class Circle(Entity):
     def str(self):
         """Return textual representation of circle."""
         return "C {color} {layer} {x} {y} {r}".format(
-            color=self.color,
-            layer=self.layer,
-            x=self.x,
-            y=self.y,
-            r=self.radius)
+            color=self.color, layer=self.layer, x=self.x, y=self.y, r=self.radius
+        )
 
     def asDict(self):
         """Convert Circle entity into proper dictionary."""
@@ -53,9 +50,13 @@ class Circle(Entity):
     def draw(self, canvas, xoffset, yoffset, scale):
         """Draw the entity onto canvas."""
         # draw the circle, remember the canvas ID of the new graphics entity
-        self._id = canvas.create_oval(self.x - self.radius, self.y - self.radius,
-                                      self.x + self.radius, self.y + self.radius,
-                                      tags="drawing")   # fill="red", tags="drawing")
+        self._id = canvas.create_oval(
+            self.x - self.radius,
+            self.y - self.radius,
+            self.x + self.radius,
+            self.y + self.radius,
+            tags="drawing",
+        )  # fill="red", tags="drawing")
 
     def transform(self, xoffset, yoffset, scale):
         """Perform the transformation of the entity into paper space."""
@@ -69,5 +70,9 @@ class Circle(Entity):
 
     def getBounds(self):
         """Compute bounds for given entity."""
-        return Bounds(self.x - self.radius, self.y - self.radius,
-                      self.x + self.radius, self.y + self.radius)
+        return Bounds(
+            self.x - self.radius,
+            self.y - self.radius,
+            self.x + self.radius,
+            self.y + self.radius,
+        )
