@@ -50,8 +50,9 @@ class SapRoomImporter:
         # remove end of lines
         parts = [item.strip() for item in parts]
         command = parts[0]
-        function = self.commands.get(command,
-                                     SapRoomImporter.process_room_without_prefix)
+        function = self.commands.get(
+            command, SapRoomImporter.process_room_without_prefix
+        )
         function(self, parts)
 
     def process_unknown_command(self, parts):
@@ -81,12 +82,10 @@ class SapRoomImporter:
         """Process room polygon."""
         room_id = parts[1]
         polygon = []
-        self.rooms.append({"room_id": room_id,
-                           "polygon": polygon})
+        self.rooms.append({"room_id": room_id, "polygon": polygon})
 
     def process_room_without_prefix(self, parts):
         """Process room polygon."""
         room_id = parts[0]
         polygon = []
-        self.rooms.append({"room_id": room_id,
-                           "polygon": polygon})
+        self.rooms.append({"room_id": room_id, "polygon": polygon})
