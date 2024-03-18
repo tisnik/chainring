@@ -28,7 +28,11 @@ class RoomTXTExporter:
             for room in rooms:
                 room_id = room.get("room_id", "")
                 canvas_id = room.get("canvas_id", "")
-                drawn = "ano" if room["polygon"] is not None and len(room["polygon"]) > 0 else "ne "
+                drawn = (
+                    "ano"
+                    if room["polygon"] is not None and len(room["polygon"]) > 0
+                    else "ne "
+                )
                 poly = None
                 if room["polygon"] is not None:
                     typ = "?"
@@ -37,4 +41,8 @@ class RoomTXTExporter:
                         poly = str(len(room["polygon"])) + " (" + typ + ")"
                 else:
                     poly = "?"
-                fout.write("{:<15} {:<7} {}         {}\n".format(room_id, canvas_id, drawn, poly))
+                fout.write(
+                    "{:<15} {:<7} {}         {}\n".format(
+                        room_id, canvas_id, drawn, poly
+                    )
+                )
