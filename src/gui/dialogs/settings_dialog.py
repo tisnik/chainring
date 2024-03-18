@@ -27,7 +27,9 @@ class SettingsDialog(tkinter.Toplevel):
         self.transient(parent)
 
         self.group1 = tkinter.LabelFrame(self, text="Nastavení serveru", padx=5, pady=8)
-        self.group2 = tkinter.LabelFrame(self, text="Informace o uživateli", padx=5, pady=8)
+        self.group2 = tkinter.LabelFrame(
+            self, text="Informace o uživateli", padx=5, pady=8
+        )
         self.group3 = tkinter.LabelFrame(self, text="Zobrazení výkresu", padx=5, pady=8)
 
         # frame group #1
