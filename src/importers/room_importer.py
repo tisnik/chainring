@@ -50,8 +50,7 @@ class RoomImporter:
         # remove end of lines
         parts = [item.strip() for item in parts]
         command = parts[0]
-        function = self.commands.get(command,
-                                     RoomImporter.process_unknown_command)
+        function = self.commands.get(command, RoomImporter.process_unknown_command)
         function(self, parts)
 
     def process_unknown_command(self, parts):
@@ -82,13 +81,13 @@ class RoomImporter:
         room_id = parts[1]
         vertexes = int(parts[2])
         coordinates = parts[3:]
-        polygon = list((float(coordinates[i * 2]), float(coordinates[i * 2 + 1]))
-                       for i in range(vertexes))
+        polygon = list(
+            (float(coordinates[i * 2]), float(coordinates[i * 2 + 1]))
+            for i in range(vertexes)
+        )
         last_part = parts[-1]
         if last_part == "P" or last_part == "L":
             typ = last_part
         else:
             typ = "?"
-        self.rooms.append({"room_id": room_id,
-                           "polygon": polygon,
-                           "type": typ})
+        self.rooms.append({"room_id": room_id, "polygon": polygon, "type": typ})
