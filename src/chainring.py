@@ -49,7 +49,11 @@ drawing = None
 
 if drawing is None:
     drawing_file_name = LoadDialogs.load_drawing(None)
-    if drawing_file_name is not None and drawing_file_name != "" and drawing_file_name != ():
+    if (
+        drawing_file_name is not None
+        and drawing_file_name != ""
+        and drawing_file_name != ()
+    ):
         if drawing_file_name.endswith(".drw"):
             importer = DrawingImporter(drawing_file_name)
             drawing = importer.import_drawing()
