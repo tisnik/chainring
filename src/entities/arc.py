@@ -41,7 +41,8 @@ class Arc(Entity):
             y=self.y,
             r=self.radius,
             a1=self.angle1,
-            a2=self.angle2)
+            a2=self.angle2,
+        )
 
     def asDict(self):
         """Convert Arc entity into proper dictionary."""
@@ -65,11 +66,17 @@ class Arc(Entity):
             extent += 360
 
         # draw the arc, remember the canvas ID of the new graphics entity
-        self._id = canvas.create_arc(self.x - self.radius, self.y - self.radius,
-                                     self.x + self.radius, self.y + self.radius,
-                                     start=self.angle1, extent=extent,
-                                     outline="black", style="arc",
-                                     tags="drawing")
+        self._id = canvas.create_arc(
+            self.x - self.radius,
+            self.y - self.radius,
+            self.x + self.radius,
+            self.y + self.radius,
+            start=self.angle1,
+            extent=extent,
+            outline="black",
+            style="arc",
+            tags="drawing",
+        )
 
     def transform(self, xoffset, yoffset, scale):
         """Perform the transformation of the entity into paper space."""
@@ -83,5 +90,9 @@ class Arc(Entity):
 
     def getBounds(self):
         """Compute bounds for given entity."""
-        return Bounds(self.x - self.radius, self.y - self.radius,
-                      self.x + self.radius, self.y + self.radius)
+        return Bounds(
+            self.x - self.radius,
+            self.y - self.radius,
+            self.x + self.radius,
+            self.y + self.radius,
+        )
