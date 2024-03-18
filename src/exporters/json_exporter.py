@@ -50,8 +50,11 @@ class JSONExporter:
     def write_room(fout, room):
         """Write the room data into the generated file."""
         vertexes = room["polygon"]
-        fout.write("R {id} {vertex_count}".format(id=room["room_id"],
-                                                  vertex_count=len(vertexes)))
+        fout.write(
+            "R {id} {vertex_count}".format(
+                id=room["room_id"], vertex_count=len(vertexes)
+            )
+        )
         for vertex in vertexes:
             fout.write(" {x} {y}".format(x=vertex[0], y=vertex[1]))
         fout.write("\n")
@@ -64,11 +67,15 @@ class JSONExporter:
         # export scales
         for scale in JSONExporter.SCALES:
             xoffset, yoffset, s = Rescaler.computeScale(bounds, scale[0], scale[1])
-            scales.append({"width": scale[0],
-                           "height": scale[1],
-                           "xoffset": xoffset,
-                           "yoffset": yoffset,
-                           "scale": s})
+            scales.append(
+                {
+                    "width": scale[0],
+                    "height": scale[1],
+                    "xoffset": xoffset,
+                    "yoffset": yoffset,
+                    "scale": s,
+                }
+            )
 
         # export entities
         entities_list = []
@@ -97,6 +104,7 @@ class JSONExporter:
         obj = self.to_json()
         with open(self.filename, "w") as fout:
             json.dump(obj, fout, indent="\t")
+
 
 #           for room in self.rooms:
 #               DrawingExporter.write_room(fout, room)
