@@ -17,8 +17,10 @@ from tkinter import messagebox
 
 def dialog_store_vertex_with_three_vertexes():
     """Show dialog with the question whether to draw room with three vertexes."""
-    return messagebox.askyesno("Místnost jen se třemi rohy",
-                               "Opravdu si přejete nakreslit místnost jen se třemi rohy?")
+    return messagebox.askyesno(
+        "Místnost jen se třemi rohy",
+        "Opravdu si přejete nakreslit místnost jen se třemi rohy?",
+    )
 
 
 def dialog_delete_whole_room(sap_id):
@@ -34,20 +36,24 @@ def dialog_delete_room_polygon(sap_id):
 
 
 def dialog_load_new_drawing():
-    """Show dialog with the question whether to delete current drawing and load new one from file.""" # noqa: E501
+    """Show dialog with the question whether to delete current drawing and load new one from file."""  # noqa: E501
     message = "Opravdu si přejete smazat stávající výkres a načíst výkres nový?"
     return messagebox.askyesno("Smazat stávající výkres", message)
 
 
 def dialog_load_rooms():
     """Show dialog with the question whether to delete current rooms and load new ones."""
-    message = "Opravdu si přejete smazat stávající místnosti a načíst místnosti ze souboru?"
+    message = (
+        "Opravdu si přejete smazat stávající místnosti a načíst místnosti ze souboru?"
+    )
     return messagebox.askyesno("Smazat stávající mísnosti", message)
 
 
 def dialog_load_rooms_from_sap():
     """Show dialog with the question whether to delete current rooms and load new ones from SAP."""
-    message = "Opravdu si přejete smazat stávající místnosti a načíst místnosti ze SAPu?"
+    message = (
+        "Opravdu si přejete smazat stávající místnosti a načíst místnosti ze SAPu?"
+    )
     return messagebox.askyesno("Smazat stávající mísnosti", message)
 
 
