@@ -37,7 +37,8 @@ class Text(Entity):
             layer=self.layer,
             x=self.x,
             y=self.y,
-            t=self.text.replace(u"\u00B2", "^2^"))
+            t=self.text.replace("\u00B2", "^2^"),
+        )
 
     def asDict(self):
         """Convert Text entity into proper dictionary."""
@@ -71,5 +72,4 @@ class Text(Entity):
 
     def getBounds(self):
         """Compute bounds for given entity."""
-        return Bounds(self.x, self.y,
-                      self.x, self.y)
+        return Bounds(self.x, self.y, self.x, self.y)
