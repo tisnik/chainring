@@ -122,9 +122,9 @@ class Drawing:
     def add_new_room(self, canvas_id, polygon):
         """Add new room into drawing."""
         room_id = "SAP1000" + str(self._room_counter)
-        self._rooms.append({"room_id": room_id,
-                            "canvas_id": canvas_id,
-                            "polygon": polygon})
+        self._rooms.append(
+            {"room_id": room_id, "canvas_id": canvas_id, "polygon": polygon}
+        )
         self._room_counter += 1
         return room_id
 
