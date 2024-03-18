@@ -34,109 +34,170 @@ class Menubar(tkinter.Menu):
         self.main_window = main_window
 
         self.filemenu = tkinter.Menu(self, tearoff=0)
-        self.filemenu.add_command(label="Otevřít výkres",
-                                  image=main_window.icons.drawing_load_icon,
-                                  compound="left", underline=0, accelerator="Ctrl+O",
-                                  command=main_window.open_drawing_command)
+        self.filemenu.add_command(
+            label="Otevřít výkres",
+            image=main_window.icons.drawing_load_icon,
+            compound="left",
+            underline=0,
+            accelerator="Ctrl+O",
+            command=main_window.open_drawing_command,
+        )
 
-        self.filemenu.add_command(label="Uložit výkres",
-                                  image=main_window.icons.drawing_save_icon,
-                                  compound="left", underline=0, accelerator="Ctrl+S",
-                                  command=main_window.save_drawing_command)
+        self.filemenu.add_command(
+            label="Uložit výkres",
+            image=main_window.icons.drawing_save_icon,
+            compound="left",
+            underline=0,
+            accelerator="Ctrl+S",
+            command=main_window.save_drawing_command,
+        )
 
         self.filemenu.add_separator()
 
-        self.filemenu.add_command(label="Export výkresu na server",
-                                  image=main_window.icons.server,
-                                  compound="left", underline=0,
-                                  command=main_window.send_drawing_to_server)
+        self.filemenu.add_command(
+            label="Export výkresu na server",
+            image=main_window.icons.server,
+            compound="left",
+            underline=0,
+            command=main_window.send_drawing_to_server,
+        )
 
         self.filemenu.add_separator()
 
-        self.filemenu.add_command(label="Konec", image=main_window.icons.exit_icon,
-                                  compound="left", underline=0, accelerator="Ctrl+Q",
-                                  command=parent.quit)
+        self.filemenu.add_command(
+            label="Konec",
+            image=main_window.icons.exit_icon,
+            compound="left",
+            underline=0,
+            accelerator="Ctrl+Q",
+            command=parent.quit,
+        )
 
         self.rooms = tkinter.Menu(self, tearoff=0)
 
-        self.rooms.add_command(label="Seznam místností",
-                               image=main_window.icons.room_list_icon,
-                               compound="left", underline=0,
-                               command=self.show_room_list_dialog,
-                               accelerator="Ctrl+M")
+        self.rooms.add_command(
+            label="Seznam místností",
+            image=main_window.icons.room_list_icon,
+            compound="left",
+            underline=0,
+            command=self.show_room_list_dialog,
+            accelerator="Ctrl+M",
+        )
 
         self.rooms.add_separator()
 
-        self.rooms.add_command(label="Importovat místnosti",
-                               image=main_window.icons.file_open_icon,
-                               compound="left", underline=0,
-                               command=main_window.import_rooms_command)
+        self.rooms.add_command(
+            label="Importovat místnosti",
+            image=main_window.icons.file_open_icon,
+            compound="left",
+            underline=0,
+            command=main_window.import_rooms_command,
+        )
 
-        self.rooms.add_command(label="Uložit místnosti",
-                               image=main_window.icons.file_save_icon,
-                               compound="left", underline=0,
-                               command=main_window.export_rooms_command)
+        self.rooms.add_command(
+            label="Uložit místnosti",
+            image=main_window.icons.file_save_icon,
+            compound="left",
+            underline=0,
+            command=main_window.export_rooms_command,
+        )
 
-        self.rooms.add_command(label="Uložit místnosti jiným jménem",
-                               image=main_window.icons.file_save_as_icon,
-                               compound="left", underline=1,
-                               command=main_window.export_rooms_as_command)
+        self.rooms.add_command(
+            label="Uložit místnosti jiným jménem",
+            image=main_window.icons.file_save_as_icon,
+            compound="left",
+            underline=1,
+            command=main_window.export_rooms_as_command,
+        )
 
         self.rooms.add_separator()
 
-        self.rooms.add_command(label="Seznam místností ze SAPu",
-                               image=main_window.icons.rooms_from_sap,
-                               compound="left", underline=1,
-                               command=main_window.import_rooms_from_sap)
+        self.rooms.add_command(
+            label="Seznam místností ze SAPu",
+            image=main_window.icons.rooms_from_sap,
+            compound="left",
+            underline=1,
+            command=main_window.import_rooms_from_sap,
+        )
 
-        self.rooms.add_command(label="Synchronizace místností ze SAPem",
-                               image=main_window.icons.reload_icon,
-                               compound="left", underline=1,
-                               command=main_window.synchronize_rooms_with_sap)
+        self.rooms.add_command(
+            label="Synchronizace místností ze SAPem",
+            image=main_window.icons.reload_icon,
+            compound="left",
+            underline=1,
+            command=main_window.synchronize_rooms_with_sap,
+        )
 
         self.edit = tkinter.Menu(self, tearoff=0)
-        self.edit.add_command(label="Nakreslit místnost",
-                              image=main_window.icons.edit_icon,
-                              compound="left", underline=0,
-                              command=self.main_window.draw_new_room_command)
+        self.edit.add_command(
+            label="Nakreslit místnost",
+            image=main_window.icons.edit_icon,
+            compound="left",
+            underline=0,
+            command=self.main_window.draw_new_room_command,
+        )
         # accelerator="Ctrl+N")
 
-        self.edit.add_command(label="Vybrat polygon pro místnost",
-                              image=main_window.icons.rectangle,
-                              compound="left", underline=0,
-                              command=self.main_window.draw_new_room_command)
+        self.edit.add_command(
+            label="Vybrat polygon pro místnost",
+            image=main_window.icons.rectangle,
+            compound="left",
+            underline=0,
+            command=self.main_window.draw_new_room_command,
+        )
         # accelerator="Ctrl+P")
 
         self.view = tkinter.Menu(self, tearoff=0)
-        self.view.add_command(label="Zvětšit",
-                              image=main_window.icons.zoom_in_icon,
-                              compound="left", underline=1, accelerator="Ctrl++",
-                              command=main_window.zoom_plus)
-        self.view.add_command(label="Zmenšit",
-                              image=main_window.icons.zoom_out_icon,
-                              compound="left", underline=1, accelerator="Ctrl+-",
-                              command=main_window.zoom_minus)
-        self.view.add_command(label="1:1",
-                              image=main_window.icons.zoom_original_icon,
-                              compound="left", underline=0, accelerator="Ctrl+0",
-                              command=main_window.redraw)
+        self.view.add_command(
+            label="Zvětšit",
+            image=main_window.icons.zoom_in_icon,
+            compound="left",
+            underline=1,
+            accelerator="Ctrl++",
+            command=main_window.zoom_plus,
+        )
+        self.view.add_command(
+            label="Zmenšit",
+            image=main_window.icons.zoom_out_icon,
+            compound="left",
+            underline=1,
+            accelerator="Ctrl+-",
+            command=main_window.zoom_minus,
+        )
+        self.view.add_command(
+            label="1:1",
+            image=main_window.icons.zoom_original_icon,
+            compound="left",
+            underline=0,
+            accelerator="Ctrl+0",
+            command=main_window.redraw,
+        )
         self.view.add_separator()
-        self.view.add_command(label="Mřížka",
-                              image=main_window.icons.view_grid_icon,
-                              compound="left", underline=0,
-                              command=canvas.toggle_grid)
-        self.view.add_command(label="Okraj výkresu",
-                              image=main_window.icons.view_boundary_icon,
-                              compound="left", underline=0,
-                              command=canvas.toggle_boundary)
+        self.view.add_command(
+            label="Mřížka",
+            image=main_window.icons.view_grid_icon,
+            compound="left",
+            underline=0,
+            command=canvas.toggle_grid,
+        )
+        self.view.add_command(
+            label="Okraj výkresu",
+            image=main_window.icons.view_boundary_icon,
+            compound="left",
+            underline=0,
+            command=canvas.toggle_boundary,
+        )
 
         self.tools = tkinter.Menu(self, tearoff=0)
 
-        self.tools.add_command(label="Informace o výkresu",
-                               image=main_window.icons.drawing_info_icon,
-                               compound="left", underline=0,
-                               command=self.show_drawing_info_dialog,
-                               accelerator="Ctrl+I")
+        self.tools.add_command(
+            label="Informace o výkresu",
+            image=main_window.icons.drawing_info_icon,
+            compound="left",
+            underline=0,
+            command=self.show_drawing_info_dialog,
+            accelerator="Ctrl+I",
+        )
 
         self.tools.add_separator()
         # self.tools.add_command(label="Nastavení",
@@ -144,28 +205,47 @@ class Menubar(tkinter.Menu):
         #                        compound="left", underline=0,
         #                        command=self.show_settings_dialog)
         # self.tools.add_separator()
-        self.tools.add_command(label="Zkontrolovat připojení k serveru",
-                               image=main_window.icons.checkbox_icon,
-                               compound="left", underline=0,
-                               command=self.check_server_connectivity)
-        self.tools.add_command(label="Verze rozhraní serveru",
-                               image=main_window.icons.service_icon,
-                               compound="left", underline=0,
-                               command=self.check_service_version)
+        self.tools.add_command(
+            label="Zkontrolovat připojení k serveru",
+            image=main_window.icons.checkbox_icon,
+            compound="left",
+            underline=0,
+            command=self.check_server_connectivity,
+        )
+        self.tools.add_command(
+            label="Verze rozhraní serveru",
+            image=main_window.icons.service_icon,
+            compound="left",
+            underline=0,
+            command=self.check_service_version,
+        )
 
         self.helpmenu = tkinter.Menu(self, tearoff=0)
-        self.helpmenu.add_command(label="Nápověda",
-                                  image=main_window.icons.help_faq_icon,
-                                  compound="left", underline=0, accelerator="F1",
-                                  command=help)
+        self.helpmenu.add_command(
+            label="Nápověda",
+            image=main_window.icons.help_faq_icon,
+            compound="left",
+            underline=0,
+            accelerator="F1",
+            command=help,
+        )
         self.helpmenu.add_separator()
-        self.helpmenu.add_command(label="O programu",
-                                  image=main_window.icons.help_about_icon, accelerator="F11",
-                                  compound="left", underline=0, command=about)
-        self.helpmenu.add_command(label="Aktuální konfigurace",
-                                  image=main_window.icons.configure, accelerator="F12",
-                                  compound="left", underline=0,
-                                  command=lambda: configure(self.main_window.configuration))
+        self.helpmenu.add_command(
+            label="O programu",
+            image=main_window.icons.help_about_icon,
+            accelerator="F11",
+            compound="left",
+            underline=0,
+            command=about,
+        )
+        self.helpmenu.add_command(
+            label="Aktuální konfigurace",
+            image=main_window.icons.configure,
+            accelerator="F12",
+            compound="left",
+            underline=0,
+            command=lambda: configure(self.main_window.configuration),
+        )
 
         self.add_cascade(label="Soubor", menu=self.filemenu, underline=0)
         self.add_cascade(label="Upravit", menu=self.edit, underline=0)
@@ -176,9 +256,13 @@ class Menubar(tkinter.Menu):
 
         self.parent.bind("<F1>", lambda event: help())
         self.parent.bind("<F11>", lambda event: about())
-        self.parent.bind("<F12>", lambda event: configure(self.main_window.configuration))
+        self.parent.bind(
+            "<F12>", lambda event: configure(self.main_window.configuration)
+        )
         self.parent.bind("<Control-q>", lambda event: parent.quit())
-        self.parent.bind("<Control-n>", lambda event: main_window.draw_new_room_command())
+        self.parent.bind(
+            "<Control-n>", lambda event: main_window.draw_new_room_command()
+        )
         self.parent.bind("<Control-i>", lambda event: self.show_drawing_info_dialog())
         self.parent.bind("<Control-m>", lambda event: self.show_room_list_dialog())
         self.parent.bind("<Control-0>", lambda event: main_window.redraw())
@@ -211,7 +295,9 @@ class Menubar(tkinter.Menu):
         if status:
             messagebox.showinfo("Připojení k serveru", "Připojení k serveru: Ok")
         else:
-            messagebox.showerror("Nastala chyba", "Nastala chyba: {e}".format(e=message))
+            messagebox.showerror(
+                "Nastala chyba", "Nastala chyba: {e}".format(e=message)
+            )
 
     def check_service_version(self):
         """Check the version of web service and display results."""
@@ -227,9 +313,13 @@ class Menubar(tkinter.Menu):
         drawServiceInterface = DrawServiceInterface(service_url=url)
         status, version, message = drawServiceInterface.read_version()
         if status:
-            messagebox.showinfo("Verze rozhraní", "Verze rozhraní: {v}".format(v=version))
+            messagebox.showinfo(
+                "Verze rozhraní", "Verze rozhraní: {v}".format(v=version)
+            )
         else:
-            messagebox.showerror("Nastala chyba", "Nastala chyba: {e}".format(e=message))
+            messagebox.showerror(
+                "Nastala chyba", "Nastala chyba: {e}".format(e=message)
+            )
 
     def disable_ui_items_for_no_drawing_mode(self):
         """Disable UI (menu) items when the application is set to no drawing mode."""
