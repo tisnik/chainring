@@ -94,7 +94,9 @@ class MainWindow:
             messagebox.showerror("Nastala chyba", "Výkres není aktivní")
             return
         if self.drawing.drawing_id is None:
-            messagebox.showerror("Nastala chyba", "Výkres nemá přiřazen jednoznačný identifikátor (ID)")
+            messagebox.showerror(
+                "Nastala chyba", "Výkres nemá přiřazen jednoznačný identifikátor (ID)"
+            )
             return
         address = self.configuration.server_address
         port = self.configuration.server_port
@@ -110,7 +112,9 @@ class MainWindow:
         if status:
             messagebox.showinfo("Výsledek operace", message)
         else:
-            messagebox.showerror("Nastala chyba", "Nastala chyba: {e}".format(e=message))
+            messagebox.showerror(
+                "Nastala chyba", "Nastala chyba: {e}".format(e=message)
+            )
 
     def disable_ui_items_for_no_drawing_mode(self):
         """Disable all related UI items when the application is set to no drawing mode."""
@@ -143,20 +147,28 @@ class MainWindow:
         rooms = []
         for r in rooms_from_sap:
             polygon = []
-            rooms.append({"room_id": r["AOID"],
-                          "polygon": polygon})
+            rooms.append({"room_id": r["AOID"], "polygon": polygon})
         return rooms
 
     def import_rooms_from_sap(self, event=None):
         """Import rooms from SAP."""
-        if self.drawing.rooms is None or len(self.drawing.rooms) == 0 or dialog_load_rooms_from_sap():
-            rooms_from_sap, drawing_id = LoadDialogs.load_rooms_from_sap(self.root, self.configuration)
+        if (
+            self.drawing.rooms is None
+            or len(self.drawing.rooms) == 0
+            or dialog_load_rooms_from_sap()
+        ):
+            rooms_from_sap, drawing_id = LoadDialogs.load_rooms_from_sap(
+                self.root, self.configuration
+            )
             if rooms_from_sap is not None:
                 # process drawing_id
                 if drawing_id is not None:
                     self.drawing.drawing_id = drawing_id
                 else:
-                    messagebox.showerror("Nastala chyba", "Nelze zjistit jednoznačný identifikátor výkresu")
+                    messagebox.showerror(
+                        "Nastala chyba",
+                        "Nelze zjistit jednoznačný identifikátor výkresu",
+                    )
                 # delete rooms from canvas
                 if self.drawing.rooms is not None:
                     for room in self.drawing.rooms:
@@ -172,8 +184,14 @@ class MainWindow:
 
     def synchronize_rooms_with_sap(self, event=None):
         """Synchronize rooms with SAP."""
-        if self.drawing.rooms is None or len(self.drawing.rooms) == 0 or dialog_synchronize_rooms_with_sap():
-            rooms_from_sap, drawing_id = LoadDialogs.load_rooms_from_sap(self.root, self.configuration)
+        if (
+            self.drawing.rooms is None
+            or len(self.drawing.rooms) == 0
+            or dialog_synchronize_rooms_with_sap()
+        ):
+            rooms_from_sap, drawing_id = LoadDialogs.load_rooms_from_sap(
+                self.root, self.configuration
+            )
             if rooms_from_sap is not None:
                 deleted = 0
                 inserted = 0
@@ -181,7 +199,10 @@ class MainWindow:
                 if drawing_id is not None:
                     self.drawing.drawing_id = drawing_id
                 else:
-                    messagebox.showerror("Nastala chyba", "Nelze zjistit jednoznačný identifikátor výkresu")
+                    messagebox.showerror(
+                        "Nastala chyba",
+                        "Nelze zjistit jednoznačný identifikátor výkresu",
+                    )
                 if self.drawing.rooms is not None:
                     # if some room is missing in SAP, remove it from drawing as well
                     for room in list(self.drawing.rooms):
@@ -208,15 +229,17 @@ class MainWindow:
                         if not found:
                             print("Adding " + sap_id)
                             inserted += 1
-                            self.drawing.rooms.append({"room_id": sap_id,
-                                                       "polygon": []})
+                            self.drawing.rooms.append(
+                                {"room_id": sap_id, "polygon": []}
+                            )
 
                 self.palette.remove_all_rooms()
                 self.drawing.room_counter = len(self.drawing.rooms) + 1
                 self.redraw()
                 self.add_all_rooms_from_drawing()
-                message = ("Přidaných místností: {i}\n" +
-                           "Vymazaných místností: {d}").format(i=inserted, d=deleted)
+                message = (
+                    "Přidaných místností: {i}\n" + "Vymazaných místností: {d}"
+                ).format(i=inserted, d=deleted)
                 messagebox.showinfo("Výsledek synchronizace", message)
 
     def import_drawing_command(self, filename):
@@ -224,9 +247,17 @@ class MainWindow:
 
     def import_rooms_command(self, event=None):
         """Handle the command to import rooms."""
-        if self.drawing.rooms is None or len(self.drawing.rooms) == 0 or dialog_load_rooms():
+        if (
+            self.drawing.rooms is None
+            or len(self.drawing.rooms) == 0
+            or dialog_load_rooms()
+        ):
             room_file_name = LoadDialogs.load_rooms(None)
-            if room_file_name is not None and room_file_name != "" and room_file_name != ():
+            if (
+                room_file_name is not None
+                and room_file_name != ""
+                and room_file_name != ()
+            ):
                 # delete rooms from canvas
                 if self.drawing.rooms is not None:
                     for room in self.drawing.rooms:
@@ -295,7 +326,11 @@ class MainWindow:
             if not dialog_load_new_drawing():
                 return
         drawing_file_name = LoadDialogs.load_drawing(None)
-        if drawing_file_name is not None and drawing_file_name != "" and drawing_file_name != ():
+        if (
+            drawing_file_name is not None
+            and drawing_file_name != ""
+            and drawing_file_name != ()
+        ):
             if drawing_file_name.endswith(".drw"):
                 importer = DrawingImporter(drawing_file_name)
                 drawing = importer.import_drawing()
@@ -306,7 +341,9 @@ class MainWindow:
                 error_dialog_drawing_load()
             else:
                 bounds = Bounds.computeBounds(drawing.entities)
-                xoffset, yoffset, scale = Rescaler.computeScaleForCanvas(bounds, self.canvas)
+                xoffset, yoffset, scale = Rescaler.computeScaleForCanvas(
+                    bounds, self.canvas
+                )
                 drawing.rescale(xoffset, yoffset, scale)
                 self.drawing = drawing
                 self.redraw()
@@ -377,13 +414,14 @@ class MainWindow:
             self.palette.add_new_room(room_id)
         else:
             room_id = self.edited_room_id
-            self._drawing.update_room_polygon(room_id, canvas_id, self.room.polygon_world, "L")
+            self._drawing.update_room_polygon(
+                room_id, canvas_id, self.room.polygon_world, "L"
+            )
         self.edited_room_id = None
         self.canvas.delete_temporary_entities()
 
         # update left palette
-        r = {"room_id": room_id,
-             "polygon": self.room.polygon_world}
+        r = {"room_id": room_id, "polygon": self.room.polygon_world}
         self.palette.fill_in_room_info(r)
 
         # cleanup
@@ -466,14 +504,15 @@ class MainWindow:
                     self.room.polygon_world.append((xpoints[i], ypoints[i]))
                 canvas_id = self.canvas.draw_new_room(self.room)
 
-                self._drawing.update_room_polygon(room_id, canvas_id, self.room.polygon_world, "P")
+                self._drawing.update_room_polygon(
+                    room_id, canvas_id, self.room.polygon_world, "P"
+                )
                 print(entity)
                 print(canvas_object_id)
                 print(canvas_id)
                 print(xpoints)
                 print(ypoints)
-                r = {"room_id": room_id,
-                     "polygon": self.room.polygon_world}
+                r = {"room_id": room_id, "polygon": self.room.polygon_world}
                 self.palette.fill_in_room_info(r)
                 self.room.polygon_world = []
                 self.room.polygon_canvas = []
@@ -486,16 +525,18 @@ class MainWindow:
     def draw_new_room_line(self, canvas_x, canvas_y):
         """Draw new line for room that's being drawn."""
         if self.room.last_point_exist():
-            self.canvas.draw_new_room_temporary_line(self.room.last_x,
-                                                     self.room.last_y,
-                                                     canvas_x, canvas_y)
+            self.canvas.draw_new_room_temporary_line(
+                self.room.last_x, self.room.last_y, canvas_x, canvas_y
+            )
         self.room.last_x = canvas_x
         self.room.last_y = canvas_y
 
     def nearest_endpoint(self, x, y, item, entity):
         """Find nearest endpoint for given entity and coordinates [x,y]."""
         x1, y1, x2, y2 = self.canvas.coords(item)
-        if GeometryUtils.square_length(x1, y1, x, y) < GeometryUtils.square_length(x2, y2, x, y):
+        if GeometryUtils.square_length(x1, y1, x, y) < GeometryUtils.square_length(
+            x2, y2, x, y
+        ):
             return x1, y1, entity.x1, entity.y1
         else:
             return x2, y2, entity.x2, entity.y2
@@ -517,7 +558,9 @@ class MainWindow:
 
         entity = self.entity_with_endpoints(item)
         if entity is not None:
-            canvas_x, canvas_y, world_x, world_y = self.nearest_endpoint(x, y, item, entity)
+            canvas_x, canvas_y, world_x, world_y = self.nearest_endpoint(
+                x, y, item, entity
+            )
             self.add_vertex(canvas_x, canvas_y, world_x, world_y)
 
     def get_scale(self):
@@ -553,7 +596,10 @@ class MainWindow:
 
     def on_left_button_drag(self, event):
         """Handle the left mouse button drag event."""
-        if self.canvas_mode == CanvasMode.DRAW_ROOM or self.canvas_mode == CanvasMode.SELECT_POLYGON_FOR_ROOM:
+        if (
+            self.canvas_mode == CanvasMode.DRAW_ROOM
+            or self.canvas_mode == CanvasMode.SELECT_POLYGON_FOR_ROOM
+        ):
             pass
         else:
             self.scroll_move(event)
@@ -575,13 +621,21 @@ class MainWindow:
         if self.canvas_mode == CanvasMode.DRAW_ROOM:
             return
         if event:
-            self.canvas.scale("all", event.x, event.y,
-                              MainWindow.SCALE_UP_FACTOR,
-                              MainWindow.SCALE_UP_FACTOR)
+            self.canvas.scale(
+                "all",
+                event.x,
+                event.y,
+                MainWindow.SCALE_UP_FACTOR,
+                MainWindow.SCALE_UP_FACTOR,
+            )
         else:
-            self.canvas.scale("all", self.canvas.width / 2, self.canvas.height / 2,
-                              MainWindow.SCALE_UP_FACTOR,
-                              MainWindow.SCALE_UP_FACTOR)
+            self.canvas.scale(
+                "all",
+                self.canvas.width / 2,
+                self.canvas.height / 2,
+                MainWindow.SCALE_UP_FACTOR,
+                MainWindow.SCALE_UP_FACTOR,
+            )
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))
 
     # zoom on Linux
@@ -590,19 +644,28 @@ class MainWindow:
         if self.canvas_mode == CanvasMode.DRAW_ROOM:
             return
         if event:
-            self.canvas.scale("all", event.x, event.y,
-                              MainWindow.SCALE_DOWN_FACTOR,
-                              MainWindow.SCALE_DOWN_FACTOR)
+            self.canvas.scale(
+                "all",
+                event.x,
+                event.y,
+                MainWindow.SCALE_DOWN_FACTOR,
+                MainWindow.SCALE_DOWN_FACTOR,
+            )
         else:
-            self.canvas.scale("all", self.canvas.width / 2, self.canvas.height / 2,
-                              MainWindow.SCALE_DOWN_FACTOR,
-                              MainWindow.SCALE_DOWN_FACTOR)
+            self.canvas.scale(
+                "all",
+                self.canvas.width / 2,
+                self.canvas.height / 2,
+                MainWindow.SCALE_DOWN_FACTOR,
+                MainWindow.SCALE_DOWN_FACTOR,
+            )
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))
 
     def quit(self):
         """Display message box whether to quit the application."""
-        answer = messagebox.askyesno("Skutečně ukončit program?",
-                                     "Skutečně ukončit program?")
+        answer = messagebox.askyesno(
+            "Skutečně ukončit program?", "Skutečně ukončit program?"
+        )
         if answer:
             self.root.quit()
 
