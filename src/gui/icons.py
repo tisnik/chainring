@@ -57,13 +57,11 @@ class Icons:
 
         self.file_open_icon = tkinter.PhotoImage(data=icons.file_open.icon)
         self.file_save_icon = tkinter.PhotoImage(data=icons.file_save.icon)
-        self.file_save_as_icon = tkinter.PhotoImage(
-            data=icons.file_save_as.icon)
+        self.file_save_as_icon = tkinter.PhotoImage(data=icons.file_save_as.icon)
 
         self.zoom_in_icon = tkinter.PhotoImage(data=icons.zoom_in.icon)
         self.zoom_out_icon = tkinter.PhotoImage(data=icons.zoom_out.icon)
-        self.zoom_original_icon = tkinter.PhotoImage(
-            data=icons.zoom_original.icon)
+        self.zoom_original_icon = tkinter.PhotoImage(data=icons.zoom_original.icon)
 
         self.help_about_icon = tkinter.PhotoImage(data=icons.help_about.icon)
         self.help_faq_icon = tkinter.PhotoImage(data=icons.help_faq.icon)
@@ -71,17 +69,16 @@ class Icons:
         self.system_run_icon = tkinter.PhotoImage(data=icons.system_run.icon)
         self.image_icon = tkinter.PhotoImage(data=icons.image.icon)
         self.view_grid_icon = tkinter.PhotoImage(data=icons.view_grid.icon)
-        self.view_boundary_icon = tkinter.PhotoImage(
-            data=icons.view_boundary.icon)
+        self.view_boundary_icon = tkinter.PhotoImage(data=icons.view_boundary.icon)
         self.edit_icon = tkinter.PhotoImage(data=icons.edit.icon)
         self.reload_icon = tkinter.PhotoImage(data=icons.reload.icon)
         self.edit_delete_icon = tkinter.PhotoImage(data=icons.edit_delete.icon)
         self.edit_delete_shred_icon = tkinter.PhotoImage(
-            data=icons.edit_delete_shred.icon)
+            data=icons.edit_delete_shred.icon
+        )
         self.edit_redo_icon = tkinter.PhotoImage(data=icons.edit_redo.icon)
         self.properties_icon = tkinter.PhotoImage(data=icons.properties.icon)
-        self.drawing_info_icon = tkinter.PhotoImage(
-            data=icons.drawing_info.icon)
+        self.drawing_info_icon = tkinter.PhotoImage(data=icons.drawing_info.icon)
         self.checkbox_icon = tkinter.PhotoImage(data=icons.checkbox.icon)
         self.service_icon = tkinter.PhotoImage(data=icons.service.icon)
         self.rooms_from_sap = tkinter.PhotoImage(data=icons.rooms_from_sap.icon)
