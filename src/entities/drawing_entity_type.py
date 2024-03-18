@@ -19,10 +19,10 @@ from enum import Enum
 class DrawingEntityType(Enum):
     """Enumeration with all entity types that can be used in drawings."""
 
-    UNKNOWN = 1,
-    LINE = 2,
-    CIRCLE = 3,
-    ARC = 4,
-    TEXT = 5,
-    POLYLINE = 6,
+    UNKNOWN = (1,)
+    LINE = (2,)
+    CIRCLE = (3,)
+    ARC = (4,)
+    TEXT = (5,)
+    POLYLINE = (6,)
     ATTRIB = 7
