@@ -38,7 +38,9 @@ class RoomListDialog(tkinter.Toplevel):
         self.txt.tag_configure("green", foreground="green")
         self.txt.tag_configure("red", foreground="red")
 
-        self.txt.insert(tkinter.INSERT, "SAP ID\tgr.ID\tzakreslena\tsouřadnic\n", "underlined")
+        self.txt.insert(
+            tkinter.INSERT, "SAP ID\tgr.ID\tzakreslena\tsouřadnic\n", "underlined"
+        )
 
         for room in rooms:
             if "room_id" in room:
@@ -60,7 +62,9 @@ class RoomListDialog(tkinter.Toplevel):
                 typ = "?"
                 if "type" in room:
                     typ = room["type"]
-                self.txt.insert(tkinter.END, str(len(room["polygon"])) + " (" + typ + ")\n")
+                self.txt.insert(
+                    tkinter.END, str(len(room["polygon"])) + " (" + typ + ")\n"
+                )
             else:
                 self.txt.insert(tkinter.END, "?\n")
 
