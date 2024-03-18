@@ -42,7 +42,8 @@ class Polyline(Entity):
             layer=self.layer,
             points=len(self.points_x),
             xpoints=Polyline.point_list_to_str(self.points_x),
-            ypoints=Polyline.point_list_to_str(self.points_y))
+            ypoints=Polyline.point_list_to_str(self.points_y),
+        )
 
     def asDict(self):
         """Convert Polyline entity into proper dictionary."""
@@ -66,12 +67,17 @@ class Polyline(Entity):
             points.append(y)
         # special polyline used for selecting room
         if self.layer is not None and self.layer == "CKPOPISM_PLOCHA":
-            new_object = canvas.create_polygon(points, fill="", width=2, activeoutline="red",
-                                               outline="green")
+            new_object = canvas.create_polygon(
+                points, fill="", width=2, activeoutline="red", outline="green"
+            )
             self._id = new_object
-            canvas.tag_bind(new_object, "<ButtonPress-1>",
-                            lambda event, new_object=new_object: canvas.on_polygon_for_room_click(
-                                new_object))
+            canvas.tag_bind(
+                new_object,
+                "<ButtonPress-1>",
+                lambda event, new_object=new_object: canvas.on_polygon_for_room_click(
+                    new_object
+                ),
+            )
         # just a regular polyline
         else:
             self._id = canvas.create_polygon(points, fill="", outline="green")
@@ -107,5 +113,4 @@ class Polyline(Entity):
             if y > ymax:
                 ymax = y
 
-        return Bounds(xmin, ymin,
-                      xmax, ymax)
+        return Bounds(xmin, ymin, xmax, ymax)
