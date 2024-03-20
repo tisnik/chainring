@@ -79,7 +79,7 @@ class Line(Entity):
         self.x2 *= scale
         self.y2 *= scale
 
-    def getBounds(self):
+    def get_bounds(self):
         """Compute bounds for given entity."""
         return Bounds(
             min(self.x1, self.x2),
