@@ -68,7 +68,7 @@ if drawing is None:
 if drawing is not None:
     bounds = Bounds.computeBounds(drawing.entities)
     # print(bounds)
-    xoffset, yoffset, scale = Rescaler.computeScaleForCanvas(bounds, main_window.canvas)
+    xoffset, yoffset, scale = Rescaler.compute_scale_for_canvas(bounds, main_window.canvas)
     # print(xoffset, yoffset, scale)
 
     # ex = BinaryExporter("output3.bin", entities)
