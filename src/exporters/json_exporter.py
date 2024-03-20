@@ -66,7 +66,7 @@ class JSONExporter:
 
         # export scales
         for scale in JSONExporter.SCALES:
-            xoffset, yoffset, s = Rescaler.computeScale(bounds, scale[0], scale[1])
+            xoffset, yoffset, s = Rescaler.compute_scale(bounds, scale[0], scale[1])
             scales.append(
                 {
                     "width": scale[0],
