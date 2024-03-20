@@ -19,6 +19,7 @@ from draw_service import DrawServiceInterface
 from exporters.drawing_exporter import DrawingExporter
 from exporters.room_exporter import RoomExporter
 from geometry.utils import GeometryUtils
+from geometry.bounds import Bounds
 from gui.canvas import Canvas
 from gui.canvas_mode import CanvasMode
 from gui.dialogs.error_dialogs import *
