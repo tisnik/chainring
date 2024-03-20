@@ -36,7 +36,7 @@ class Circle(Entity):
             color=self.color, layer=self.layer, x=self.x, y=self.y, r=self.radius
         )
 
-    def asDict(self):
+    def as_dict(self):
         """Convert Circle entity into proper dictionary."""
         return {
             "T": "C",
