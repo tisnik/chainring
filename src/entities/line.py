@@ -42,7 +42,7 @@ class Line(Entity):
             y2=self.y2,
         )
 
-    def asDict(self):
+    def as_dict(self):
         """Convert Line entity into proper dictionary."""
         return {
             "T": "L",
