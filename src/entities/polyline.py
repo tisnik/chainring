@@ -92,7 +92,7 @@ class Polyline(Entity):
             self.points_x[i] *= scale
             self.points_y[i] *= scale
 
-    def getBounds(self):
+    def get_bounds(self):
         """Compute bounds for given entity."""
         xmin = sys.float_info.max
         ymin = sys.float_info.max
