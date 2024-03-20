@@ -22,5 +22,5 @@ class Entity:
     def transform(self, xoffset, yoffset, scale):
         """Perform the transformation of the entity into paper space."""
 
-    def getBounds(self):
+    def get_bounds(self):
         """Compute bounds for given entity."""
