@@ -80,7 +80,7 @@ class JSONExporter:
         # export entities
         entities_list = []
         for entity in self.entities:
-            entities_list.append(entity.asDict())
+            entities_list.append(entity.as_dict())
 
         # the whole object to be exported
         return {
