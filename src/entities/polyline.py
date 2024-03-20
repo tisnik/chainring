@@ -45,7 +45,7 @@ class Polyline(Entity):
             ypoints=Polyline.point_list_to_str(self.points_y),
         )
 
-    def asDict(self):
+    def as_dict(self):
         """Convert Polyline entity into proper dictionary."""
         return {
             "T": "P",
