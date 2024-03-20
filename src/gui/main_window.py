@@ -341,7 +341,7 @@ class MainWindow:
             if drawing is None:
                 error_dialog_drawing_load()
             else:
-                bounds = Bounds.computeBounds(drawing.entities)
+                bounds = Bounds.compute_bounds(drawing.entities)
                 xoffset, yoffset, scale = Rescaler.computeScaleForCanvas(
                     bounds, self.canvas
                 )

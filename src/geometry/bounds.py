@@ -45,7 +45,7 @@ class Bounds:
         )
 
     @staticmethod
-    def computeBounds(entities):
+    def compute_bounds(entities):
         """Compute bounds for all given entities."""
         # initial settings - empty bounds area
         bounds = Bounds()

@@ -61,7 +61,7 @@ class JSONExporter:
 
     def to_json(self):
         """Perform conversion to JSON format."""
-        bounds = Bounds.computeBounds(self.entities)
+        bounds = Bounds.compute_bounds(self.entities)
         scales = []
 
         # export scales

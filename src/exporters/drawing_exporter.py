@@ -100,7 +100,7 @@ class DrawingExporter:
             DrawingExporter.output_timestamp(fout)
 
             # compute drawing bounds and write them into the file
-            bounds = Bounds.computeBounds(self.entities)
+            bounds = Bounds.compute_bounds(self.entities)
             fout.write("bounds: {b}\n".format(b=bounds))
 
             # compute drawing scales and write them into the file
