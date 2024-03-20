@@ -68,7 +68,7 @@ class Circle(Entity):
         self.y *= scale
         self.radius *= scale
 
-    def getBounds(self):
+    def get_bounds(self):
         """Compute bounds for given entity."""
         return Bounds(
             self.x - self.radius,
