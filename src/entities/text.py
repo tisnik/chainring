@@ -40,7 +40,7 @@ class Text(Entity):
             t=self.text.replace("\u00B2", "^2^"),
         )
 
-    def asDict(self):
+    def as_dict(self):
         """Convert Text entity into proper dictionary."""
         return {
             "T": "T",
