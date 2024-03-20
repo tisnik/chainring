@@ -44,7 +44,7 @@ class Arc(Entity):
             a2=self.angle2,
         )
 
-    def asDict(self):
+    def as_dict(self):
         """Convert Arc entity into proper dictionary."""
         return {
             "T": "A",
