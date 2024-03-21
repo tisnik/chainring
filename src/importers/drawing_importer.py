@@ -212,7 +212,7 @@ class DrawingImporter:
             for i in range(vertexes)
         )
         last_part = parts[-1]
-        # type: drawn from polygon or from series of line vertexes
+        # drawn from polygon or from series of line vertexes
         if last_part == "P" or last_part == "L":
             typ = last_part
         else:
