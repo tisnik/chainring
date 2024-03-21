@@ -20,6 +20,7 @@ from exporters.drawing_exporter import DrawingExporter
 from exporters.room_exporter import RoomExporter
 from geometry.utils import GeometryUtils
 from geometry.bounds import Bounds
+from geometry.rescaler import Rescaler
 from gui.canvas import Canvas
 from gui.canvas_mode import CanvasMode
 from gui.dialogs.error_dialogs import *
@@ -342,7 +343,7 @@ class MainWindow:
                 error_dialog_drawing_load()
             else:
                 bounds = Bounds.compute_bounds(drawing.entities)
-                xoffset, yoffset, scale = Rescaler.computeScaleForCanvas(
+                xoffset, yoffset, scale = Rescaler.compute_scale_for_canvas(
                     bounds, self.canvas
                 )
                 drawing.rescale(xoffset, yoffset, scale)
