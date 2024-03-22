@@ -29,7 +29,7 @@ class StatusBar(tkinter.Frame):
         self.label.config(text=format % args)
         self.label.update_idletasks()
 
-    def clear(self):
+    def clear(self) -> None:
         """Clear status bar content."""
         self.label.config(text="")
         self.label.update_idletasks()
