@@ -21,6 +21,6 @@ class CSVExporter:
         self.filename = filename
         self.entities = entities
 
-    def export(self):
+    def export(self) -> None:
         """Perform the export."""
         # TODO: implement this feature
