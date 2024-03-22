@@ -15,7 +15,7 @@
 from tkinter import messagebox
 
 
-def error_dialog_drawing_load():
+def error_dialog_drawing_load() -> None:
     """Show dialog when drawing import was not successful."""
     messagebox.showerror(
         "Chyba při načítání výkresu", "Při načítání výkresu došlo k neočekávané chybě"
