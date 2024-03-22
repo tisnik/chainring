@@ -82,7 +82,7 @@ class SettingsDialog(tkinter.Toplevel):
         # get the focus
         okButton.focus_set()
 
-    def ok(self):
+    def ok(self) -> None:
         """Handle Ok button press."""
         print("server address:", self.entryServerAddress.get())
         print("server port:", self.entryServerPort.get())
