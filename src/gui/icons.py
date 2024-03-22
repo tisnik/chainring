@@ -48,7 +48,7 @@ import icons.zoom_out
 class Icons:
     """All icons used on the GUI."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize all icons and convert them to PhotoImage."""
         self.exit_icon = tkinter.PhotoImage(data=icons.application_exit.icon)
 
