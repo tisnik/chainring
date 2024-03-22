@@ -86,7 +86,7 @@ class RoomListDialog(tkinter.Toplevel):
         # get the focus
         okButton.focus_set()
 
-    def ok(self):
+    def ok(self) -> None:
         """Handle event when Ok button is pressed."""
         self.destroy()
 
