@@ -63,7 +63,7 @@ class RoomExporter:
 
         fout.write("\n")
 
-    def export(self):
+    def export(self) -> None:
         """Export (serialize) room list into the text file."""
         with open(self.filename, "w") as fout:
             # metadata
