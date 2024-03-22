@@ -21,7 +21,7 @@ class SvgExporter:
         self.filename = filename
         self.entities = entities
 
-    def export(self):
+    def export(self) -> None:
         """Perform the serialization into SVG format."""
         # TODO: implement this feature
         #  with open(self.filename, "w") as fout:
