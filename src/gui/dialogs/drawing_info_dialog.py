@@ -118,7 +118,7 @@ class DrawingInfoDialog(tkinter.Toplevel):
         widget.configure(state="readonly")
         return widget
 
-    def ok(self):
+    def ok(self) -> None:
         """Handle the Ok button press."""
         self.destroy()
 
