@@ -50,7 +50,7 @@ class Configuration:
         """Property holding server port."""
         return self.config.getint("service", "port")
 
-    def write(self):
+    def write(self) -> None:
         """Write the configuration back to disk under different name."""
         with open("config2.ini", "w") as fout:
             self.config.write(fout)
