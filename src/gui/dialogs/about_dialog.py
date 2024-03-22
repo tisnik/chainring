@@ -15,7 +15,7 @@
 from tkinter import messagebox
 
 
-def about():
+def about() -> None:
     """Show 'about' dialog."""
     messagebox.showinfo(
         "O programu",
