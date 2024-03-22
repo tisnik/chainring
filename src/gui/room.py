@@ -16,11 +16,11 @@
 class Room:
     """Class representing one room on drawing."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize the class."""
         self.cleanup()
 
-    def cleanup(self):
+    def cleanup(self) -> None:
         """Perform cleanup for active room."""
         self.last_x = None
         self.last_y = None
