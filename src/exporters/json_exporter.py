@@ -99,7 +99,7 @@ class JSONExporter:
         obj = self.to_json()
         return json.dumps(obj, indent="\t")
 
-    def export(self):
+    def export(self) -> None:
         """Export (serialize) the whole drawing into the JSON file."""
         obj = self.to_json()
         with open(self.filename, "w") as fout:
