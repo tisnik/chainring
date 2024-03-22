@@ -23,7 +23,7 @@ class BinaryExporter:
         self.filename = filename
         self.entities = entities
 
-    def export_binary_drawing(self):
+    def export_binary_drawing(self) -> None:
         """Export (serialize) the drawing into a binary file."""
         with open(self.filename, "wb") as fout:
             # at this moment we use simple approach:
