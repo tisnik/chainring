@@ -88,7 +88,7 @@ class DrawingExporter:
         fout.write("\n")
 
     # TODO: refactor this function
-    def export(self):
+    def export(self) -> None:
         """Export (serialize) the whole drawing into the text file."""
         with open(self.filename, "w") as fout:
             DrawingExporter.output_version(fout)
