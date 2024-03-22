@@ -21,7 +21,7 @@ class DXFExporter:
         self.filename = filename
         self.entities = entities
 
-    def export(self):
+    def export(self) -> None:
         """Perform the serialiation of drawing into DXF format."""
         # TODO: implement this feature
         #  with open(self.filename, "w") as fout:
