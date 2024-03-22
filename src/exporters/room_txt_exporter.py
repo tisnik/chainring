@@ -21,7 +21,7 @@ class RoomTXTExporter:
         self.filename = filename
         self.rooms = drawing.rooms
 
-    def export(self):
+    def export(self) -> None:
         rooms = self.rooms
         with open(self.filename, mode="w") as fout:
             fout.write("SAP ID          gr.ID   Zakreslena  Souřadnic\n")
