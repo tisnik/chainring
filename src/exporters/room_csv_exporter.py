@@ -23,7 +23,7 @@ class RoomCSVExporter:
         self.filename = filename
         self.rooms = drawing.rooms
 
-    def export(self):
+    def export(self) -> None:
         rooms = self.rooms
         with open(self.filename, mode="w") as fout:
             writer = csv.writer(
