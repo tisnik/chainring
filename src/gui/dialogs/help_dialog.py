@@ -59,11 +59,11 @@ class HelpDialog(tkinter.Toplevel):
         # close the dialog on 'x' click
         self.protocol("WM_DELETE_WINDOW", self.destroy)
 
-    def ok(self):
+    def ok(self) -> None:
         """Handle Ok button press."""
         self.destroy()
 
 
-def help():
+def help() -> None:
     """Display help dialog on screen."""
     HelpDialog(None)
