@@ -12,21 +12,21 @@
 #      Pavel Tisnovsky
 #
 
-from tkinter import filedialog
+from tkinter import Tk, filedialog
 
 
 class SaveDialogs:
     """Dialogs used to save drawings and rooms."""
 
     @staticmethod
-    def save_drawing(root):
+    def save_drawing(root: Tk) -> str:
         """Display dialog to save drawing."""
         filetypes = [("Výkresy", "*.drw")]
         dialog = filedialog.SaveAs(root, filetypes=filetypes)
         return dialog.show()
 
     @staticmethod
-    def save_rooms(root):
+    def save_rooms(root: Tk) -> str:
         """Display dialog to save rooms."""
         filetypes = [("Místnosti", "*.rooms")]
         dialog = filedialog.SaveAs(root, filetypes=filetypes)
