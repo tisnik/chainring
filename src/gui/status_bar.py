@@ -18,7 +18,7 @@ import tkinter
 class StatusBar(tkinter.Frame):
     """Status bar displayed in the main window."""
 
-    def __init__(self, master:     tkinter.Tk) -> None:
+    def __init__(self, master: tkinter.Tk) -> None:
         """Initialize the class."""
         tkinter.Frame.__init__(self, master)
         self.label = tkinter.Label(self, bd=1, relief=tkinter.SUNKEN, anchor=tkinter.W)
