@@ -18,7 +18,7 @@ import tkinter
 class HelpDialog(tkinter.Toplevel):
     """Implementation of help dialog."""
 
-    def __init__(self, parent):
+    def __init__(self, parent: None) -> None:
         """Initialize the dialog."""
         tkinter.Toplevel.__init__(self, parent)
         self.title("Nápověda")
