@@ -1,4 +1,5 @@
 """Representation of vector drawing."""
+
 from entities.arc import Arc
 from entities.circle import Circle
 from entities.drawing_entity_type import DrawingEntityType
@@ -23,7 +24,13 @@ from typing import Dict, List, Optional, Tuple, Union
 class Drawing:
     """Representation of vector drawing."""
 
-    def __init__(self, entities: List[Union[Line, Arc, Circle, Text, Polyline]], statistic: Dict[DrawingEntityType, int], lines: int=0, metadata: None=None) -> None:
+    def __init__(
+        self,
+        entities: List[Union[Line, Arc, Circle, Text, Polyline]],
+        statistic: Dict[DrawingEntityType, int],
+        lines: int = 0,
+        metadata: None = None,
+    ) -> None:
         """Initialize the class, setup entities."""
         self._entities = entities
         self._drawing_id = None
@@ -135,7 +142,13 @@ class Drawing:
         self._room_counter += 1
         return room_id
 
-    def update_room_polygon(self, room_id: str, canvas_id: int, polygon: List[Tuple[float, float]], typ: str="?") -> None:
+    def update_room_polygon(
+        self,
+        room_id: str,
+        canvas_id: int,
+        polygon: List[Tuple[float, float]],
+        typ: str = "?",
+    ) -> None:
         """Update the polygon for specified room."""
         room = self.find_room("room_id", room_id)
         if room is not None:
@@ -146,18 +159,24 @@ class Drawing:
             room["polygon"] = polygon
             room["type"] = typ
 
-    def find_room(self, selector: str, value: Union[int, str]) -> Dict[str, Optional[Union[str, List[Tuple[float, float]], int]]]:
+    def find_room(
+        self, selector: str, value: Union[int, str]
+    ) -> Dict[str, Optional[Union[str, List[Tuple[float, float]], int]]]:
         """Find room for the specified selector and its value."""
         for room in self._rooms:
             if room[selector] == value:
                 return room
         return None
 
-    def find_room_by_room_id(self, canvas_id: str) -> Dict[str, Optional[Union[str, List[Tuple[float, float]], int]]]:
+    def find_room_by_room_id(
+        self, canvas_id: str
+    ) -> Dict[str, Optional[Union[str, List[Tuple[float, float]], int]]]:
         """Find room for the specified room ID."""
         return self.find_room("room_id", canvas_id)
 
-    def find_room_by_canvas_id(self, canvas_id: int) -> Dict[str, Union[str, List[Tuple[float, float]], int]]:
+    def find_room_by_canvas_id(
+        self, canvas_id: int
+    ) -> Dict[str, Union[str, List[Tuple[float, float]], int]]:
         """Find room for the specified canvas ID."""
         return self.find_room("canvas_id", canvas_id)
 
