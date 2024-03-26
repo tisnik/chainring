@@ -13,12 +13,7 @@
 #
 
 import sys
-from entities.arc import Arc
-from entities.circle import Circle
-from entities.line import Line
-from entities.polyline import Polyline
-from entities.text import Text
-from typing import List, Union
+from typing import Any, List, Union
 
 
 class Bounds:
@@ -51,7 +46,7 @@ class Bounds:
         )
 
     @staticmethod
-    def compute_bounds(entities: List[Union[Line, Arc, Circle, Text, Polyline]]) -> "Bounds":
+    def compute_bounds(entities: List[Any]) -> "Bounds":
         """Compute bounds for all given entities."""
         # initial settings - empty bounds area
         bounds = Bounds()
