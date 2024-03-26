@@ -21,7 +21,9 @@ from gui.canvas import Canvas
 class Line(Entity):
     """Class that represents the two dimensional line entity."""
 
-    def __init__(self, x1: float, y1: float, x2: float, y2: float, color: int, layer: str) -> None:
+    def __init__(
+        self, x1: float, y1: float, x2: float, y2: float, color: int, layer: str
+    ) -> None:
         """Construct new line from provided coordinates, color code, and layer name."""
         self.x1 = x1
         self.y1 = y1
@@ -55,7 +57,9 @@ class Line(Entity):
             "layer": self.layer,
         }
 
-    def draw(self, canvas: Canvas, xoffset: int=0, yoffset: int=0, scale: int=1) -> None:
+    def draw(
+        self, canvas: Canvas, xoffset: int = 0, yoffset: int = 0, scale: int = 1
+    ) -> None:
         """Draw the entity onto canvas."""
         # step 1: translate
         x1 = self.x1 + xoffset
