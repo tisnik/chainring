@@ -20,7 +20,7 @@ class Configuration:
 
     CONFIG_FILE_NAME = "config.ini"
 
-    def __init__(self, path: str=".") -> None:
+    def __init__(self, path: str = ".") -> None:
         """Initialize the class."""
         self.config = configparser.ConfigParser()
         self.config.read(path + "/" + Configuration.CONFIG_FILE_NAME)
