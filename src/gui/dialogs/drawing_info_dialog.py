@@ -22,7 +22,7 @@ from typing import Dict, Union
 class DrawingInfoDialog(tkinter.Toplevel):
     """Implementation of dialog with drawing info."""
 
-    def __init__(self, parent:     tkinter.Tk, drawing: Drawing) -> None:
+    def __init__(self, parent: tkinter.Tk, drawing: Drawing) -> None:
         """Initialize the class with configuration dialog."""
         tkinter.Toplevel.__init__(self, parent)
         self.title("Informace o výkresu")
@@ -101,19 +101,25 @@ class DrawingInfoDialog(tkinter.Toplevel):
         okButton.focus_set()
 
     @staticmethod
-    def add_label(container:     tkinter.LabelFrame, row: int, column: int, text: str) -> None:
+    def add_label(
+        container: tkinter.LabelFrame, row: int, column: int, text: str
+    ) -> None:
         """Add a label to dialog."""
         label = tkinter.Label(container, text=text)
         label.grid(row=row, column=column, sticky="W", padx=5, pady=5)
 
     @staticmethod
-    def add_value_widget(container:     tkinter.LabelFrame, row: int, column: int, value: Union[int, str]) -> None:
+    def add_value_widget(
+        container: tkinter.LabelFrame, row: int, column: int, value: Union[int, str]
+    ) -> None:
         """Create a widget with value to dialog."""
         widget = DrawingInfoDialog.value_widget(container, value)
         widget.grid(row=row, column=column, sticky="W", padx=5, pady=5)
 
     @staticmethod
-    def value_widget(container:     tkinter.LabelFrame, value: Union[int, str]) ->     tkinter.Entry:
+    def value_widget(
+        container: tkinter.LabelFrame, value: Union[int, str]
+    ) -> tkinter.Entry:
         """Add a widget with value to dialog."""
         widget = tkinter.Entry(container)
         widget.insert(tkinter.END, value)
