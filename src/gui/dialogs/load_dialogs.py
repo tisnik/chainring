@@ -290,14 +290,14 @@ class LoadDialogs:
     """Dialogs used to load various data into the application."""
 
     @staticmethod
-    def load_drawing(root):
+    def load_drawing(root: None) -> str:
         """Dialog shown to select drawing to import."""
         filetypes = [("Výkresy", "*.drw"), ("Výkresy z CADu", "*.dxf")]
         dialog = filedialog.Open(root, filetypes=filetypes)
         return dialog.show()
 
     @staticmethod
-    def load_rooms(root):
+    def load_rooms(root: None) -> str:
         """Dialog shown to select rooms to import from file."""
         filetypes = [("Místnosti", "*.rooms")]
         dialog = filedialog.Open(root, filetypes=filetypes)
