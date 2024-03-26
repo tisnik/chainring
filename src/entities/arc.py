@@ -15,12 +15,13 @@
 
 from entities.entity import Entity
 from geometry.bounds import Bounds
+from gui.canvas import Canvas
 
 
 class Arc(Entity):
     """Class that represents the two dimensional arc entity."""
 
-    def __init__(self, x, y, radius, angle1, angle2, color, layer):
+    def __init__(self, x: float, y: float, radius: float, angle1: float, angle2: float, color: int, layer: str) -> None:
         """Construct new arc from provided coordinates, angles, color code, and layer name."""
         self.x = x
         self.y = y
@@ -32,7 +33,7 @@ class Arc(Entity):
         # graphics entity ID on the canvas
         self._id = None
 
-    def str(self):
+    def str(self) -> str:
         """Return textual representation of arc."""
         return "A {color} {layer} {x} {y} {r} {a1} {a2}".format(
             color=self.color,
@@ -57,7 +58,7 @@ class Arc(Entity):
             "layer": self.layer,
         }
 
-    def draw(self, canvas, xoffset, yoffset, scale):
+    def draw(self, canvas: Canvas, xoffset: int, yoffset: int, scale: int) -> None:
         """Draw the two dimensional arc entity onto canvas."""
         extent = self.angle2 - self.angle1
 
@@ -78,7 +79,7 @@ class Arc(Entity):
             tags="drawing",
         )
 
-    def transform(self, xoffset, yoffset, scale):
+    def transform(self, xoffset: float, yoffset: float, scale: float) -> None:
         """Perform the transformation of the entity into paper space."""
         # step 1: translate
         self.x = self.x + xoffset
@@ -88,7 +89,7 @@ class Arc(Entity):
         self.y *= scale
         self.radius *= scale
 
-    def get_bounds(self):
+    def get_bounds(self) -> Bounds:
         """Compute bounds for given entity."""
         return Bounds(
             self.x - self.radius,
