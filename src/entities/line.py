@@ -15,12 +15,13 @@
 
 from entities.entity import Entity
 from geometry.bounds import Bounds
+from gui.canvas import Canvas
 
 
 class Line(Entity):
     """Class that represents the two dimensional line entity."""
 
-    def __init__(self, x1, y1, x2, y2, color, layer):
+    def __init__(self, x1: float, y1: float, x2: float, y2: float, color: int, layer: str) -> None:
         """Construct new line from provided coordinates, color code, and layer name."""
         self.x1 = x1
         self.y1 = y1
@@ -31,7 +32,7 @@ class Line(Entity):
         # graphics entity ID on the canvas
         self._id = None
 
-    def str(self):
+    def str(self) -> str:
         """Return textual representation of line."""
         return "L {color} {layer} {x1} {y1} {x2} {y2}".format(
             color=self.color,
@@ -54,7 +55,7 @@ class Line(Entity):
             "layer": self.layer,
         }
 
-    def draw(self, canvas, xoffset=0, yoffset=0, scale=1):
+    def draw(self, canvas: Canvas, xoffset: int=0, yoffset: int=0, scale: int=1) -> None:
         """Draw the entity onto canvas."""
         # step 1: translate
         x1 = self.x1 + xoffset
@@ -68,7 +69,7 @@ class Line(Entity):
         y2 *= scale
         self._id = canvas.create_line(x1, y1, x2, y2, fill="black", tags="drawing")
 
-    def transform(self, xoffset, yoffset, scale):
+    def transform(self, xoffset: float, yoffset: float, scale: float) -> None:
         """Perform the transformation of the entity into paper space."""
         self.x1 = self.x1 + xoffset
         self.y1 = self.y1 + yoffset
@@ -79,7 +80,7 @@ class Line(Entity):
         self.x2 *= scale
         self.y2 *= scale
 
-    def get_bounds(self):
+    def get_bounds(self) -> Bounds:
         """Compute bounds for given entity."""
         return Bounds(
             min(self.x1, self.x2),
