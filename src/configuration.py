@@ -20,13 +20,13 @@ class Configuration:
 
     CONFIG_FILE_NAME = "config.ini"
 
-    def __init__(self, path="."):
+    def __init__(self, path: str=".") -> None:
         """Initialize the class."""
         self.config = configparser.ConfigParser()
         self.config.read(path + "/" + Configuration.CONFIG_FILE_NAME)
 
     @property
-    def window_width(self):
+    def window_width(self) -> int:
         """Property holding window width."""
         return self.config.getint("ui", "window_width")
 
@@ -36,7 +36,7 @@ class Configuration:
         return self.config.get("ui", "app_type")
 
     @property
-    def window_height(self):
+    def window_height(self) -> int:
         """Property holding window height."""
         return self.config.getint("ui", "window_height")
 
