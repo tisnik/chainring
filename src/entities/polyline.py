@@ -23,7 +23,9 @@ from typing import List
 class Polyline(Entity):
     """Class that represents the two dimensional polyline entity."""
 
-    def __init__(self, points_x: List[float], points_y: List[float], color: int, layer: str) -> None:
+    def __init__(
+        self, points_x: List[float], points_y: List[float], color: int, layer: str
+    ) -> None:
         """Construct new text from provided starting coordinates, color code, and layer name."""
         self.points_x = points_x
         self.points_y = points_y
@@ -57,7 +59,9 @@ class Polyline(Entity):
             "layer": self.layer,
         }
 
-    def draw(self, canvas: Canvas, xoffset: int=0, yoffset: int=0, scale: int=1) -> None:
+    def draw(
+        self, canvas: Canvas, xoffset: int = 0, yoffset: int = 0, scale: int = 1
+    ) -> None:
         """Draw the entity onto canvas."""
         points = []
         for i in range(len(self.points_x)):
