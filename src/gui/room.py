@@ -1,4 +1,5 @@
 """Class representing one room on drawing."""
+
 from typing import Optional
 
 #
