@@ -13,9 +13,10 @@
 #
 
 from tkinter import messagebox
+from configuration import Configuration
 
 
-def configure(configuration):
+def configure(configuration: Configuration):
     """Show configuration dialog."""
     msg = "Typ aplikace: {t}\n\nAdresa serveru: {a}\nPort serveru: {p}".format(
         t=configuration.app_type,
