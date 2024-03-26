@@ -1,4 +1,5 @@
 """Class to recompute scale from canvas size and computed bounds."""
+
 from geometry.bounds import Bounds
 from gui.canvas import Canvas
 from typing import Tuple
@@ -20,7 +21,9 @@ class Rescaler:
     """Class to recompute scale from canvas size and computed bounds."""
 
     @staticmethod
-    def compute_scale(bounds: Bounds, width: int, height: int) -> Tuple[float, float, float]:
+    def compute_scale(
+        bounds: Bounds, width: int, height: int
+    ) -> Tuple[float, float, float]:
         """Compute scale from given bounds, width, and height."""
         xdist = bounds.xmax - bounds.xmin
         ydist = bounds.ymax - bounds.ymin
@@ -30,7 +33,9 @@ class Rescaler:
         return -bounds.xmin, -bounds.ymin, scale
 
     @staticmethod
-    def compute_scale_for_canvas(bounds: Bounds, canvas: Canvas) -> Tuple[float, float, float]:
+    def compute_scale_for_canvas(
+        bounds: Bounds, canvas: Canvas
+    ) -> Tuple[float, float, float]:
         """Compute scale from given bounds and canvas (with width+height)."""
         canvas_width = canvas.winfo_reqwidth()
         canvas_height = canvas.winfo_reqheight()
