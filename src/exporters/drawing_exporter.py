@@ -16,6 +16,9 @@ from datetime import datetime
 
 from geometry.bounds import Bounds
 from geometry.rescaler import Rescaler
+from drawing import Drawing
+from io import TextIOWrapper
+from typing import Dict, List, Optional, Tuple, Union
 
 
 class DrawingExporter:
@@ -37,7 +40,7 @@ class DrawingExporter:
         [1024, 768],
     ]
 
-    def __init__(self, filename, drawing):
+    def __init__(self, filename: str, drawing: Drawing) -> None:
         """Initialize the exporter, set the filename to be created and a sequence of entities."""
         self.filename = filename
         self.entities = drawing.entities
@@ -45,17 +48,17 @@ class DrawingExporter:
         self.drawing_id = drawing.drawing_id
 
     @staticmethod
-    def get_timestamp():
+    def get_timestamp() -> str:
         """Get the timestamp for the current time and format it according to ISO."""
         return datetime.now().isoformat(sep=" ")
 
     @staticmethod
-    def output_timestamp(fout):
+    def output_timestamp(fout: TextIOWrapper) -> None:
         """Write the timestamp into the generated file."""
         fout.write("created: {c}\n".format(c=DrawingExporter.get_timestamp()))
 
     @staticmethod
-    def output_version(fout):
+    def output_version(fout: TextIOWrapper) -> None:
         """Write the version into the generated file."""
         fout.write("version: {v}\n".format(v=DrawingExporter.VERSION))
 
@@ -65,7 +68,7 @@ class DrawingExporter:
         fout.write("id: {id}\n".format(id=drawing_id))
 
     @staticmethod
-    def write_room(fout, room):
+    def write_room(fout: TextIOWrapper, room: Dict[str, Optional[Union[str, List[Tuple[float, float]], int]]]) -> None:
         """Write the room data into the generated file."""
         vertexes = room["polygon"]
         # export only room with polygon
