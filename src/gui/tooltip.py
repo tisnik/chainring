@@ -4,12 +4,13 @@
 # https://stackoverflow.com/questions/3221956/how-do-i-display-tooltips-in-tkinter#36221216
 
 import tkinter
+from typing import Optional
 
 
 class Tooltip(object):
     """Create a tooltip for a given widget."""
 
-    def __init__(self, widget, text="widget info"):
+    def __init__(self, widget:     tkinter.Button, text: str="widget info") -> None:
         """Initialize the widget."""
         self.waittime = 500  # miliseconds
         self.wraplength = 180  # pixels
@@ -21,21 +22,21 @@ class Tooltip(object):
         self.id = None
         self.tw = None
 
-    def enter(self, event=None):
+    def enter(self, event: Optional[    tkinter.Event]=None) -> None:
         """Handle the event: cursor pointer moves to the tooltip area."""
         self.schedule()
 
-    def leave(self, event=None):
+    def leave(self, event: Optional[    tkinter.Event]=None) -> None:
         """Handle the event: cursor pointer leaves the tooltip area."""
         self.unschedule()
         self.hidetip()
 
-    def schedule(self):
+    def schedule(self) -> None:
         """Schedule time for displaying tooltip."""
         self.unschedule()
         self.id = self.widget.after(self.waittime, self.showtip)
 
-    def unschedule(self):
+    def unschedule(self) -> None:
         """Unschedule time for displaying tooltip."""
         id = self.id
         self.id = None
@@ -64,7 +65,7 @@ class Tooltip(object):
         )
         label.pack(ipadx=1)
 
-    def hidetip(self):
+    def hidetip(self) -> None:
         """Hide the tooltip."""
         tw = self.tw
         self.tw = None
