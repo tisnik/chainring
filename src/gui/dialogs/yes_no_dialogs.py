@@ -35,7 +35,7 @@ def dialog_delete_room_polygon(sap_id):
     return messagebox.askyesno("Smazat obrys mísnosti", message)
 
 
-def dialog_load_new_drawing():
+def dialog_load_new_drawing() -> bool:
     """Show dialog with the question whether to delete current drawing and load new one from file."""  # noqa: E501
     message = "Opravdu si přejete smazat stávající výkres a načíst výkres nový?"
     return messagebox.askyesno("Smazat stávající výkres", message)
