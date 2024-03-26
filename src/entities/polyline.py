@@ -16,12 +16,14 @@ import sys
 
 from entities.entity import Entity
 from geometry.bounds import Bounds
+from gui.canvas import Canvas
+from typing import List
 
 
 class Polyline(Entity):
     """Class that represents the two dimensional polyline entity."""
 
-    def __init__(self, points_x, points_y, color, layer):
+    def __init__(self, points_x: List[float], points_y: List[float], color: int, layer: str) -> None:
         """Construct new text from provided starting coordinates, color code, and layer name."""
         self.points_x = points_x
         self.points_y = points_y
@@ -55,7 +57,7 @@ class Polyline(Entity):
             "layer": self.layer,
         }
 
-    def draw(self, canvas, xoffset=0, yoffset=0, scale=1):
+    def draw(self, canvas: Canvas, xoffset: int=0, yoffset: int=0, scale: int=1) -> None:
         """Draw the entity onto canvas."""
         points = []
         for i in range(len(self.points_x)):
@@ -82,7 +84,7 @@ class Polyline(Entity):
         else:
             self._id = canvas.create_polygon(points, fill="", outline="green")
 
-    def transform(self, xoffset, yoffset, scale):
+    def transform(self, xoffset: float, yoffset: float, scale: float) -> None:
         """Perform the transformation of the entity into paper space."""
         for i in range(len(self.points_x)):
             # step 1: translate
@@ -92,7 +94,7 @@ class Polyline(Entity):
             self.points_x[i] *= scale
             self.points_y[i] *= scale
 
-    def get_bounds(self):
+    def get_bounds(self) -> Bounds:
         """Compute bounds for given entity."""
         xmin = sys.float_info.max
         ymin = sys.float_info.max
