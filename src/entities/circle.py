@@ -15,12 +15,13 @@
 
 from entities.entity import Entity
 from geometry.bounds import Bounds
+from gui.canvas import Canvas
 
 
 class Circle(Entity):
     """Class that represents the two dimensional circle entity."""
 
-    def __init__(self, x, y, radius, color, layer):
+    def __init__(self, x: float, y: float, radius: float, color: int, layer: str) -> None:
         """Construct new circle from provided coordinates, radius, color code, and layer name."""
         self.x = x
         self.y = y
@@ -30,7 +31,7 @@ class Circle(Entity):
         # graphics entity ID on the canvas
         self._id = None
 
-    def str(self):
+    def str(self) -> str:
         """Return textual representation of circle."""
         return "C {color} {layer} {x} {y} {r}".format(
             color=self.color, layer=self.layer, x=self.x, y=self.y, r=self.radius
@@ -47,7 +48,7 @@ class Circle(Entity):
             "layer": self.layer,
         }
 
-    def draw(self, canvas, xoffset, yoffset, scale):
+    def draw(self, canvas: Canvas, xoffset: int, yoffset: int, scale: int) -> None:
         """Draw the entity onto canvas."""
         # draw the circle, remember the canvas ID of the new graphics entity
         self._id = canvas.create_oval(
@@ -58,7 +59,7 @@ class Circle(Entity):
             tags="drawing",
         )  # fill="red", tags="drawing")
 
-    def transform(self, xoffset, yoffset, scale):
+    def transform(self, xoffset: float, yoffset: float, scale: float) -> None:
         """Perform the transformation of the entity into paper space."""
         # step 1: translate
         self.x = self.x + xoffset
@@ -68,7 +69,7 @@ class Circle(Entity):
         self.y *= scale
         self.radius *= scale
 
-    def get_bounds(self):
+    def get_bounds(self) -> Bounds:
         """Compute bounds for given entity."""
         return Bounds(
             self.x - self.radius,
