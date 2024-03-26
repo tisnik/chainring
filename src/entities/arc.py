@@ -21,7 +21,16 @@ from gui.canvas import Canvas
 class Arc(Entity):
     """Class that represents the two dimensional arc entity."""
 
-    def __init__(self, x: float, y: float, radius: float, angle1: float, angle2: float, color: int, layer: str) -> None:
+    def __init__(
+        self,
+        x: float,
+        y: float,
+        radius: float,
+        angle1: float,
+        angle2: float,
+        color: int,
+        layer: str,
+    ) -> None:
         """Construct new arc from provided coordinates, angles, color code, and layer name."""
         self.x = x
         self.y = y
