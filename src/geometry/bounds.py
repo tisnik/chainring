@@ -21,10 +21,10 @@ class Bounds:
 
     def __init__(
         self,
-        xmin: float=sys.float_info.max,
-        ymin: float=sys.float_info.max,
-        xmax: float=-sys.float_info.max,
-        ymax: float=-sys.float_info.max,
+        xmin: float = sys.float_info.max,
+        ymin: float = sys.float_info.max,
+        xmax: float = -sys.float_info.max,
+        ymax: float = -sys.float_info.max,
     ) -> None:
         """Construct new bounds using given coordinates or default values."""
         self.xmin = xmin
