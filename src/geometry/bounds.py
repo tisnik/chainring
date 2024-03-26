@@ -13,6 +13,12 @@
 #
 
 import sys
+from entities.arc import Arc
+from entities.circle import Circle
+from entities.line import Line
+from entities.polyline import Polyline
+from entities.text import Text
+from typing import List, Union
 
 
 class Bounds:
@@ -20,32 +26,32 @@ class Bounds:
 
     def __init__(
         self,
-        xmin=sys.float_info.max,
-        ymin=sys.float_info.max,
-        xmax=-sys.float_info.max,
-        ymax=-sys.float_info.max,
-    ):
+        xmin: float=sys.float_info.max,
+        ymin: float=sys.float_info.max,
+        xmax: float=-sys.float_info.max,
+        ymax: float=-sys.float_info.max,
+    ) -> None:
         """Construct new bounds using given coordinates or default values."""
         self.xmin = xmin
         self.ymin = ymin
         self.xmax = xmax
         self.ymax = ymax
 
-    def enlarge(self, other):
+    def enlarge(self, other: "Bounds") -> None:
         """Enlarge the area represented by bound."""
         self.xmin = min(self.xmin, other.xmin)
         self.ymin = min(self.ymin, other.ymin)
         self.xmax = max(self.xmax, other.xmax)
         self.ymax = max(self.ymax, other.ymax)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         """Return textual representation of the bound."""
         return "[{xmin}, {ymin}] - [{xmax}, {ymax}]".format(
             xmin=self.xmin, ymin=self.ymin, xmax=self.xmax, ymax=self.ymax
         )
 
     @staticmethod
-    def compute_bounds(entities):
+    def compute_bounds(entities: List[Union[Line, Arc, Circle, Text, Polyline]]) -> "Bounds":
         """Compute bounds for all given entities."""
         # initial settings - empty bounds area
         bounds = Bounds()
