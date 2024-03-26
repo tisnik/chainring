@@ -45,7 +45,10 @@ class RoomExporter:
         fout.write("version: {v}\n".format(v=RoomExporter.VERSION))
 
     @staticmethod
-    def write_room(fout: TextIOWrapper, room: Dict[str, Optional[Union[str, List[Tuple[float, float]], int]]]) -> None:
+    def write_room(
+        fout: TextIOWrapper,
+        room: Dict[str, Optional[Union[str, List[Tuple[float, float]], int]]],
+    ) -> None:
         """Write the room data into the generated file."""
         vertexes = room["polygon"]
         # export only room with polygon
