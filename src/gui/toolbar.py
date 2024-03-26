@@ -288,6 +288,6 @@ class Toolbar(tkinter.LabelFrame):
         button["state"] = "disabled"
 
     @staticmethod
-    def enable_button(button:     tkinter.Button) -> None:
+    def enable_button(button: tkinter.Button) -> None:
         """Enable specified button on toolbar."""
         button["state"] = "normal"
