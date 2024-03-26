@@ -15,12 +15,13 @@
 
 from entities.entity import Entity
 from geometry.bounds import Bounds
+from gui.canvas import Canvas
 
 
 class Text(Entity):
     """Class that represents the two dimensional text entity."""
 
-    def __init__(self, x, y, text, color, layer):
+    def __init__(self, x: float, y: float, text: str, color: int, layer: str) -> None:
         """Construct new text from provided coordinates, the string, color code, and layer name."""
         self.x = x
         self.y = y
@@ -30,7 +31,7 @@ class Text(Entity):
         # graphics entity ID on the canvas
         self._id = None
 
-    def str(self):
+    def str(self) -> str:
         """Return textual representation of text entity."""
         return "T {color} {layer} {x} {y} {t}".format(
             color=self.color,
@@ -51,7 +52,7 @@ class Text(Entity):
             "layer": self.layer,
         }
 
-    def draw(self, canvas, xoffset, yoffset, scale):
+    def draw(self, canvas: Canvas, xoffset: int, yoffset: int, scale: int) -> None:
         """Draw the entity onto canvas."""
         # step 1: translate
         x = self.x + xoffset
@@ -61,7 +62,7 @@ class Text(Entity):
         y *= scale
         self._id = canvas.create_text(x, y, text=self.text, fill="blue", tags="drawing")
 
-    def transform(self, xoffset, yoffset, scale):
+    def transform(self, xoffset: float, yoffset: float, scale: float) -> None:
         """Perform the transformation of the entity into paper space."""
         # step 1: translate
         self.x = self.x + xoffset
@@ -70,6 +71,6 @@ class Text(Entity):
         self.x *= scale
         self.y *= scale
 
-    def get_bounds(self):
+    def get_bounds(self) -> Bounds:
         """Compute bounds for given entity."""
         return Bounds(self.x, self.y, self.x, self.y)
