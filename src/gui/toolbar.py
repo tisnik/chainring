@@ -18,12 +18,13 @@ from gui.dialogs.drawing_info_dialog import DrawingInfoDialog
 from gui.dialogs.room_list_dialog import RoomListDialog
 from gui.dialogs.settings_dialog import SettingsDialog
 from gui.tooltip import Tooltip
+from gui.canvas import Canvas
 
 
 class Toolbar(tkinter.LabelFrame):
     """Toolbar displayed on the main window."""
 
-    def __init__(self, parent, main_window, canvas):
+    def __init__(self, parent: tkinter.Tk, main_window, canvas: Canvas) -> None:
         """Initialize the toolbar."""
         super().__init__(parent, text="Nástroje", padx=5, pady=5)
 
@@ -263,7 +264,7 @@ class Toolbar(tkinter.LabelFrame):
         Toolbar.disable_button(self.button_new_room)
         Toolbar.disable_button(self.button_new_room_polygon)
 
-    def enable_ui_items_for_drawing_mode(self):
+    def enable_ui_items_for_drawing_mode(self) -> None:
         """Enable some buttons when application is set to drawing mode."""
         Toolbar.enable_button(self.button_drawing_save)
         Toolbar.enable_button(self.button_file_open)
@@ -287,6 +288,6 @@ class Toolbar(tkinter.LabelFrame):
         button["state"] = "disabled"
 
     @staticmethod
-    def enable_button(button):
+    def enable_button(button:     tkinter.Button) -> None:
         """Enable specified button on toolbar."""
         button["state"] = "normal"
