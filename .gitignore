@@ -16,3 +16,6 @@ env/
 venv/
 
 issue.py
+
+.coverage
+coverage_unit.json
