@@ -6,7 +6,7 @@ from entities.drawing_entity_type import DrawingEntityType
 from entities.line import Line
 from entities.polyline import Polyline
 from entities.text import Text
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Optional, Union
 
 #
 #  (C) Copyright 2017, 2018  Pavel Tisnovsky
@@ -26,8 +26,8 @@ class Drawing:
 
     def __init__(
         self,
-        entities: List[Union[Line, Arc, Circle, Text, Polyline]],
-        statistic: Dict[DrawingEntityType, int],
+        entities: list[Line | Arc | Circle | Text | Polyline],
+        statistic: dict[DrawingEntityType, int],
         lines: int = 0,
         metadata: None = None,
     ) -> None:
@@ -146,7 +146,7 @@ class Drawing:
         self,
         room_id: str,
         canvas_id: int,
-        polygon: List[Tuple[float, float]],
+        polygon: list[tuple[float, float]],
         typ: str = "?",
     ) -> None:
         """Update the polygon for specified room."""
@@ -160,8 +160,8 @@ class Drawing:
             room["type"] = typ
 
     def find_room(
-        self, selector: str, value: Union[int, str]
-    ) -> Dict[str, Optional[Union[str, List[Tuple[float, float]], int]]]:
+        self, selector: str, value: int | str
+    ) -> dict[str, str | list[tuple[float, float]] | int | None]:
         """Find room for the specified selector and its value."""
         for room in self._rooms:
             if room[selector] == value:
@@ -170,13 +170,13 @@ class Drawing:
 
     def find_room_by_room_id(
         self, canvas_id: str
-    ) -> Dict[str, Optional[Union[str, List[Tuple[float, float]], int]]]:
+    ) -> dict[str, str | list[tuple[float, float]] | int | None]:
         """Find room for the specified room ID."""
         return self.find_room("room_id", canvas_id)
 
     def find_room_by_canvas_id(
         self, canvas_id: int
-    ) -> Dict[str, Union[str, List[Tuple[float, float]], int]]:
+    ) -> dict[str, str | list[tuple[float, float]] | int]:
         """Find room for the specified canvas ID."""
         return self.find_room("canvas_id", canvas_id)
 

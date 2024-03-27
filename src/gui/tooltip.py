@@ -7,7 +7,7 @@ import tkinter
 from typing import Optional
 
 
-class Tooltip(object):
+class Tooltip:
     """Create a tooltip for a given widget."""
 
     def __init__(self, widget: tkinter.Button, text: str = "widget info") -> None:
@@ -22,11 +22,11 @@ class Tooltip(object):
         self.id = None
         self.tw = None
 
-    def enter(self, event: Optional[tkinter.Event] = None) -> None:
+    def enter(self, event: tkinter.Event | None = None) -> None:
         """Handle the event: cursor pointer moves to the tooltip area."""
         self.schedule()
 
-    def leave(self, event: Optional[tkinter.Event] = None) -> None:
+    def leave(self, event: tkinter.Event | None = None) -> None:
         """Handle the event: cursor pointer leaves the tooltip area."""
         self.unschedule()
         self.hidetip()

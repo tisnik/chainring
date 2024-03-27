@@ -29,7 +29,7 @@ class Room:
         self.polygon_world = []
         self.polygon_canvas = []
 
-    def last_point_exist(self) -> Optional[float]:
+    def last_point_exist(self) -> float | None:
         """Check if the last point (entered by user) exists."""
         return self.last_x and self.last_y
 

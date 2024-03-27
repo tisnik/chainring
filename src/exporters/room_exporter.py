@@ -15,7 +15,7 @@
 from datetime import datetime
 from drawing import Drawing
 from io import TextIOWrapper
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Optional, Union
 
 
 class RoomExporter:
@@ -47,7 +47,7 @@ class RoomExporter:
     @staticmethod
     def write_room(
         fout: TextIOWrapper,
-        room: Dict[str, Optional[Union[str, List[Tuple[float, float]], int]]],
+        room: dict[str, str | list[tuple[float, float]] | int | None],
     ) -> None:
         """Write the room data into the generated file."""
         vertexes = room["polygon"]

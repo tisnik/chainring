@@ -16,7 +16,7 @@ import tkinter
 
 from entities.drawing_entity_type import DrawingEntityType
 from drawing import Drawing
-from typing import Dict, Union
+from typing import Union
 
 
 class DrawingInfoDialog(tkinter.Toplevel):
@@ -110,7 +110,7 @@ class DrawingInfoDialog(tkinter.Toplevel):
 
     @staticmethod
     def add_value_widget(
-        container: tkinter.LabelFrame, row: int, column: int, value: Union[int, str]
+        container: tkinter.LabelFrame, row: int, column: int, value: int | str
     ) -> None:
         """Create a widget with value to dialog."""
         widget = DrawingInfoDialog.value_widget(container, value)
@@ -118,7 +118,7 @@ class DrawingInfoDialog(tkinter.Toplevel):
 
     @staticmethod
     def value_widget(
-        container: tkinter.LabelFrame, value: Union[int, str]
+        container: tkinter.LabelFrame, value: int | str
     ) -> tkinter.Entry:
         """Add a widget with value to dialog."""
         widget = tkinter.Entry(container)
@@ -131,6 +131,6 @@ class DrawingInfoDialog(tkinter.Toplevel):
         self.destroy()
 
     @staticmethod
-    def compute_sum(drawing_statistic: Dict[DrawingEntityType, int]) -> int:
+    def compute_sum(drawing_statistic: dict[DrawingEntityType, int]) -> int:
         """Compute summary of all values specified."""
         return sum(drawing_statistic.values())

@@ -13,7 +13,7 @@
 #
 
 import sys
-from typing import Any, List, Union
+from typing import Any, Union
 
 
 class Bounds:
@@ -46,7 +46,7 @@ class Bounds:
         )
 
     @staticmethod
-    def compute_bounds(entities: List[Any]) -> "Bounds":
+    def compute_bounds(entities: list[Any]) -> "Bounds":
         """Compute bounds for all given entities."""
         # initial settings - empty bounds area
         bounds = Bounds()

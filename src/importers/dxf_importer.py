@@ -22,7 +22,7 @@ from entities.text import Text
 from importers.dxf_codes import DxfCodes
 from importers.dxf_reader_state import DxfReaderState
 from io import TextIOWrapper
-from typing import Iterator, Tuple
+from collections.abc import Iterator
 
 
 class DxfImporter:
@@ -44,7 +44,7 @@ class DxfImporter:
             DxfReaderState.ENTITY: DxfImporter.process_entity,
         }
 
-    def dxf_entry(self, fin: TextIOWrapper) -> Iterator[Tuple[int, str]]:
+    def dxf_entry(self, fin: TextIOWrapper) -> Iterator[tuple[int, str]]:
         """Generate pair dxf_code + dxf_data for each iteration."""
         linenumber = 0
         while True:
@@ -84,7 +84,7 @@ class DxfImporter:
         encodings = ["utf-8", "windows-1250", "windows-1252"]
         for e in encodings:
             try:
-                with open(self.filename, "r", encoding=e) as fin:
+                with open(self.filename, encoding=e) as fin:
                     fin.readlines()
                     fin.seek(0)
             except UnicodeDecodeError as e:

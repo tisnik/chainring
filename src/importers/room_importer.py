@@ -13,7 +13,6 @@
 #
 
 import sys
-from typing import Dict, List
 
 
 class RoomImporter:
@@ -33,7 +32,7 @@ class RoomImporter:
         self.metadata = {}
         self.rooms = []
 
-    def import_rooms(self) -> List[Dict[str, str]]:
+    def import_rooms(self) -> list[dict[str, str]]:
         """Import the file and return structure containing all entities."""
         try:
             with open(self.filename) as fin:
@@ -59,25 +58,25 @@ class RoomImporter:
         print("Unknown command: '{c}'".format(c=parts[0]))
         sys.exit(0)
 
-    def process_version(self, parts: List[str]) -> None:
+    def process_version(self, parts: list[str]) -> None:
         """Process data file version."""
         version = parts[1].strip()
         print("Read attribute 'version': {v}".format(v=version))
         self.metadata["version"] = version
 
-    def process_created(self, parts: List[str]) -> None:
+    def process_created(self, parts: list[str]) -> None:
         """Process the date when data file was created."""
         created = " ".join(parts[1:]).strip()
         print("Read attribute 'created': {c}".format(c=created))
         self.metadata["created"] = created
 
-    def process_rooms(self, parts: List[str]) -> None:
+    def process_rooms(self, parts: list[str]) -> None:
         """Process number of rooms."""
         rooms = parts[1].strip()
         print("Read attribute 'rooms': {r}".format(r=rooms))
         self.metadata["rooms"] = rooms
 
-    def process_room(self, parts: List[str]) -> None:
+    def process_room(self, parts: list[str]) -> None:
         """Process room polygon."""
         room_id = parts[1]
         vertexes = int(parts[2])
