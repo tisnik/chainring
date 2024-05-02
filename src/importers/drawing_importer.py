@@ -89,37 +89,37 @@ class DrawingImporter:
 
     def process_unknown_command(self, parts):
         """Pprocess unknown command(s)."""
-        print("Unknown command: '{c}'".format(c=parts[0]))
+        print(f"Unknown command: '{parts[0]}'")
         sys.exit(0)
 
     def process_id(self, parts):
         """Process command with drawing ID."""
         drawing_id = parts[1].strip()
-        print("Read attribute 'id': {id}".format(id=drawing_id))
+        print(f"Read attribute 'id': {drawing_id}")
         self.drawing_id = drawing_id
 
     def process_version(self, parts: list[str]) -> None:
         """Process command with drawing version."""
         version = parts[1].strip()
-        print("Read attribute 'version': {v}".format(v=version))
+        print(f"Read attribute 'version': {version}")
         self.metadata["version"] = version
 
     def process_created(self, parts: list[str]) -> None:
         """Process command with the date when drawing was created."""
         created = " ".join(parts[1:]).strip()
-        print("Read attribute 'created': {c}".format(c=created))
+        print(f"Read attribute 'created': {created}")
         self.metadata["created"] = created
 
     def process_entities(self, parts: list[str]) -> None:
         """Process command with number of entities."""
         entities = parts[1].strip()
-        print("Read attribute 'entities': {e}".format(e=entities))
+        print(f"Read attribute 'entities': {entities}")
         self.metadata["entities"] = entities
 
     def process_rooms(self, parts: list[str]) -> None:
         """Process command with number of rooms."""
         rooms = parts[1].strip()
-        print("Read attribute 'rooms': {r}".format(r=rooms))
+        print(f"Read attribute 'rooms': {rooms}")
         self.metadata["rooms"] = rooms
 
     def process_bounds(self, parts: list[str]) -> None:
