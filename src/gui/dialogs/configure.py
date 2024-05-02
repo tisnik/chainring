@@ -18,9 +18,5 @@ from configuration import Configuration
 
 def configure(configuration: Configuration):
     """Show configuration dialog."""
-    msg = "Typ aplikace: {t}\n\nAdresa serveru: {a}\nPort serveru: {p}".format(
-        t=configuration.app_type,
-        a=configuration.server_address,
-        p=configuration.server_port,
-    )
+    msg = f"Typ aplikace: {configuration.app_type}\n\nAdresa serveru: {configuration.server_address}\nPort serveru: {configuration.server_port}"
     messagebox.showinfo("Aktuální konfigurace", msg)
