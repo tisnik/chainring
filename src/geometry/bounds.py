@@ -41,9 +41,7 @@ class Bounds:
 
     def __repr__(self) -> str:
         """Return textual representation of the bound."""
-        return "[{xmin}, {ymin}] - [{xmax}, {ymax}]".format(
-            xmin=self.xmin, ymin=self.ymin, xmax=self.xmax, ymax=self.ymax
-        )
+        return f"[{self.xmin}, {self.ymin}] - [{self.xmax}, {self.ymax}]"
 
     @staticmethod
     def compute_bounds(entities: list[Any]) -> "Bounds":
