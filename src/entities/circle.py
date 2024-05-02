@@ -35,9 +35,7 @@ class Circle(Entity):
 
     def str(self) -> str:
         """Return textual representation of circle."""
-        return "C {color} {layer} {x} {y} {r}".format(
-            color=self.color, layer=self.layer, x=self.x, y=self.y, r=self.radius
-        )
+        return f"C {self.color} {self.layer} {self.x} {self.y} {self.radius}"
 
     def as_dict(self):
         """Convert Circle entity into proper dictionary."""
