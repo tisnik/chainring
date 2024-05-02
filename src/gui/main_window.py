@@ -115,7 +115,7 @@ class MainWindow:
             messagebox.showinfo("Výsledek operace", message)
         else:
             messagebox.showerror(
-                "Nastala chyba", "Nastala chyba: {e}".format(e=message)
+                "Nastala chyba", f"Nastala chyba: {message}"
             )
 
     def disable_ui_items_for_no_drawing_mode(self):
