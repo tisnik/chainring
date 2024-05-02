@@ -297,7 +297,7 @@ class Menubar(tkinter.Menu):
             messagebox.showinfo("Připojení k serveru", "Připojení k serveru: Ok")
         else:
             messagebox.showerror(
-                "Nastala chyba", "Nastala chyba: {e}".format(e=message)
+                "Nastala chyba", f"Nastala chyba: {message}"
             )
 
     def check_service_version(self):
@@ -315,11 +315,11 @@ class Menubar(tkinter.Menu):
         status, version, message = drawServiceInterface.read_version()
         if status:
             messagebox.showinfo(
-                "Verze rozhraní", "Verze rozhraní: {v}".format(v=version)
+                "Verze rozhraní", f"Verze rozhraní: {version}"
             )
         else:
             messagebox.showerror(
-                "Nastala chyba", "Nastala chyba: {e}".format(e=message)
+                "Nastala chyba", f"Nastala chyba: {message}"
             )
 
     def disable_ui_items_for_no_drawing_mode(self):
