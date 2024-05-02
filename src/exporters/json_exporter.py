@@ -56,7 +56,7 @@ class JSONExporter:
             )
         )
         for vertex in vertexes:
-            fout.write(" {x} {y}".format(x=vertex[0], y=vertex[1]))
+            fout.write(f" {vertex[0]} {vertex[1]}")
         fout.write("\n")
 
     def to_json(self):
