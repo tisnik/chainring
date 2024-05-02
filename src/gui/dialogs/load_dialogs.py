@@ -207,7 +207,7 @@ class RoomsFromSapDialog(tkinter.Toplevel):
                 self.read_rooms(aoid)
                 full_id = aoid.replace(".", "_").replace("/", "_")
                 valid_from = self.calendar.get().replace("_", "").replace("-", "")
-                self.id.set("{d}_{v}".format(d=full_id, v=valid_from))
+                self.id.set(f"{full_id}_{valid_from}")
 
     def fill_in_listbox(self, listbox, data):
         """Fill in specified list box with provided data."""
@@ -222,7 +222,7 @@ class RoomsFromSapDialog(tkinter.Toplevel):
 
     def error_server_call(self, message):
         """Show error message when server is not responding."""
-        messagebox.showerror("Nastala chyba", "Nastala chyba: {e}".format(e=message))
+        messagebox.showerror("Nastala chyba", f"Nastala chyba: {message}")
 
     def read_areals(self):
         """Read list of areals from SAP."""
