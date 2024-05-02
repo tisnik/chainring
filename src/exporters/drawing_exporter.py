@@ -55,17 +55,17 @@ class DrawingExporter:
     @staticmethod
     def output_timestamp(fout: TextIOWrapper) -> None:
         """Write the timestamp into the generated file."""
-        fout.write("created: {c}\n".format(c=DrawingExporter.get_timestamp()))
+        fout.write(f"created: {DrawingExporter.get_timestamp()}\n")
 
     @staticmethod
     def output_version(fout: TextIOWrapper) -> None:
         """Write the version into the generated file."""
-        fout.write("version: {v}\n".format(v=DrawingExporter.VERSION))
+        fout.write(f"version: {DrawingExporter.VERSION}\n")
 
     @staticmethod
     def output_drawing_id(fout, drawing_id):
         """Write the ID into the generated file."""
-        fout.write("id: {id}\n".format(id=drawing_id))
+        fout.write(f"id: {drawing_id}\n")
 
     @staticmethod
     def write_room(
@@ -82,7 +82,7 @@ class DrawingExporter:
                 )
             )
             for vertex in vertexes:
-                fout.write(" {x} {y}".format(x=vertex[0], y=vertex[1]))
+                fout.write(f" {vertex[0]} {vertex[1]}")
         # room without polygon need to have zero vertexes
         else:
             fout.write("R {id} 0".format(id=room["room_id"]))
@@ -107,15 +107,15 @@ class DrawingExporter:
 
             # compute drawing bounds and write them into the file
             bounds = Bounds.compute_bounds(self.entities)
-            fout.write("bounds: {b}\n".format(b=bounds))
+            fout.write(f"bounds: {bounds}\n")
 
             # compute drawing scales and write them into the file
             for scale in DrawingExporter.SCALES:
                 xoffset, yoffset, s = Rescaler.compute_scale(bounds, scale[0], scale[1])
-                fout.write("scale: {w} {h} {s}\n".format(w=scale[0], h=scale[1], s=s))
+                fout.write(f"scale: {scale[0]} {scale[1]} {s}\n")
 
-            fout.write("entities: {e}\n".format(e=len(self.entities)))
-            fout.write("rooms: {r}\n".format(r=len(self.rooms)))
+            fout.write(f"entities: {len(self.entities)}\n")
+            fout.write(f"rooms: {len(self.rooms)}\n")
 
             # write all entities
             for entity in self.entities:
