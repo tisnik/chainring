@@ -57,25 +57,25 @@ class SapRoomImporter:
 
     def process_unknown_command(self, parts):
         """Process unknown command(s)."""
-        print("Unknown command: '{c}'".format(c=parts[0]))
+        print(f"Unknown command: '{parts[0]}'")
         sys.exit(0)
 
     def process_version(self, parts):
         """Process data file version."""
         version = parts[1].strip()
-        print("Read attribute 'version': {v}".format(v=version))
+        print(f"Read attribute 'version': {version}")
         self.metadata["version"] = version
 
     def process_created(self, parts):
         """Process the date when data file was created."""
         created = " ".join(parts[1:]).strip()
-        print("Read attribute 'created': {c}".format(c=created))
+        print(f"Read attribute 'created': {created}")
         self.metadata["created"] = created
 
     def process_rooms(self, parts):
         """Process number of rooms."""
         rooms = parts[1].strip()
-        print("Read attribute 'rooms': {r}".format(r=rooms))
+        print(f"Read attribute 'rooms': {rooms}")
         self.metadata["rooms"] = rooms
 
     def process_room(self, parts):
