@@ -37,12 +37,12 @@ class RoomExporter:
     @staticmethod
     def output_timestamp(fout: TextIOWrapper) -> None:
         """Write the timestamp into the generated file."""
-        fout.write("created: {c}\n".format(c=RoomExporter.get_timestamp()))
+        fout.write(f"created: {RoomExporter.get_timestamp()}\n")
 
     @staticmethod
     def output_version(fout: TextIOWrapper) -> None:
         """Write the version into the generated file."""
-        fout.write("version: {v}\n".format(v=RoomExporter.VERSION))
+        fout.write(f"version: {RoomExporter.VERSION}\n")
 
     @staticmethod
     def write_room(
@@ -59,7 +59,7 @@ class RoomExporter:
                 )
             )
             for vertex in vertexes:
-                fout.write(" {x} {y}".format(x=vertex[0], y=vertex[1]))
+                fout.write(f" {vertex[0]} {vertex[1]}")
         # room without polygon needs to have zero vertexes specified
         else:
             fout.write("R {id} 0".format(id=room["room_id"]))
@@ -77,7 +77,7 @@ class RoomExporter:
             RoomExporter.output_timestamp(fout)
 
             # number of rooms
-            fout.write("rooms: {r}\n".format(r=len(self.rooms)))
+            fout.write(f"rooms: {len(self.rooms)}\n")
             # export all rooms
             for room in self.rooms:
                 RoomExporter.write_room(fout, room)
