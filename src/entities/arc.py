@@ -44,15 +44,7 @@ class Arc(Entity):
 
     def str(self) -> str:
         """Return textual representation of arc."""
-        return "A {color} {layer} {x} {y} {r} {a1} {a2}".format(
-            color=self.color,
-            layer=self.layer,
-            x=self.x,
-            y=self.y,
-            r=self.radius,
-            a1=self.angle1,
-            a2=self.angle2,
-        )
+        return f"A {self.color} {self.layer} {self.x} {self.y} {self.radius} {self.angle1} {self.angle2}"
 
     def as_dict(self):
         """Convert Arc entity into proper dictionary."""
