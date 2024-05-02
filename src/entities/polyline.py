@@ -40,13 +40,7 @@ class Polyline(Entity):
 
     def str(self):
         """Return textual representation of polyline entity."""
-        return "P {color} {layer} {points} {xpoints} {ypoints}".format(
-            color=self.color,
-            layer=self.layer,
-            points=len(self.points_x),
-            xpoints=Polyline.point_list_to_str(self.points_x),
-            ypoints=Polyline.point_list_to_str(self.points_y),
-        )
+        return f"P {self.color} {self.layer} {len(self.points_x)} {Polyline.point_list_to_str(self.points_x)} {Polyline.point_list_to_str(self.points_y)}"
 
     def as_dict(self):
         """Convert Polyline entity into proper dictionary."""
