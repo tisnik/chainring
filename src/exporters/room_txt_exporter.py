@@ -42,7 +42,5 @@ class RoomTXTExporter:
                 else:
                     poly = "?"
                 fout.write(
-                    "{:<15} {:<7} {}         {}\n".format(
-                        room_id, canvas_id, drawn, poly
-                    )
+                    f"{room_id:<15} {canvas_id:<7} {drawn}         {poly}\n"
                 )
