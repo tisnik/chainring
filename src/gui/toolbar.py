@@ -14,11 +14,11 @@
 
 import tkinter
 
+from gui.canvas import Canvas
 from gui.dialogs.drawing_info_dialog import DrawingInfoDialog
 from gui.dialogs.room_list_dialog import RoomListDialog
 from gui.dialogs.settings_dialog import SettingsDialog
 from gui.tooltip import Tooltip
-from gui.canvas import Canvas
 
 
 class Toolbar(tkinter.LabelFrame):
