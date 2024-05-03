@@ -13,6 +13,7 @@
 #
 
 from tkinter import messagebox
+
 from configuration import Configuration
 
 
