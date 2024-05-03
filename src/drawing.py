@@ -1,9 +1,12 @@
 """Representation of vector drawing."""
 
 
+from typing import Optional
+
 from entities.arc import Arc
 from entities.circle import Circle
 from entities.drawing_entity_type import DrawingEntityType
+from entities.line import Entity
 from entities.line import Line
 from entities.polyline import Polyline
 from entities.text import Text
@@ -126,7 +129,7 @@ class Drawing:
         for entity in self._entities:
             entity.transform(xoffset, yoffset, scale)
 
-    def find_entity_by_id(self, entity_id: int) -> Line:
+    def find_entity_by_id(self, entity_id: int) -> Optional[Entity]:
         """Find entity by specified ID."""
         for entity in self._entities:
             if entity._id == entity_id:
@@ -161,7 +164,7 @@ class Drawing:
 
     def find_room(
         self, selector: str, value: int | str
-    ) -> dict[str, str | list[tuple[float, float]] | int | None]:
+    ) -> Optional[dict[str, str | list[tuple[float, float]] | int | None]]:
         """Find room for the specified selector and its value."""
         for room in self._rooms:
             if room[selector] == value:
@@ -170,13 +173,13 @@ class Drawing:
 
     def find_room_by_room_id(
         self, canvas_id: str
-    ) -> dict[str, str | list[tuple[float, float]] | int | None]:
+    ) -> Optional[dict[str, str | list[tuple[float, float]] | int | None]]:
         """Find room for the specified room ID."""
         return self.find_room("room_id", canvas_id)
 
     def find_room_by_canvas_id(
         self, canvas_id: int
-    ) -> dict[str, str | list[tuple[float, float]] | int]:
+    ) -> Optional[dict[str, str | list[tuple[float, float]] | int | None]]:
         """Find room for the specified canvas ID."""
         return self.find_room("canvas_id", canvas_id)
 
