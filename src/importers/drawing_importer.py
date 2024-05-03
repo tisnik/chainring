@@ -18,6 +18,7 @@ from drawing import Drawing
 from entities.arc import Arc
 from entities.circle import Circle
 from entities.drawing_entity_type import DrawingEntityType
+from entities.entity import Entity
 from entities.line import Line
 from entities.polyline import Polyline
 from entities.text import Text
@@ -53,9 +54,9 @@ class DrawingImporter:
             DrawingEntityType.TEXT: 0,
             DrawingEntityType.POLYLINE: 0,
         }
-        self.metadata = {}
-        self.entities = []
-        self.rooms = []
+        self.metadata : dict[str, str] = {}
+        self.entities : list[Entity] = []
+        self.rooms : list = []
         self.drawing_id = None
 
     def import_drawing(self) -> Drawing:
