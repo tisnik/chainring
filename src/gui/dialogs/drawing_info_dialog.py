@@ -14,9 +14,8 @@
 
 import tkinter
 
-from entities.drawing_entity_type import DrawingEntityType
 from drawing import Drawing
-from typing import Union
+from entities.drawing_entity_type import DrawingEntityType
 
 
 class DrawingInfoDialog(tkinter.Toplevel):
