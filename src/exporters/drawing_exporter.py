@@ -74,7 +74,7 @@ class DrawingExporter:
         """Write the room data into the generated file."""
         vertexes = room["polygon"]
         # export only room with polygon
-        if vertexes is not None:
+        if vertexes is not None and type(vertexes) is list:
             fout.write(
                 "R {id} {vertex_count}".format(
                     id=room["room_id"], vertex_count=len(vertexes)
