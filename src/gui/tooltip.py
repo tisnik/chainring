@@ -4,7 +4,6 @@
 # https://stackoverflow.com/questions/3221956/how-do-i-display-tooltips-in-tkinter#36221216
 
 import tkinter
-from typing import Optional
 
 
 class Tooltip:
