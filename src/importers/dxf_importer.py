@@ -15,6 +15,8 @@
 from collections.abc import Iterator
 from io import TextIOWrapper
 
+from typing import Optional
+
 from drawing import Drawing
 from entities.arc import Arc
 from entities.circle import Circle
@@ -69,7 +71,7 @@ class DxfImporter:
         """Initialize the object state before import."""
         self.state = DxfReaderState.BEGINNING
         self.entity_type = DrawingEntityType.UNKNOWN
-        self.blockName = None
+        self.blockName : Optional[str] = None
         self.statistic = {
             DrawingEntityType.UNKNOWN: 0,
             DrawingEntityType.LINE: 0,
@@ -78,22 +80,22 @@ class DxfImporter:
             DrawingEntityType.TEXT: 0,
             DrawingEntityType.POLYLINE: 0,
         }
-        self.entities = []
+        self.entities :list = []
 
-    def detect_encoding(self) -> str:
+    def detect_encoding(self) -> Optional[str]:
         """Detect the encoding of DXF file."""
         encodings = ["utf-8", "windows-1250", "windows-1252"]
-        for e in encodings:
+        for encoding in encodings:
             try:
-                with open(self.filename, encoding=e) as fin:
+                with open(self.filename, encoding=encoding) as fin:
                     fin.readlines()
                     fin.seek(0)
             except UnicodeDecodeError as e:
                 # ok, we expect some errors ;)
                 pass
             else:
-                print(f"Encoding: {e}")
-                return e
+                print(f"Encoding: {encoding}")
+                return encoding
         return None
 
     def import_dxf(self) -> Drawing:
@@ -199,8 +201,8 @@ class DxfImporter:
 
     def process_section_entities_entity_type(self, code: int, data: str) -> None:
         """Change the state according to entity type code read from DXF."""
-        self.polyline_points_x = []
-        self.polyline_points_y = []
+        self.polyline_points_x : list[float] = []
+        self.polyline_points_y : list[float] = []
         if data == "LINE":
             self.state = DxfReaderState.ENTITY
             self.entityType = DrawingEntityType.LINE
@@ -241,8 +243,8 @@ class DxfImporter:
         self.store_entity()
         self.state = DxfReaderState.SECTION_ENTITIES
         self.entityType = DrawingEntityType.UNKNOWN
-        self.layer = None
-        self.color = None
+        self.layer : Optional[str] = None
+        self.color : Optional[int] = None
         self.polyline_points_x = []
         self.polyline_points_y = []
         self.mirror = 1
