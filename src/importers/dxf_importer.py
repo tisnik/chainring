@@ -12,6 +12,9 @@
 #      Pavel Tisnovsky
 #
 
+from collections.abc import Iterator
+from io import TextIOWrapper
+
 from drawing import Drawing
 from entities.arc import Arc
 from entities.circle import Circle
@@ -21,8 +24,6 @@ from entities.polyline import Polyline
 from entities.text import Text
 from importers.dxf_codes import DxfCodes
 from importers.dxf_reader_state import DxfReaderState
-from io import TextIOWrapper
-from collections.abc import Iterator
 
 
 class DxfImporter:
