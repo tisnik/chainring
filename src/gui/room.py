@@ -1,6 +1,5 @@
 """Class representing one room on drawing."""
 
-from typing import Optional
 
 #
 #  (C) Copyright 2017  Pavel Tisnovsky
