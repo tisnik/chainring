@@ -13,9 +13,9 @@
 #
 
 from datetime import datetime
-from drawing import Drawing
 from io import TextIOWrapper
-from typing import Optional, Union
+
+from drawing import Drawing
 
 
 class RoomExporter:
