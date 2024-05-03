@@ -1,12 +1,12 @@
 """Representation of vector drawing."""
 
+
 from entities.arc import Arc
 from entities.circle import Circle
 from entities.drawing_entity_type import DrawingEntityType
 from entities.line import Line
 from entities.polyline import Polyline
 from entities.text import Text
-from typing import Optional, Union
 
 #
 #  (C) Copyright 2017, 2018  Pavel Tisnovsky
