@@ -13,6 +13,8 @@
 #
 
 
+from typing import Optional
+
 from entities.entity import Entity
 from geometry.bounds import Bounds
 from gui.canvas import Canvas
@@ -22,7 +24,13 @@ class Line(Entity):
     """Class that represents the two dimensional line entity."""
 
     def __init__(
-        self, x1: float, y1: float, x2: float, y2: float, color: int, layer: str
+        self,
+        x1: float,
+        y1: float,
+        x2: float,
+        y2: float,
+        color: Optional[int],
+        layer: Optional[str],
     ) -> None:
         """Construct new line from provided coordinates, color code, and layer name."""
         self.x1 = x1
