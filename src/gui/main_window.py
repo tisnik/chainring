@@ -154,6 +154,8 @@ class MainWindow:
 
     def import_rooms_from_sap(self, event=None):
         """Import rooms from SAP."""
+        if self.drawing is None:
+            raise Exception("self.drawing is None")
         if (
             self.drawing.rooms is None
             or len(self.drawing.rooms) == 0
@@ -186,6 +188,8 @@ class MainWindow:
 
     def synchronize_rooms_with_sap(self, event=None):
         """Synchronize rooms with SAP."""
+        if self.drawing is None:
+            raise Exception("self.drawing is None")
         if (
             self.drawing.rooms is None
             or len(self.drawing.rooms) == 0
@@ -249,6 +253,8 @@ class MainWindow:
 
     def import_rooms_command(self, event=None):
         """Handle the command to import rooms."""
+        if self.drawing is None:
+            raise Exception("self.drawing is None")
         if (
             self.drawing.rooms is None
             or len(self.drawing.rooms) == 0
@@ -358,6 +364,8 @@ class MainWindow:
 
     def delete_room_command(self, index, value):
         """Handle the command to delete room from drawing."""
+        if self.drawing is None:
+            raise Exception("self.drawing is None")
         # print(index, value)
         if dialog_delete_whole_room(value):
             room = self.drawing.find_room_by_room_id(value)
@@ -369,6 +377,8 @@ class MainWindow:
 
     def delete_room_polygon_command(self, index, value):
         """Handle the command to delete room polygon from drawing."""
+        if self.drawing is None:
+            raise Exception("self.drawing is None")
         if dialog_delete_room_polygon(value):
             room = self.drawing.find_room_by_room_id(value)
             if room is not None:
@@ -378,6 +388,8 @@ class MainWindow:
 
     def redraw_room_polygon_command(self, index, value):
         """Redraw specified room polygon."""
+        if self.drawing is None:
+            raise Exception("self.drawing is None")
         room = self.drawing.find_room_by_room_id(value)
         if room is not None:
             self.canvas.delete_object_with_id(room["canvas_id"])
@@ -409,14 +421,16 @@ class MainWindow:
 
     def finish_new_room(self):
         """Finish drawing of new room."""
+        if self.drawing is None:
+            raise Exception("self.drawing is None")
         canvas_id = self.canvas.draw_new_room(self.room)
         room_id = None
         if self.edited_room_id is None:
-            room_id = self._drawing.add_new_room(canvas_id, self.room.polygon_world)
+            room_id = self.drawing.add_new_room(canvas_id, self.room.polygon_world)
             self.palette.add_new_room(room_id)
         else:
             room_id = self.edited_room_id
-            self._drawing.update_room_polygon(
+            self.drawing.update_room_polygon(
                 room_id, canvas_id, self.room.polygon_world, "L"
             )
         self.edited_room_id = None
@@ -464,6 +478,8 @@ class MainWindow:
         if "drawing" not in tags:
             return None
 
+        if self.drawing is None:
+            raise Exception("self.drawing is None")
         # third check if canvas entity relates to drawing entity
         entity = self.drawing.find_entity_by_id(item)
         if entity is None:
@@ -475,6 +491,8 @@ class MainWindow:
 
     def on_room_click_listbox(self, room_id):
         """Handle the left mouse button press on listbox with list of rooms."""
+        if self.drawing is None:
+            raise Exception("self.drawing is None")
         room = self.drawing.find_room_by_room_id(room_id)
         if room:
             self.palette.enable_all()
@@ -483,6 +501,8 @@ class MainWindow:
 
     def on_room_click_canvas(self, canvas_object_id):
         """Handle the left mouse button click onto the canvas."""
+        if self.drawing is None:
+            raise Exception("self.drawing is None")
         room = self.drawing.find_room_by_canvas_id(canvas_object_id)
         if room:
             self.palette.enable_all()
@@ -492,6 +512,8 @@ class MainWindow:
 
     def on_polygon_for_room_click_canvas(self, canvas_object_id):
         """Handle the left mouse button click onto the polygon on canvas."""
+        if self.drawing is None:
+            raise Exception("self.drawing is None")
         if self.canvas_mode == CanvasMode.SELECT_POLYGON_FOR_ROOM:
             entity = self.drawing.find_entity_by_id(canvas_object_id)
             if entity is not None:
