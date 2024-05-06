@@ -12,15 +12,22 @@
 #      Pavel Tisnovsky
 #
 
+from abc import ABC, abstractmethod
 
-class Entity:
+from geometry.bounds import Bounds
+
+
+class Entity(ABC):
     """Abstract class that represents any two dimensional entity."""
 
+    @abstractmethod
     def draw(self, canvas, xoffset, yoffset, scale):
         """Draw the entity onto canvas."""
 
+    @abstractmethod
     def transform(self, xoffset, yoffset, scale):
         """Perform the transformation of the entity into paper space."""
 
-    def get_bounds(self):
+    @abstractmethod
+    def get_bounds(self) -> Bounds:
         """Compute bounds for given entity."""
