@@ -121,7 +121,7 @@ class DrawingInfoDialog(tkinter.Toplevel):
     ) -> tkinter.Entry:
         """Add a widget with value to dialog."""
         widget = tkinter.Entry(container)
-        widget.insert(tkinter.END, value)
+        widget.insert(tkinter.END, str(value))
         widget.configure(state="readonly")
         return widget
 
