@@ -139,9 +139,9 @@ class RoomsFromSapDialog(tkinter.Toplevel):
         self.address = self.configuration.server_address
         self.port = self.configuration.server_port
 
-        self.areals = None
-        self.buildings = None
-        self.floors = None
+        self.areals = []
+        self.buildings = []
+        self.floors = []
         self.rooms = None
 
         if self.address and self.port:
