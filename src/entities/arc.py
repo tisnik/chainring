@@ -13,6 +13,8 @@
 #
 
 
+from typing import Optional
+
 from entities.entity import Entity
 from geometry.bounds import Bounds
 from gui.canvas import Canvas
@@ -28,8 +30,8 @@ class Arc(Entity):
         radius: float,
         angle1: float,
         angle2: float,
-        color: int,
-        layer: str,
+        color: Optional[int],
+        layer: Optional[str],
     ) -> None:
         """Construct new arc from provided coordinates, angles, color code, and layer name."""
         self.x = x
