@@ -13,6 +13,7 @@
 #
 
 import sys
+from typing import Optional
 
 from entities.entity import Entity
 from geometry.bounds import Bounds
@@ -23,7 +24,11 @@ class Polyline(Entity):
     """Class that represents the two dimensional polyline entity."""
 
     def __init__(
-        self, points_x: list[float], points_y: list[float], color: int, layer: str
+        self,
+        points_x: list[float],
+        points_y: list[float],
+        color: Optional[int],
+        layer: Optional[str],
     ) -> None:
         """Construct new text from provided starting coordinates, color code, and layer name."""
         self.points_x = points_x
