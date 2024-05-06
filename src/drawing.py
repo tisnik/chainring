@@ -6,8 +6,7 @@ from typing import Optional
 from entities.arc import Arc
 from entities.circle import Circle
 from entities.drawing_entity_type import DrawingEntityType
-from entities.line import Entity
-from entities.line import Line
+from entities.line import Entity, Line
 from entities.polyline import Polyline
 from entities.text import Text
 
@@ -39,8 +38,8 @@ class Drawing:
         self._drawing_id = None
         self._statistic = statistic
         self._lines = lines
-        self._rooms = []
-        self._metadata = metadata or {}
+        self._rooms: list = []
+        self._metadata: dict[str, str] = metadata or {}
         self._room_counter = 1
         self._filename = None
 
