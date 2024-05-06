@@ -104,7 +104,7 @@ class DrawServiceInterface:
             and "drawings" in data
         )
 
-    def send_drawing(self, drawing):
+    def send_drawing(self, drawing) -> tuple[bool, str]:
         """Send drawing onto the web service."""
         endpoint = f"drawing-data?drawing={drawing.drawing_id}&format=json"
         url = f"{self._service_url}/{DrawServiceInterface.API_PREFIX}/{endpoint}"
@@ -120,7 +120,7 @@ class DrawServiceInterface:
                 message = f"Výkres byl uložen pod ID {drawing.drawing_id} ({len(payload)} bajtů)"
                 return True, message
         except Exception as e:
-            return False, e
+            return False, str(e)
 
     def read_all_drawings(self):
         """Read list of all drawings from the web service."""
