@@ -14,7 +14,6 @@
 
 from collections.abc import Iterator
 from io import TextIOWrapper
-
 from typing import Optional
 
 from drawing import Drawing
@@ -366,8 +365,6 @@ if __name__ == "__main__":
     from exporters.drawing_exporter import DrawingExporter
 
     importer = DxfImporter("Branna_3np.dxf")
-    entities, statistic, lines = importer.import_dxf()
-    print(lines)
-    print(statistic)
+    entities = importer.import_dxf()
     exporter = DrawingExporter("Branna_3np.drawing", entities)
     exporter.export()
