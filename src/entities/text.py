@@ -13,6 +13,8 @@
 #
 
 
+from typing import Optional
+
 from entities.entity import Entity
 from geometry.bounds import Bounds
 from gui.canvas import Canvas
@@ -21,7 +23,9 @@ from gui.canvas import Canvas
 class Text(Entity):
     """Class that represents the two dimensional text entity."""
 
-    def __init__(self, x: float, y: float, text: str, color: int, layer: str) -> None:
+    def __init__(
+        self, x: float, y: float, text: str, color: Optional[int], layer: Optional[str]
+    ) -> None:
         """Construct new text from provided coordinates, the string, color code, and layer name."""
         self.x = x
         self.y = y
