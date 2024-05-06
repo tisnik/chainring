@@ -4,6 +4,7 @@
 # https://stackoverflow.com/questions/3221956/how-do-i-display-tooltips-in-tkinter#36221216
 
 import tkinter
+from typing import Optional
 
 
 class Tooltip:
@@ -18,7 +19,7 @@ class Tooltip:
         self.widget.bind("<Enter>", self.enter)
         self.widget.bind("<Leave>", self.leave)
         self.widget.bind("<ButtonPress>", self.leave)
-        self.id = None
+        self.id: Optional[str] = None
         self.tw = None
 
     def enter(self, event: tkinter.Event | None = None) -> None:
