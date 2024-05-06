@@ -12,6 +12,7 @@
 #      Pavel Tisnovsky
 #
 
+from typing import Optional
 
 from entities.entity import Entity
 from geometry.bounds import Bounds
@@ -22,7 +23,12 @@ class Circle(Entity):
     """Class that represents the two dimensional circle entity."""
 
     def __init__(
-        self, x: float, y: float, radius: float, color: int, layer: str
+        self,
+        x: float,
+        y: float,
+        radius: float,
+        color: Optional[int],
+        layer: Optional[str],
     ) -> None:
         """Construct new circle from provided coordinates, radius, color code, and layer name."""
         self.x = x
