@@ -25,8 +25,8 @@ class Room:
         """Perform cleanup for active room."""
         self.last_x = None
         self.last_y = None
-        self.polygon_world = []
-        self.polygon_canvas = []
+        self.polygon_world: list = []
+        self.polygon_canvas: list = []
 
     def last_point_exist(self) -> float | None:
         """Check if the last point (entered by user) exists."""
