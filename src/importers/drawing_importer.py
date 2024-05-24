@@ -88,12 +88,12 @@ class DrawingImporter:
         function = self.commands.get(command, DrawingImporter.process_unknown_command)
         function(self, parts)
 
-    def process_unknown_command(self, parts):
+    def process_unknown_command(self, parts) -> None:
         """Pprocess unknown command(s)."""
         print(f"Unknown command: '{parts[0]}'")
         sys.exit(0)
 
-    def process_id(self, parts):
+    def process_id(self, parts) -> None:
         """Process command with drawing ID."""
         drawing_id = parts[1].strip()
         print(f"Read attribute 'id': {drawing_id}")
@@ -187,7 +187,7 @@ class DrawingImporter:
         self.statistic[DrawingEntityType.TEXT] += 1
         self.entities.append(Text(x, y, text, color, layer))
 
-    def process_polyline(self, parts):
+    def process_polyline(self, parts) -> None:
         """Process command with polyline entity."""
         try:
             color = int(parts[1])
