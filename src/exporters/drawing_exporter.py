@@ -62,7 +62,7 @@ class DrawingExporter:
         fout.write(f"version: {DrawingExporter.VERSION}\n")
 
     @staticmethod
-    def output_drawing_id(fout, drawing_id):
+    def output_drawing_id(fout, drawing_id) -> None:
         """Write the ID into the generated file."""
         fout.write(f"id: {drawing_id}\n")
 
