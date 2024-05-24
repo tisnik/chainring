@@ -18,7 +18,7 @@ import sys
 class SapRoomImporter:
     """Importer for rooms stored in a text file."""
 
-    def __init__(self, filename):
+    def __init__(self, filename) -> None:
         """Initialize the object, set the filename to be read, and setup callback functions."""
         self.filename = filename
 
@@ -44,7 +44,7 @@ class SapRoomImporter:
         except Exception as e:
             return None
 
-    def parse_line(self, line):
+    def parse_line(self, line) -> None:
         """Parse one line in the input file."""
         parts = line.split(" ")
         # remove end of lines
@@ -55,36 +55,36 @@ class SapRoomImporter:
         )
         function(self, parts)
 
-    def process_unknown_command(self, parts):
+    def process_unknown_command(self, parts) -> None:
         """Process unknown command(s)."""
         print(f"Unknown command: '{parts[0]}'")
         sys.exit(0)
 
-    def process_version(self, parts):
+    def process_version(self, parts) -> None:
         """Process data file version."""
         version = parts[1].strip()
         print(f"Read attribute 'version': {version}")
         self.metadata["version"] = version
 
-    def process_created(self, parts):
+    def process_created(self, parts) -> None:
         """Process the date when data file was created."""
         created = " ".join(parts[1:]).strip()
         print(f"Read attribute 'created': {created}")
         self.metadata["created"] = created
 
-    def process_rooms(self, parts):
+    def process_rooms(self, parts) -> None:
         """Process number of rooms."""
         rooms = parts[1].strip()
         print(f"Read attribute 'rooms': {rooms}")
         self.metadata["rooms"] = rooms
 
-    def process_room(self, parts):
+    def process_room(self, parts) -> None:
         """Process room polygon."""
         room_id = parts[1]
         polygon = []
         self.rooms.append({"room_id": room_id, "polygon": polygon})
 
-    def process_room_without_prefix(self, parts):
+    def process_room_without_prefix(self, parts) -> None:
         """Process room polygon."""
         room_id = parts[0]
         polygon = []
