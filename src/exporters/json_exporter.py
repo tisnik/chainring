@@ -35,7 +35,7 @@ class JSONExporter:
         [1024, 768],
     ]
 
-    def __init__(self, filename, drawing):
+    def __init__(self, filename, drawing) -> None:
         """Initialize the exporter, set the filename to be created and a sequence of entities."""
         self.filename = filename
         self.entities = drawing.entities
@@ -47,7 +47,7 @@ class JSONExporter:
         return datetime.now().isoformat(sep=" ")
 
     @staticmethod
-    def write_room(fout, room):
+    def write_room(fout, room) -> None:
         """Write the room data into the generated file."""
         vertexes = room["polygon"]
         fout.write(
