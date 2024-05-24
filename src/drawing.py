@@ -49,7 +49,7 @@ class Drawing:
         return self._entities
 
     @entities.setter
-    def entities(self, entities):
+    def entities(self, entities) -> None:
         """Setter for property holding all entities on drawing."""
         self._entities = entities
 
@@ -59,7 +59,7 @@ class Drawing:
         return self._room_counter
 
     @entities.setter
-    def room_counter(self, new_value):
+    def room_counter(self, new_value) -> None:
         """Setter for property holding room counter."""
         self._room_counter = new_value
 
@@ -69,7 +69,7 @@ class Drawing:
         return self._statistic
 
     @statistic.setter
-    def statistic(self, statistic):
+    def statistic(self, statistic) -> None:
         """Setter for property holding drawing statistic."""
         self._statistic = statistic
 
@@ -79,7 +79,7 @@ class Drawing:
         return self._lines
 
     @lines.setter
-    def lines(self, lines):
+    def lines(self, lines) -> None:
         """Setter for input lines."""
         self._lines = lines
 
@@ -89,7 +89,7 @@ class Drawing:
         return self._metadata
 
     @metadata.setter
-    def metadata(self, metadata):
+    def metadata(self, metadata) -> None:
         """Setter for drawing metadata."""
         self._metadata = metadata
 
@@ -99,7 +99,7 @@ class Drawing:
         return self._rooms
 
     @rooms.setter
-    def rooms(self, rooms):
+    def rooms(self, rooms) -> None:
         """Setter for rooms on drawing."""
         self._rooms = rooms
 
@@ -109,7 +109,7 @@ class Drawing:
         return self._filename
 
     @filename.setter
-    def filename(self, filename):
+    def filename(self, filename) -> None:
         """Setter for drawing filename."""
         self._filename = filename
 
@@ -119,7 +119,7 @@ class Drawing:
         return self._drawing_id
 
     @drawing_id.setter
-    def drawing_id(self, drawing_id):
+    def drawing_id(self, drawing_id) -> None:
         """Setter for property with drawing ID."""
         self._drawing_id = drawing_id
 
@@ -182,7 +182,7 @@ class Drawing:
         """Find room for the specified canvas ID."""
         return self.find_room("canvas_id", canvas_id)
 
-    def delete_room(self, room_id):
+    def delete_room(self, room_id) -> None:
         """Delete the whole room."""
         room = self.find_room_by_room_id(room_id)
         if room is not None:
