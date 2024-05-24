@@ -18,7 +18,7 @@ import pickle
 class BinaryExporter:
     """Class to export (serialize) whole drawing into a binary file."""
 
-    def __init__(self, filename, entities):
+    def __init__(self, filename, entities) -> None:
         """Initialize the exporter."""
         self.filename = filename
         self.entities = entities
