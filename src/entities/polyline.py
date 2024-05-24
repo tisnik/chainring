@@ -43,7 +43,7 @@ class Polyline(Entity):
         """Convert list of coordinates into string, space is used as a separator."""
         return " ".join([str(i) for i in point_list])
 
-    def str(self):
+    def str(self) -> str:
         """Return textual representation of polyline entity."""
         return f"P {self.color} {self.layer} {len(self.points_x)} {Polyline.point_list_to_str(self.points_x)} {Polyline.point_list_to_str(self.points_y)}"
 
