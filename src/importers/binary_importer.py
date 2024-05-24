@@ -18,7 +18,7 @@ import pickle
 class BinaryImporter:
     """Importer (deserializer) for drawings stored in a binary format."""
 
-    def __init__(self, filename):
+    def __init__(self, filename) -> None:
         """Initialize the importer for drawings stored in binary format."""
         self.filename = filename
 
