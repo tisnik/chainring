@@ -16,7 +16,7 @@
 class RoomTXTExporter:
     """Room exporter (serializer) to TXT."""
 
-    def __init__(self, filename, drawing):
+    def __init__(self, filename, drawing) -> None:
         """Initialize the exporter, set the filename to be created and a sequence of entities."""
         self.filename = filename
         self.rooms = drawing.rooms
