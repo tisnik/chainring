@@ -16,7 +16,7 @@
 class SvgExporter:
     """Drawing exporter (serializer) to SVG format."""
 
-    def __init__(self, filename, entities):
+    def __init__(self, filename, entities) -> None:
         """Initialize the exporter, set the filename to be created and a sequence of entities."""
         self.filename = filename
         self.entities = entities
