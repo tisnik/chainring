@@ -16,7 +16,7 @@
 class CSVExporter:
     """Drawing exporter (serializer) to CVS."""
 
-    def __init__(self, filename, entities):
+    def __init__(self, filename, entities) -> None:
         """Initialize the exporter (serializer), set the filename to be created and a sequence of entities."""
         self.filename = filename
         self.entities = entities
