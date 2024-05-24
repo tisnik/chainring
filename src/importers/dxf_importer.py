@@ -229,7 +229,7 @@ class DxfImporter:
             if data == "ENDSEC":
                 print("    end section objects")
 
-    def process_section_classes(self, code, data):
+    def process_section_classes(self, code, data) -> None:
         """Part of the DXF import state machine."""
         if code == DxfCodes.TEXT_STRING:
             if data == "ENDSEC":
